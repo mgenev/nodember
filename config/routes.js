@@ -73,43 +73,6 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
-    //Client Routes
-    var clients = require('../app/controllers/clients');
-    app.get('/clients', clients.all);
-    app.post('/clients', auth.requiresLogin, clients.create);
-    app.get('/clients/:clientId', clients.show);
-    app.put('/clients/:clientId', auth.requiresLogin, auth.client.hasAuthorization, clients.update);
-    app.del('/clients/:clientId', auth.requiresLogin, auth.client.hasAuthorization, clients.destroy);
-    app.del('/clients', auth.requiresLogin, auth.client.hasAuthorization, clients.destroyAll);
-
-    //Finish with setting up the articleId param
-    app.param('clientId', clients.client);
-
-    //Reservation Routes
-    var reservations = require('../app/controllers/reservations');
-    app.get('/reservations', reservations.all);
-    app.post('/reservations', auth.requiresLogin, reservations.create);
-    app.get('/reservations/:reservationId', reservations.show);
-    app.put('/reservations/:reservationId', auth.requiresLogin, auth.reservation.hasAuthorization, reservations.update);
-    app.del('/reservations/:reservationId', auth.requiresLogin, auth.reservation.hasAuthorization, reservations.destroy);
-
-    //Finish with setting up the reservationId param
-    app.param('reservationId', reservations.reservation);
-
-    //Service Routes
-    var services = require('../app/controllers/services');
-    app.get('/services', services.all);
-    app.get('/servicesbytype/:serviceType', services.byType);
-    app.post('/services', auth.requiresLogin, services.create);
-    app.get('/services/:serviceId', services.show);
-    app.put('/services/:serviceId', auth.requiresLogin, auth.service.hasAuthorization, services.update);
-    app.del('/services/:serviceId', auth.requiresLogin, auth.service.hasAuthorization, services.destroy);
-    app.del('/services', auth.requiresLogin, auth.service.hasAuthorization, services.destroyAll);
-
-    //Finish with setting up the serviceId param
-     app.param('serviceId', services.service);
-
-
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);
