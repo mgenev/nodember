@@ -1,4 +1,4 @@
-Emberapp.HeaderView = Ember.View.extend({
+App.HeaderView = Ember.View.extend({
     templateName: 'header',
     menu: [{
         'title': 'Articles',

@@ -19,6 +19,7 @@
             </a>
             <ul class="dropdown-menu">
 			    {{#each subLink in link.submenu}}
+          {{subLink.link}}
 			        <li>
 			        {{#link-to subLink.link}}{{subLink.title}}{{/link-to}}	         
 			        </li>

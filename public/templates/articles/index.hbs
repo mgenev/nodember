@@ -1,2 +1,12 @@
 articles index template
-{{outlet}}
+{{articles}}
+
+	{{#each article in articles}}
+	    <div>
+	   {{ article.title }}         
+	    </div>
+
+	    <div>
+	   {{ article.content }}         
+	    </div>
+	{{/each}}

@@ -36,7 +36,6 @@ module.exports = function(app, passport, db) {
     app.engine('html', require('hogan-express'));
     app.set('view engine', 'html');
     app.set('layout', 'layouts/default');
-    app.set('partials', {header: "includes/header", footer: "includes/footer"});
 
     //Enable jsonp
     app.enable("jsonp callback");
