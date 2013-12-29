@@ -1,0 +1,47 @@
+<section data-ng-controller="BookingFlowController" data-ng-init="findOneService();findOneReservation()">
+    <div class="container">
+        <h3>{{service.title}}</h3>
+        <span id="selected{{service._id}}" class="hidden green"></span>
+
+        <div id="listWrap{{service._id}}">
+            <div>{{service.serviceType}}</div>
+            <div>
+                <img src="{{service.thumbnailUrl}}">
+            </div>
+            <div>{{service.content}}</div>
+
+
+
+            <div class="btn btn-base btn-dark" id="{{service._id}}" ng-click="selectServices($event)">Select</div>
+            <!-- if this div doesn't follow the previois, the ui will break -->
+            <div class="hidden">
+                <div class="row">
+                    <div class="col-md-8 pick-date-destination" style="margin-top: 15px;">
+                        <div class="form-group">
+                            <label class="control-label" for="content">Start Date</label>
+                            <div class="controls">
+                                <input type="date" id="startDate{{service._id}}" class="form-control" placeholder="Start Date" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="content">End Date</label>
+                            <div class="controls">
+                                <input type="date" id="endDate{{service._id}}" id="endDate" class="form-control" placeholder="End Date" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="amount">How many?</label>
+                            <div class="controls">
+                                <input type="number" id="amount{{service._id}}" id="amount" class="form-control" placeholder="amount" />
+                            </div>
+                        </div>
+                        <div class="btn btn-base btn-dark" ng-click="postServiceDates()">Book</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>
+            <div class="btn btn-base btn-dark" id="{{service._id}}" ng-click="changeToSelectActivity()">Back to List</div><br>
+        </p>
+    </div>
+</section>

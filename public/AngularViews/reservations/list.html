@@ -1,0 +1,11 @@
+<section data-ng-controller="ReservationsController" data-ng-init="find()">
+	<ul class="reservations unstyled">
+		<li data-ng-repeat="reservation in reservations">
+			<span>{{reservation.created | date:'medium'}}</span> /
+			<span>{{reservation.user.name}}</span>
+			<h2><a data-ng-href="#!/reservations/{{reservation._id}}">{{reservation.title}}</a></h2>
+			<div>{{reservation.content}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!reservations || reservations.length">No reservations yet. <br> Why don't you <a href="/#!/reservations/create">Create One</a>?</h1>
+</section>

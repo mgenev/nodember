@@ -1,0 +1,8 @@
+<section data-ng-controller="ServicesController" data-ng-init="findOne()">
+
+	<h2>{{service.title}} <a data-ng-show="global.user._id == service.user._id" href="/#!/services/{{service._id}}/edit">edit</a></h2>
+	<div>{{service.type}}</div>
+	<img src="{{service.thumbnailUrl}}">
+</section>
+
+

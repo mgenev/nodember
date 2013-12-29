@@ -1,0 +1,21 @@
+{
+  "name": "mean",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "3",
+    "ember": "1.2.0",
+    "ember-data-shim": "*",
+    "angular": "1.0.6",
+    "angular-resource": "1.0.6",
+    "angular-cookies": "1.0.6",
+    "angular-bootstrap": "0.6.0",
+    "angular-ui-utils": "0.0.4",
+    "pickadate": "3.3.0",
+    "jquery": "~2.0.3",
+    "requirejs": "~2.1.9",
+    "font-awesome": "*"
+  },
+  "devDependencies": {
+    "ember-mocha-adapter": "0.1.2"
+  }
+}

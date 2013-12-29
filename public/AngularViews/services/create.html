@@ -1,0 +1,23 @@
+<section class="container" data-ng-controller="ServicesController">
+	<div class="col-md-8 col-md-offset-2">
+		<form data-ng-submit="create()" style="margin-top: 15px;">
+			<div class="form-group">
+				<label class="control-label" for="name">Title</label>
+				<div class="controls">
+					<input data-ng-model="title" id="title" placeholder="Title" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="type">Type</label>
+				<div class="controls">
+					<input data-ng-model="type" id="type" placeholder="Type" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="controls">
+					<input type="submit" class="btn btn-base btn-dark">
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

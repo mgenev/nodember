@@ -1,0 +1,6 @@
+<section data-ng-controller="ReservationsController" data-ng-init="findOne()">
+	<span>{{reservation.created | date:'medium'}}</span> /
+	<span>{{reservation.user.name}}</span>
+	<h2>{{reservation.title}} <a data-ng-show="global.user._id == reservation.user._id" href="/#!/reservations/{{reservation._id}}/edit">edit</a></h2>
+	<div>{{reservation.content}}</div>
+</section>

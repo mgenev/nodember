@@ -1,0 +1,23 @@
+.btn-base {
+  border: 1px solid white;
+  font-weight: 200;
+  text-align: center;
+  color: white;
+
+  @include transition(all .3s ease-in-out);
+
+  &:hover {
+    color: #333;
+    background: white;
+  }
+
+  &.btn-dark {
+    border-color: #333;
+    color: #333;
+
+    &:hover {
+      background: #333;
+      color: white;
+    }
+  }
+}
