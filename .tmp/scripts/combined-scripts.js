@@ -9,11 +9,11 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
-  // Articles
-  App.ArticlesIndexController = Ember.ArrayController.extend({
+  // // Articles
+  // App.ArticlesIndexController = Ember.ArrayController.extend({
 
   	
-  });
+  // });
 
 })();
 
@@ -50,7 +50,8 @@ App.Store = DS.Store.extend();
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
     content: DS.attr('string'),
-    created: DS.attr('date')
+    created: DS.attr('date'),
+    user: DS.attr('string')
   });
 
 })();
@@ -72,7 +73,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
-      return App.Article.find({});
+      return this.store.find('article');
     }
 });
 
@@ -118,5 +119,30 @@ App.Router.map(function () {
     
 });
 
+
+})();
+
+(function() {
+
+var DateFormats = {
+       short: "DD MMMM - YYYY",
+       long: "dddd DD.MM.YYYY HH:mm"
+};
+
+Ember.Handlebars.helper("formatDate", function(datetime, format) {
+  if (moment) {
+    f = DateFormats[format];
+    return moment(datetime).format(f);
+  }
+  else {
+    return datetime;
+  }
+});
+
+Ember.Handlebars.helper("test", function(text, url) {
+	return new Ember.Handlebars.SafeString(
+    "<a href='" + url + "'>" + text + "</a>"
+  );
+});
 
 })();

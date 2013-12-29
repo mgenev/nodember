@@ -13,7 +13,8 @@
     "pickadate": "3.3.0",
     "jquery": "~2.0.3",
     "requirejs": "~2.1.9",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "moment": "~2.5.0"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.2"

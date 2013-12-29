@@ -1,16 +1,17 @@
 Index of articles:
 
-	{{#each article in model}}
-	    <h2>{{ article.title }}</h2>
-
+	{{#each}}
+	    <h2>{{ title }}</h2>
 	    <div>
-	   {{ article.content }}         
+	   {{ content }}         
 	    </div>
 	{{/each}}
+============== 
 
+	{{#each}}
+	    <div>{{ title }}</div>
+	    <div>by {{ user.name }}</div>
+	    <div>on {{formatDate created "short"}}</div>
 
-	{{#each article in model}}
-	    <span>{{ article.title }}</span>
-	    <span>by {{ article.user.name }}</span>
-	    <span>{{ article.created }}</span>
+	    <div>on {{{test title "google"}}}</div>
 	{{/each}}

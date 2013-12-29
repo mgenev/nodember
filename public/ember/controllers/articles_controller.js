@@ -1,5 +1,5 @@
-  // Articles
-  App.ArticlesIndexController = Ember.ArrayController.extend({
+  // // Articles
+  // App.ArticlesIndexController = Ember.ArrayController.extend({
 
   	
-  });
+  // });
