@@ -1,12 +1,16 @@
-articles index template
-{{articles}}
+Index of articles:
 
-	{{#each article in articles}}
-	    <div>
-	   {{ article.title }}         
-	    </div>
+	{{#each article in model}}
+	    <h2>{{ article.title }}</h2>
 
 	    <div>
 	   {{ article.content }}         
 	    </div>
+	{{/each}}
+
+
+	{{#each article in model}}
+	    <span>{{ article.title }}</span>
+	    <span>by {{ article.user.name }}</span>
+	    <span>{{ article.created }}</span>
 	{{/each}}

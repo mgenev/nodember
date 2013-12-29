@@ -10,7 +10,7 @@ var App = window.App = Ember.Application.create();
 (function() {
 
   // Articles
-  App.ArticlesController = Ember.ArrayController.extend({
+  App.ArticlesIndexController = Ember.ArrayController.extend({
 
   	
   });
@@ -49,7 +49,8 @@ App.Store = DS.Store.extend();
   // Article
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
-    content: DS.attr('string')
+    content: DS.attr('string'),
+    created: DS.attr('date')
   });
 
 })();
@@ -69,7 +70,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 (function() {
 
-App.ArticlesRoute = Ember.Route.extend({
+App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
       return App.Article.find({});
     }
