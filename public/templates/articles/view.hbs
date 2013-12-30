@@ -1,1 +1,10 @@
 view article template
+<div class="article">
+	{{#each}}
+	    <h2>{{ title }}</h2>
+	    {{formatDate created "short"}}
+	    <div>
+	   {{ content }}         
+	    </div>
+	{{/each}}
+</div>

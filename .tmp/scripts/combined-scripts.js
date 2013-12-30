@@ -51,7 +51,8 @@ App.Store = DS.Store.extend();
     title: DS.attr('string'),
     content: DS.attr('string'),
     created: DS.attr('date'),
-    user: DS.attr('string')
+    user: DS.attr('string'),
+    _id: DS.attr('string')
   });
 
 })();
@@ -77,6 +78,11 @@ App.ArticlesIndexRoute = Ember.Route.extend({
     }
 });
 
+App.ArticlesViewRoute = Ember.Route.extend({
+    model: function (params) {
+      return this.store.find('article', params._id);
+    }
+});
 
 
 })();
@@ -113,8 +119,8 @@ App.Router.map(function () {
 	
 	this.resource('articles', function() {
     	this.route('create', { path: '/create' });
-    	this.route('view', { path: '/view' });
-    	this.route('edit', { path: '/edit' });
+    	this.route('view', { path: ':article_id' });
+    	this.route('edit', { path: ':article_id/edit' });
   });
     
 });

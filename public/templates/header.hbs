@@ -11,23 +11,22 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 	   <ul class="nav navbar-nav navbar-right">        
-		{{#each link in view.menu}}
-        	<li class="dropdown">
-        	{{#if link.submenu}}
- 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">                 
-				{{link.title}}<b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
+		  {{#each link in view.menu}}
+        <li class="dropdown"> 
+        {{#if link.submenu}}
+ 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">                 
+				{{link.title}}<b class="caret"></b></a>
+        
+        <ul class="dropdown-menu">
 			    {{#each subLink in link.submenu}}
-          {{subLink.link}}
 			        <li>
 			        {{#link-to subLink.link}}{{subLink.title}}{{/link-to}}	         
 			        </li>
 			    {{/each}}
             </ul>
-			{{else}}
- 				{{#link-to link.link}}{{link.title}}{{/link-to}}
-			{{/if}}            
+			    {{else}}
+ 			    	{{#link-to link.link}}{{link.title}}{{/link-to}}
+		    	{{/if}}            
         	</li>
         {{/each}}
       </ul> 

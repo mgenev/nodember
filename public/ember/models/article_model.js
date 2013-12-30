@@ -3,5 +3,6 @@
     title: DS.attr('string'),
     content: DS.attr('string'),
     created: DS.attr('date'),
-    user: DS.attr('string')
+    user: DS.attr('string'),
+    _id: DS.attr('string')
   });

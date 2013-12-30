@@ -1,17 +1,12 @@
-Index of articles:
-
+<h2>Index of articles:</h2>
+<div class="article-list">
+	<ul>
 	{{#each}}
-	    <h2>{{ title }}</h2>
-	    <div>
-	   {{ content }}         
-	    </div>
+		<li>
+		    <span class="title">{{#link-to 'articles.view' _id}}{{title}}{{/link-to}}</span>
+		    <span>by {{ user.name }}</span>
+		    <span>on {{formatDate created "short"}}</span>		
+		</li>
 	{{/each}}
-============== 
-
-	{{#each}}
-	    <div>{{ title }}</div>
-	    <div>by {{ user.name }}</div>
-	    <div>on {{formatDate created "short"}}</div>
-
-	    <div>on {{{test title "google"}}}</div>
-	{{/each}}
+	</ul>
+</div>

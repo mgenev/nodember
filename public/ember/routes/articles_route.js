@@ -4,3 +4,8 @@ App.ArticlesIndexRoute = Ember.Route.extend({
     }
 });
 
+App.ArticlesViewRoute = Ember.Route.extend({
+    model: function (params) {
+      return this.store.find('article', params._id);
+    }
+});
