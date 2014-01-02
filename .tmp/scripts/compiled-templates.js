@@ -20,20 +20,76 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["articles/create"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
+  var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("create template");
+  data.buffer.push("create template\n<section>\n	<form class=\"form-horizontal\">\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"title\">Title</label>\n		\n			<div class=\"controls\">\n				<input type=\"text\" id=\"title\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "ID"};
+  options = {hash:{
+    'value': ("title")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(" placeholder=\"Title\" required>\n				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"content\">Content</label>\n			<div class=\"controls\">\n				");
+  hashContexts = {'id': depth0,'value': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
+  hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
+  options = {hash:{
+    'id': ("content"),
+    'value': ("content"),
+    'cols': ("30"),
+    'rows': ("10"),
+    'placeholder': ("Content")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.textarea || depth0.textarea),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
+  data.buffer.push("\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<div class=\"controls\">\n				<button class=\"btn\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "createArticle", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Contract</button>\n			</div>\n		</div>\n	</form>\n</section>");
+  return buffer;
   
 });
 
 Ember.TEMPLATES["articles/edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n<section>\n	<form class=\"form-horizontal\">\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"title\">Title</label>\n		\n			<div class=\"controls\">\n				<input type=\"text\" id=\"title\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "ID"};
+  options = {hash:{
+    'value': ("title")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
+  data.buffer.push(" placeholder=\"Title\" required>\n				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"content\">Content</label>\n			<div class=\"controls\">\n				");
+  hashContexts = {'id': depth0,'value': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
+  hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
+  options = {hash:{
+    'id': ("content"),
+    'value': ("content"),
+    'cols': ("30"),
+    'rows': ("10"),
+    'placeholder': ("Content")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.textarea || depth0.textarea),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
+  data.buffer.push("\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<div class=\"controls\">\n				<button class=\"btn\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editArticle", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Contract</button>\n			</div>\n		</div>\n	</form>\n</section>\n");
+  return buffer;
+  }
 
-
-  data.buffer.push("edit article template");
+  data.buffer.push("edit article template\n\n");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  return buffer;
   
 });
 
@@ -88,7 +144,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
-  var buffer = '', stack1, hashTypes, hashContexts, options;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options;
   data.buffer.push("\n	    <h2>");
   hashTypes = {};
   hashContexts = {};
@@ -98,12 +154,23 @@ function program1(depth0,data) {
   hashContexts = {};
   options = {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.formatDate || depth0.formatDate),stack1 ? stack1.call(depth0, "created", "short", options) : helperMissing.call(depth0, "formatDate", "created", "short", options))));
-  data.buffer.push("\n	    <div>\n	   ");
+  data.buffer.push("<span class=\"title\">");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.edit", "_id", options) : helperMissing.call(depth0, "link-to", "articles.edit", "_id", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</span>\n	    \n	    <div>\n	   ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "content", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("         \n	    </div>\n	");
   return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  data.buffer.push("Edit");
   }
 
   data.buffer.push("view article template\n<div class=\"article\">\n	");
@@ -187,7 +254,7 @@ function program7(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "link.title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
-  data.buffer.push("<header class=\"navbar navbar-inverse navbar-fixed-top bs-docs-nav\" role=\"banner\" data-ng-controller=\"HeaderController\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\" style=\"color: black;\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a href=\"../\" class=\"navbar-brand\">Gemini</a>\n    </div>\n    <nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\">\n	   <ul class=\"nav navbar-nav navbar-right\">        \n		  ");
+  data.buffer.push("<header class=\"navbar navbar-inverse navbar-fixed-top bs-docs-nav\" role=\"banner\" data-ng-controller=\"HeaderController\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\" style=\"color: black;\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a href=\"../\" class=\"navbar-brand\">Full Stack JS Boilerplate</a>\n    </div>\n    <nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\">\n	   <ul class=\"nav navbar-nav navbar-right\">        \n		  ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "link", "in", "view.menu", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});

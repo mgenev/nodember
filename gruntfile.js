@@ -334,8 +334,10 @@ module.exports = function(grunt) {
                 options: {
                     filepathTransform: function (filepath) {
                         return 'public/' + filepath;
-                    }
+                    },
+                    includeSourceMap: true
                 },
+                includeSourceMap: true,
                 src: '<%= yeoman.app %>/ember/app.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }

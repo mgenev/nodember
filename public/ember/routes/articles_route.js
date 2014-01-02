@@ -9,3 +9,17 @@ App.ArticlesViewRoute = Ember.Route.extend({
       return this.store.find('article', params._id);
     }
 });
+
+
+// App.ArticlesCreateRoute = Ember.Route.extend({
+//     model: function (params) {
+//       return this.store.create('article');
+//     }
+// });
+
+
+App.ArticlesEditRoute = Ember.Route.extend({
+    model: function (params) {
+      return this.store.find('article', params._id);
+    }
+});

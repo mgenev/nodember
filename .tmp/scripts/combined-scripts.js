@@ -9,11 +9,34 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
-  // // Articles
-  // App.ArticlesIndexController = Ember.ArrayController.extend({
+    // // Articles
+    // App.ArticlesIndexController = Ember.ArrayController.extend({
 
-  	
-  // });
+
+    // });
+
+   App.ArticlesEditController = Ember.ArrayController.extend({
+           actions: {
+               editArticle: function() {
+                 var article = this.get('model');
+                 article.save();
+               }
+           }
+   });
+
+
+
+   App.ArticlesCreateController = Ember.Controller.extend({
+           actions: {
+               createArticle: function() {
+                  this.store.createRecord('article', { 
+                  	title: title,
+  					content: content
+  				});
+               }
+           }
+   });
+
 
 })();
 
@@ -23,9 +46,9 @@ App.Store = DS.Store.extend();
 
   // Store
   App.Adapter = DS.RESTAdapter.extend();
-  App.Adapter.configure('App.Article', {
-    primaryKey: '_id'
-  });
+  // App.Adapter.configure('App.Article', {
+  //   primaryKey: '_id'
+  // });
 
   App.Store = DS.Store.extend({
     revision: 12,
@@ -60,11 +83,6 @@ App.Store = DS.Store.extend();
 (function() {
 
 App.ApplicationRoute = Ember.Route.extend({
-    // admittedly, this should be in IndexRoute and not in the
-    // top level ApplicationRoute; we're in transition... :-)
-    model: function () {
-        return ['red', 'yellow', 'blue'];
-    }
 });
 
 
@@ -84,6 +102,19 @@ App.ArticlesViewRoute = Ember.Route.extend({
     }
 });
 
+
+// App.ArticlesCreateRoute = Ember.Route.extend({
+//     model: function (params) {
+//       return this.store.create('article');
+//     }
+// });
+
+
+App.ArticlesEditRoute = Ember.Route.extend({
+    model: function (params) {
+      return this.store.find('article', params._id);
+    }
+});
 
 })();
 

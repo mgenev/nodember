@@ -2,7 +2,8 @@ view article template
 <div class="article">
 	{{#each}}
 	    <h2>{{ title }}</h2>
-	    {{formatDate created "short"}}
+	    {{formatDate created "short"}}<span class="title">{{#link-to 'articles.edit' _id}}Edit{{/link-to}}</span>
+	    
 	    <div>
 	   {{ content }}         
 	    </div>

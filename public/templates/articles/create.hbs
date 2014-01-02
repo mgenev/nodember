@@ -1,1 +1,25 @@
 create template
+<section>
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="title">Title</label>
+		
+			<div class="controls">
+				<input type="text" id="title" {{bind-attr value=title}} placeholder="Title" required>
+				
+				</input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="content">Content</label>
+			<div class="controls">
+				{{textarea id="content" value=content cols="30" rows="10" placeholder="Content"}}
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<button class="btn" {{action 'createArticle'}}>Contract</button>
+			</div>
+		</div>
+	</form>
+</section>

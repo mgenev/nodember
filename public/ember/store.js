@@ -2,9 +2,9 @@ App.Store = DS.Store.extend();
 
   // Store
   App.Adapter = DS.RESTAdapter.extend();
-  App.Adapter.configure('App.Article', {
-    primaryKey: '_id'
-  });
+  // App.Adapter.configure('App.Article', {
+  //   primaryKey: '_id'
+  // });
 
   App.Store = DS.Store.extend({
     revision: 12,
