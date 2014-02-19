@@ -1,6 +1,9 @@
 (function() {
 
 var App = window.App = Ember.Application.create();
+App.ApplicationSerializer = DS.RESTSerializer.extend({
+  primaryKey: '_id'
+});
 
 /* Order and include as you please. */
 
@@ -42,33 +45,6 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
-App.Store = DS.Store.extend();
-
-  // Store
-  App.Adapter = DS.RESTAdapter.extend();
-  // App.Adapter.configure('App.Article', {
-  //   primaryKey: '_id'
-  // });
-
-  App.Store = DS.Store.extend({
-    revision: 12,
-    adapter: App.Adapter.create()
-  });
-
-  // To represent embedded objects
-  DS.JSONTransforms['object'] = {
-    deserialize: function(serialized) {
-      return Ember.isNone(serialized) ? {} : serialized;
-    },
-    serialize: function(deserialized) {
-      return Ember.isNone(deserialized) ? {} : deserialized;
-    }
-  }
-
-})();
-
-(function() {
-
   // Article
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
@@ -92,6 +68,9 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
+    App.ApplicationSerializer = DS.RESTSerializer.extend({
+  	primaryKey: '_id'
+	});
       return this.store.find('article');
     }
 });

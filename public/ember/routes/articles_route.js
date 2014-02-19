@@ -1,5 +1,8 @@
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
+    App.ApplicationSerializer = DS.RESTSerializer.extend({
+  	primaryKey: '_id'
+	});
       return this.store.find('article');
     }
 });
