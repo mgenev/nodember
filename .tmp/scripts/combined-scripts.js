@@ -1,6 +1,7 @@
 (function() {
 
 var App = window.App = Ember.Application.create();
+
 App.ApplicationSerializer = DS.RESTSerializer.extend({
   primaryKey: '_id'
 });
@@ -18,27 +19,37 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
 
     // });
 
-   App.ArticlesEditController = Ember.ArrayController.extend({
-           actions: {
-               editArticle: function() {
-                 var article = this.get('model');
-                 article.save();
-               }
-           }
-   });
+    App.ArticlesEditController = Ember.ArrayController.extend({
+        actions: {
+            editArticle: function() {
+                var article = this.get('model');
+                article.save();
+            }
+        }
+    });
 
 
 
-   App.ArticlesCreateController = Ember.Controller.extend({
-           actions: {
-               createArticle: function() {
-                  this.store.createRecord('article', { 
-                  	title: title,
-  					content: content
-  				});
-               }
-           }
-   });
+    App.ArticlesCreateController = Ember.Controller.extend({
+        setupController: function(controller, model) {
+            controller.set('model', 'model');
+        },
+        actions: {
+            createArticle: function() {
+
+                var article = this.store.createRecord('Article', {
+                    title: title,
+                    content: content
+
+                });
+
+                console.log(article);
+
+                this.set('model', article);
+                article.save();
+            }
+        }
+    });
 
 
 })();
@@ -68,9 +79,11 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
+    
     App.ApplicationSerializer = DS.RESTSerializer.extend({
   	primaryKey: '_id'
 	});
+
       return this.store.find('article');
     }
 });
@@ -82,18 +95,16 @@ App.ArticlesViewRoute = Ember.Route.extend({
 });
 
 
-// App.ArticlesCreateRoute = Ember.Route.extend({
+App.ArticlesCreateRoute = Ember.Route.extend({
+ 
+});
+
+
+// App.ArticlesEditRoute = Ember.Route.extend({
 //     model: function (params) {
-//       return this.store.create('article');
+//       return this.store.find('article', params._id);
 //     }
 // });
-
-
-App.ArticlesEditRoute = Ember.Route.extend({
-    model: function (params) {
-      return this.store.find('article', params._id);
-    }
-});
 
 })();
 
