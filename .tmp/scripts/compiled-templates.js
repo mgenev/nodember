@@ -31,11 +31,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
   data.buffer.push(" placeholder=\"Title\" required>\n				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"content\">Content</label>\n			<div class=\"controls\">\n				");
-  hashContexts = {'id': depth0,'value': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
-  hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
+  hashContexts = {'id': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
+  hashTypes = {'id': "STRING",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
   options = {hash:{
     'id': ("content"),
-    'value': ("content"),
     'cols': ("30"),
     'rows': ("10"),
     'placeholder': ("Content")
@@ -66,11 +65,10 @@ function program1(depth0,data) {
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
   data.buffer.push(" placeholder=\"Title\" required>\n				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"content\">Content</label>\n			<div class=\"controls\">\n				");
-  hashContexts = {'id': depth0,'value': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
-  hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
+  hashContexts = {'id': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
+  hashTypes = {'id': "STRING",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
   options = {hash:{
     'id': ("content"),
-    'value': ("content"),
     'cols': ("30"),
     'rows': ("10"),
     'placeholder': ("Content")
@@ -80,7 +78,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "editArticle", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Contract</button>\n			</div>\n		</div>\n	</form>\n</section>\n");
+  data.buffer.push(">Update</button>\n			</div>\n		</div>\n	</form>\n</section>\n");
   return buffer;
   }
 
@@ -105,7 +103,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.view", "_id", options) : helperMissing.call(depth0, "link-to", "articles.view", "_id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.view", "id", options) : helperMissing.call(depth0, "link-to", "articles.view", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</span>\n		    <span>by ");
   hashTypes = {};
@@ -158,7 +156,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.edit", "_id", options) : helperMissing.call(depth0, "link-to", "articles.edit", "_id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.edit", "id", options) : helperMissing.call(depth0, "link-to", "articles.edit", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</span>\n	    \n	    <div>\n	   ");
   hashTypes = {};

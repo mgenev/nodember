@@ -38,14 +38,10 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
             createArticle: function() {
 
                 var article = this.store.createRecord('Article', {
-                    title: title,
-                    content: content
-
+                    title: $(title).val(),
+                    content: $(content).val()
                 });
 
-                console.log(article);
-
-                this.set('model', article);
                 article.save();
             }
         }

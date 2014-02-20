@@ -23,9 +23,10 @@ exports.article = function(req, res, next, id) {
  * Create a article
  */
 exports.create = function(req, res) {
-    var article = new Article(req.body);
-    article.user = req.user;
+    var article = new Article(req.body.article);
+    console.log(req.body.article);
 
+    article.user = req.user;            
     article.save(function(err) {
         if (err) {
             return res.send('users/signup', {
