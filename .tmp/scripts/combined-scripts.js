@@ -9,13 +9,8 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
-    // // Articles
-    // App.ArticlesIndexController = Ember.ArrayController.extend({
-
-
-    // });
-
-    App.ArticlesCreateController = Ember.Controller.extend({
+   
+App.ArticlesCreateController = Ember.Controller.extend({
          actions: {
             createArticle: function() {
 
@@ -39,7 +34,7 @@ var App = window.App = Ember.Application.create();
             }
         }
 
-    });
+});
 
 
 })();

@@ -1,10 +1,5 @@
-    // // Articles
-    // App.ArticlesIndexController = Ember.ArrayController.extend({
-
-
-    // });
-
-    App.ArticlesCreateController = Ember.Controller.extend({
+   
+App.ArticlesCreateController = Ember.Controller.extend({
          actions: {
             createArticle: function() {
 
@@ -27,5 +22,4 @@
                 article.save().then(transitionToArticle).catch(failure);
             }
         }
-
-    });
+});
