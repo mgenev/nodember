@@ -80,7 +80,8 @@ exports.destroy = function(req, res) {
  * Show an article
  */
 exports.show = function(req, res) {
-    res.jsonp(req.article);
+    var article = {article : req.article}
+    res.jsonp(article);
 };
 
 /**

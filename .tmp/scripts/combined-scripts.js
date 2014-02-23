@@ -15,17 +15,6 @@ var App = window.App = Ember.Application.create();
 
     // });
 
-    App.ArticlesEditController = Ember.ArrayController.extend({
-        actions: {
-            editArticle: function() {
-                var article = this.get('model');
-                article.save();
-            }
-        }
-    });
-
-
-
     App.ArticlesCreateController = Ember.Controller.extend({
         
         setupController: function(controller, model) {
@@ -36,13 +25,12 @@ var App = window.App = Ember.Application.create();
 
                 var article = this.store.createRecord('Article', {
                     title: $(title).val(),
-                    content: $(content).val()
+                    articleContent: $(articleContent).val()
                 });
 
                 var self = this;
-                var onSuccess = function(res) {
-                    console.log(res);                    
-                    self.transitionToRoute('articles.view', res);
+                var onSuccess = function(res) {                                        
+                    self.transitionToRoute('articles.view', res._id);
                 };
 
                 var onFail = function(res) {
@@ -63,7 +51,7 @@ var App = window.App = Ember.Application.create();
   // Article
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
-    content: DS.attr('string')
+    articleContent: DS.attr('string')
   });
 
 })();
@@ -86,7 +74,8 @@ App.ArticlesIndexRoute = Ember.Route.extend({
 
 App.ArticlesViewRoute = Ember.Route.extend({
     model: function (params) {
-      return this.store.find('article', params._id);
+    	console.log(this.store.find('article', params.article_id) );
+      return this.store.find('article', params.article_id);
     }
 });
 
@@ -97,8 +86,15 @@ App.ArticlesCreateRoute = Ember.Route.extend({
 
 
 App.ArticlesEditRoute = Ember.Route.extend({
-    model: function (params) {
-      return this.store.find('article', params._id);
+ 	model: function (params) {
+ 	console.log(this.store.find('article', params.article_id) );
+      return this.store.find('article', params.article_id);
+    },
+     actions: {
+            editArticle: function() {
+                var article = this.get('model');
+                article.save();
+            }
     }
 });
 
@@ -137,7 +133,7 @@ App.Router.map(function () {
 	this.resource('articles', function() {
     	this.route('create', { path: '/create' });
     	this.route('view', { path: ':article_id' });
-    	this.route('edit', { path: ':article_id/edit' });
+    	this.route('edit', { path: '/edit/:article_id/' });
   });
     
 });
@@ -166,6 +162,14 @@ Ember.Handlebars.helper("test", function(text, url) {
 	return new Ember.Handlebars.SafeString(
     "<a href='" + url + "'>" + text + "</a>"
   );
+});
+
+})();
+
+(function() {
+
+App.ApplicationSerializer = DS.RESTSerializer.extend({
+  primaryKey: '_id'
 });
 
 })();

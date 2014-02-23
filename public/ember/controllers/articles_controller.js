@@ -4,17 +4,6 @@
 
     // });
 
-    App.ArticlesEditController = Ember.ArrayController.extend({
-        actions: {
-            editArticle: function() {
-                var article = this.get('model');
-                article.save();
-            }
-        }
-    });
-
-
-
     App.ArticlesCreateController = Ember.Controller.extend({
         
         setupController: function(controller, model) {
@@ -25,13 +14,12 @@
 
                 var article = this.store.createRecord('Article', {
                     title: $(title).val(),
-                    content: $(content).val()
+                    articleContent: $(articleContent).val()
                 });
 
                 var self = this;
-                var onSuccess = function(res) {
-                    console.log(res);                    
-                    self.transitionToRoute('articles.view', res);
+                var onSuccess = function(res) {                                        
+                    self.transitionToRoute('articles.view', res._id);
                 };
 
                 var onFail = function(res) {

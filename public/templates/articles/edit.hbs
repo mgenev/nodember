@@ -1,6 +1,4 @@
 edit article template
-
-{{#each}}
 <section>
 	<form class="form-horizontal">
 		<div class="control-group">
@@ -13,9 +11,9 @@ edit article template
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="content">Content</label>
+			<label class="control-label" for="articleContent">Body Content</label>
 			<div class="controls">
-				{{textarea id="content" cols="30" rows="10" placeholder="Content"}}
+				{{textarea id="articleContent" value=articleContent cols="30" rows="10" placeholder="Article Content"}}
 			</div>
 		</div>
 		<div class="control-group">
@@ -25,4 +23,3 @@ edit article template
 		</div>
 	</form>
 </section>
-{{/each}}
