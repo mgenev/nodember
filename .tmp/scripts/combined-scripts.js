@@ -16,30 +16,28 @@ var App = window.App = Ember.Application.create();
     // });
 
     App.ArticlesCreateController = Ember.Controller.extend({
-        
-        setupController: function(controller, model) {
-            controller.set('model', 'model');
-        },
-        actions: {
+         actions: {
             createArticle: function() {
 
-                var article = this.store.createRecord('Article', {
+                var article = this.store.createRecord('article', {
                     title: $(title).val(),
                     articleContent: $(articleContent).val()
                 });
 
                 var self = this;
-                var onSuccess = function(res) {                                        
-                    self.transitionToRoute('articles.view', res._id);
-                };
 
-                var onFail = function(res) {
-                    alert('fail');
-                };
+                function transitionToArticle(article) {
+                  self.transitionToRoute('articles.view', article);
+                }
 
-                article.save().then(onSuccess, onFail);
+                function failure(reason) {
+                  // handle the error
+                  alert(reason);
+                }
+
+                article.save().then(transitionToArticle).catch(failure);
             }
-        },
+        }
 
     });
 
@@ -74,20 +72,18 @@ App.ArticlesIndexRoute = Ember.Route.extend({
 
 App.ArticlesViewRoute = Ember.Route.extend({
     model: function (params) {
-    	console.log(this.store.find('article', params.article_id) );
       return this.store.find('article', params.article_id);
     }
 });
 
 
 App.ArticlesCreateRoute = Ember.Route.extend({
- 
+
 });
 
 
 App.ArticlesEditRoute = Ember.Route.extend({
  	model: function (params) {
- 	console.log(this.store.find('article', params.article_id) );
       return this.store.find('article', params.article_id);
     },
      actions: {
