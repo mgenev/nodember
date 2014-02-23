@@ -71,7 +71,7 @@ module.exports = function(app, passport, auth) {
     // app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
     // app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
     
-    app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
+    app.put('/articles/:articleId', articles.update);
     app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
     
     //Finish with setting up the articleId param

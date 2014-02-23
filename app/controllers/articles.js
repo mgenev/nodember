@@ -11,9 +11,11 @@ var mongoose = require('mongoose'),
  * Find article by id
  */
 exports.article = function(req, res, next, id) {
+
     Article.load(id, function(err, article) {
         if (err) return next(err);
         if (!article) return next(new Error('Failed to load article ' + id));
+
         req.article = article;
         next();
     });
@@ -50,12 +52,30 @@ exports.create = function(req, res) {
  * Update a article
  */
 exports.update = function(req, res) {
-    var article = req.article;
 
-    article = _.extend(article, req.body);
+
+    // var article = req.body.article;
+
+    // article = _.extend( article, req.body);
+
+    // article.save(function(err) {
+    //     var articleObj = {article : article }
+    //     res.jsonp(articleObj);
+    // });
+
+    var article = req.article;
+    article.title = req.body.article.title;
+    article.articleContent = req.body.article.articleContent;
 
     article.save(function(err) {
-        res.jsonp(article);
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            var articleObj = {article: article};
+            res.jsonp(articleObj);
+        }
     });
 };
 

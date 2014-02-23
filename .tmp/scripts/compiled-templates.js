@@ -62,7 +62,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
     'value': ("title")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(" placeholder=\"Title\" required>\n				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"articleContent\">Body Content</label>\n			<div class=\"controls\">\n				");
+  data.buffer.push(" placeholder=\"Title\" required>				\n				</input>\n			</div>\n		</div>\n		<div class=\"control-group\">\n			<label class=\"control-label\" for=\"articleContent\">Article Content</label>\n			<div class=\"controls\">\n				");
   hashContexts = {'id': depth0,'value': depth0,'cols': depth0,'rows': depth0,'placeholder': depth0};
   hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
   options = {hash:{

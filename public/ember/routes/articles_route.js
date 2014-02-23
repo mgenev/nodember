@@ -22,7 +22,9 @@ App.ArticlesEditRoute = Ember.Route.extend({
     },
      actions: {
             editArticle: function() {
-                var article = this.get('model');
+                var article = this.currentModel;
+                article.set('title', $(title).val());
+                article.set('articleContent', $(articleContent).val());
                 article.save();
             }
     }
