@@ -29,10 +29,9 @@ exports.create = function(req, res) {
     
     article.user = req.user;            
     article.save(function(err) {
+        
         var formattedArticle = {};
-
         formattedArticle.article = article;        
-        formattedArticle.article.id = article._id;        
 
         if (err) {
             return res.send('users/signup', {
@@ -95,10 +94,6 @@ exports.show = function(req, res) {
  */
 exports.all = function(req, res) {
     Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
-        
-        articles.forEach(function(article) { 
-            article.id = article._id;
-        });
 
         if (err) {
             res.render('error', {
