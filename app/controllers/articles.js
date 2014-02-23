@@ -34,9 +34,6 @@ exports.create = function(req, res) {
         formattedArticle.article = article;        
         formattedArticle.article.id = article._id;        
 
-        console.log(article.id);
-        console.log(formattedArticle.id);
-
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
@@ -53,16 +50,6 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
 
-
-    // var article = req.body.article;
-
-    // article = _.extend( article, req.body);
-
-    // article.save(function(err) {
-    //     var articleObj = {article : article }
-    //     res.jsonp(articleObj);
-    // });
-
     var article = req.article;
     article.title = req.body.article.title;
     article.articleContent = req.body.article.articleContent;
@@ -74,7 +61,7 @@ exports.update = function(req, res) {
             });
         } else {
             var articleObj = {article: article};
-            res.jsonp(articleObj);
+            res.send({article: article});
         }
     });
 };
@@ -99,9 +86,8 @@ exports.destroy = function(req, res) {
 /**
  * Show an article
  */
-exports.show = function(req, res) {
-    var article = {article : req.article}
-    res.jsonp(article);
+exports.show = function(req, res) {    
+    res.send({article: req.article});
 };
 
 /**
