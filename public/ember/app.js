@@ -1,9 +1,5 @@
 var App = window.App = Ember.Application.create();
 
-App.ApplicationSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
-});
-
 /* Order and include as you please. */
 
 require('ember/controllers/*');

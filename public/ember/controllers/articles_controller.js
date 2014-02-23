@@ -16,6 +16,7 @@
 
 
     App.ArticlesCreateController = Ember.Controller.extend({
+        
         setupController: function(controller, model) {
             controller.set('model', 'model');
         },
@@ -27,7 +28,18 @@
                     content: $(content).val()
                 });
 
-                article.save();
+                var self = this;
+                var onSuccess = function(res) {
+                    console.log(res);                    
+                    self.transitionToRoute('articles.view', res);
+                };
+
+                var onFail = function(res) {
+                    alert('fail');
+                };
+
+                article.save().then(onSuccess, onFail);
             }
-        }
+        },
+
     });

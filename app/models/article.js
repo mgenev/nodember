@@ -3,32 +3,41 @@
  */
 var mongoose = require('mongoose'),
     config = require('../../config/config'),
-    Schema = mongoose.Schema;
-
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 
 /**
  * Article Schema
  */
 var ArticleSchema = new Schema({
-    created: {
-        type: Date,
-        default: Date.now
+        created: {
+            type: Date,
+            default: Date.now
+        },
+        title: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        content: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        user: {
+            type: Schema.ObjectId,
+            ref: 'User'
+        }, 
+        id: {
+            type: ObjectId,
+            trim: true
+        }
     },
-    title: {
-        type: String,
-        default: '',
-        trim: true
-    },
-    content: {
-        type: String,
-        default: '',
-        trim: true
-    },
-    user: {
-        type: Schema.ObjectId,
-        ref: 'User'
+    {
+        versionKey: false,
+        id: true
     }
-});
+);
 
 /**
  * Validations

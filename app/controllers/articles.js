@@ -24,17 +24,24 @@ exports.article = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var article = new Article(req.body.article);
-    console.log(req.body.article);
-
+    
     article.user = req.user;            
     article.save(function(err) {
+        var formattedArticle = {};
+
+        formattedArticle.article = article;        
+        formattedArticle.article.id = article._id;        
+
+        console.log(article.id);
+        console.log(formattedArticle.id);
+
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
                 article: article
             });
         } else {
-            res.jsonp(article);
+            res.jsonp(formattedArticle);
         }
     });
 };
@@ -81,6 +88,11 @@ exports.show = function(req, res) {
  */
 exports.all = function(req, res) {
     Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+        
+        articles.forEach(function(article) { 
+            article.id = article._id;
+        });
+
         if (err) {
             res.render('error', {
                 status: 500

@@ -2,10 +2,6 @@
 
 var App = window.App = Ember.Application.create();
 
-App.ApplicationSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
-});
-
 /* Order and include as you please. */
 
 
@@ -31,6 +27,7 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
 
 
     App.ArticlesCreateController = Ember.Controller.extend({
+        
         setupController: function(controller, model) {
             controller.set('model', 'model');
         },
@@ -42,9 +39,20 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
                     content: $(content).val()
                 });
 
-                article.save();
+                var self = this;
+                var onSuccess = function(res) {
+                    console.log(res);                    
+                    self.transitionToRoute('articles.view', res);
+                };
+
+                var onFail = function(res) {
+                    alert('fail');
+                };
+
+                article.save().then(onSuccess, onFail);
             }
-        }
+        },
+
     });
 
 
@@ -55,10 +63,7 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
   // Article
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
-    content: DS.attr('string'),
-    created: DS.attr('date'),
-    user: DS.attr('string'),
-    _id: DS.attr('string')
+    content: DS.attr('string')
   });
 
 })();
@@ -75,12 +80,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
-    
-    App.ApplicationSerializer = DS.RESTSerializer.extend({
-  	primaryKey: '_id'
-	});
-
-      return this.store.find('article');
+    	return this.store.find('article');
     }
 });
 
@@ -96,11 +96,11 @@ App.ArticlesCreateRoute = Ember.Route.extend({
 });
 
 
-// App.ArticlesEditRoute = Ember.Route.extend({
-//     model: function (params) {
-//       return this.store.find('article', params._id);
-//     }
-// });
+App.ArticlesEditRoute = Ember.Route.extend({
+    model: function (params) {
+      return this.store.find('article', params._id);
+    }
+});
 
 })();
 
