@@ -31,7 +31,8 @@
 <body>
 
     {{{ yield }}}
-
+    
+    <script src="/ember/global.js"></script>
     <!--ember stuff -->
     <!-- build:js scripts/components.js -->
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
@@ -39,7 +40,6 @@
     <script src="/lib/handlebars/handlebars.runtime.js"></script>
     <script src="/lib/ember/ember.js"></script>
     <script src="/lib/ember-data/ember-data.js"></script>
-    <script src="/lib/ember-model/ember-model.js"></script>
 
     <!-- endbuild -->
 
@@ -50,34 +50,6 @@
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/combined-scripts.js"></script>
     <!-- endbuild -->
-    
-    <!-- Angular, to be deleted -->
-    <!--  <script type="text/javascript" src="/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="/lib/angular-cookies/angular-cookies.js"></script>
-    <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
-
-    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.js"></script>
-    <script type="text/javascript" src="/lib/angular-ui-utils/modules/route/route.js"></script>
-
-    <script type="text/javascript" src="/js/app.js"></script>
-    <script type="text/javascript" src="/js/config.js"></script>
-    <script type="text/javascript" src="/js/directives.js"></script>
-    <script type="text/javascript" src="/js/filters.js"></script>
-
-    <script type="text/javascript" src="/js/services/global.js"></script>
-    <script type="text/javascript" src="/js/services/articles.js"></script>
-    <script type="text/javascript" src="/js/services/services.js"></script>
-
-    <script type="text/javascript" src="/js/controllers/articles.js"></script>
-    <script type="text/javascript" src="/js/controllers/clients.js"></script>
-    <script type="text/javascript" src="/js/controllers/reservations.js"></script>
-    <script type="text/javascript" src="/js/controllers/bookingFlow.js"></script>
-    <script type="text/javascript" src="/js/controllers/services.js"></script>
-    <script type="text/javascript" src="/js/controllers/index.js"></script>
-    <script type="text/javascript" src="/js/controllers/header.js"></script>
-    <script type="text/javascript" src="/js/init.js"></script> -->
-    <!-- /Angular -->
 
     <!-- build:js scripts/plugins.js -->
     <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>

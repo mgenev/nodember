@@ -33,7 +33,6 @@ App.ArticlesCreateController = Ember.Controller.extend({
                 article.save().then(transitionToArticle).catch(failure);
             }
         }
-
 });
 
 
@@ -96,6 +95,8 @@ App.ArticlesEditRoute = Ember.Route.extend({
 (function() {
 
 App.HeaderView = Ember.View.extend({
+    user: window.global.user,
+    authenticated: !!window.global.user,
     templateName: 'header',
     menu: [{
         'title': 'Articles',
