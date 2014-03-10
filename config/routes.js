@@ -13,7 +13,7 @@ module.exports = function(app, passport, auth) {
     app.post('/users/session', passport.authenticate('local', {
         failureRedirect: '/signin',
         failureFlash: 'Invalid email or password.'
-    }), users.session);
+    }), users.session); // this redirecets after login
 
     app.get('/users/me', users.me);
     app.get('/users/:userId', users.show);

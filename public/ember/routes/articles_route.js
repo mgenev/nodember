@@ -26,6 +26,8 @@ App.ArticlesEditRoute = Ember.Route.extend({
                 article.set('title', $(title).val());
                 article.set('articleContent', $(articleContent).val());
                 article.save();
+
+                this.transitionTo('articles.view', article);
             }
     }
 });

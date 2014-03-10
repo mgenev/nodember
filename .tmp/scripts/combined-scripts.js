@@ -50,6 +50,15 @@ App.ArticlesCreateController = Ember.Controller.extend({
 
 (function() {
 
+  // Article
+  App.Header = DS.Model.extend({
+
+  });
+
+})();
+
+(function() {
+
 App.ApplicationRoute = Ember.Route.extend({
 });
 
@@ -86,6 +95,8 @@ App.ArticlesEditRoute = Ember.Route.extend({
                 article.set('title', $(title).val());
                 article.set('articleContent', $(articleContent).val());
                 article.save();
+
+                this.transitionTo('articles.view', article);
             }
     }
 });
@@ -95,9 +106,9 @@ App.ArticlesEditRoute = Ember.Route.extend({
 (function() {
 
 App.HeaderView = Ember.View.extend({
-    user: window.global.user,
-    authenticated: !!window.global.user,
     templateName: 'header',
+    user: global.user,
+    authenticated: global.authenticated,
     menu: [{
         'title': 'Articles',
         'link': 'articles'
