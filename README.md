@@ -19,8 +19,7 @@ Full Stack JS BoilerPlate
 + Mongoose - A NodeJS object modeler for MongoDB
 + Passport - User Authentication
 + Mocha - Unit Testing
-
-Font Awesome - CSS Icons
++ Font Awesome - CSS Icons
 
 ### Acknowledgements
 The Full Stack JS Boilerplate is created by [Martin Genev](http://www.twitter.com/mgenev) of [Gemini Connect](http://www.geminiconncet.com) and is largely based on the work of [Amos Haviv](https://twitter.com/amoshaviv) on [meanjs.org](http://www.meanjs.org) 
