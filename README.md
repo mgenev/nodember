@@ -1,7 +1,7 @@
 Full Stack JS BoilerPlate
 ==========================
 
-This boilerplate is designed to bring you as close as possible ot actually writing your app immediately after install. It includes a RESTful Express server and client which uses Ember for a single plage application. 
+This boilerplate is designed to bring you as close as possible ot actually writing your app immediately after install. It includes a Express server, a Mongo DB and a client which uses Ember for a single plage application. The architecture is REST and there is an example usage of CRUD included and user authentication. From there you're ready to code your app.
 
 ### Core components
 
