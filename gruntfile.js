@@ -62,6 +62,33 @@ module.exports = function(grunt) {
                 }
             }
         },
+        compass: {
+            options: {
+                sassDir: '<%= config.app %>/sass',
+                //cssDir: 'public/css',
+                cssDir: '.tmp/styles',
+                generatedImagesDir: '.tmp/images/generated',
+                imagesDir: 'public/img',
+                javascriptsDir: 'public/ember',
+                // fontsDir: '<%= yeoman.app %>/styles/fonts',
+                importPath: 'public/lib',
+                httpImagesPath: '/images',
+                httpGeneratedImagesPath: '/images/generated',
+                httpFontsPath: '/sass/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false
+            },
+            dist: {
+                options: {
+                    generatedImagesDir: 'dist/images/generated'
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
         nodemon: {
             dev: {
                 script: 'server.js'
@@ -106,15 +133,27 @@ module.exports = function(grunt) {
         neuter: {
             app: {
                 options: {
-                    filepathTransform: function (filepath) {
+                    includeSourceMap: true,
+                    filepathTransform: function(filepath) {
                         return 'public/' + filepath;
-                    },
-                    includeSourceMap: true
+                    }
                 },
-                includeSourceMap: true,
                 src: '<%= config.app %>/ember/app.js',
-                dest: '.tmp/scripts/combined-scripts.js'
+                dest: '<%= config.app %>/combined-scripts.js'
             }
+        },
+        replace: {
+            sourceMap: {
+                src: '<%= config.app %>/combined-scripts.js.map', // source files array (supports minimatch)
+                dest: '<%= config.app %>/combined-scripts.js.map', // destination directory or file
+                replacements: [{
+                    from: 'public/', // string replacement
+                    to: '' 
+                }]
+            }
+        },
+        clean: {
+            server: '.tmp'
         }
     });
 
@@ -138,7 +177,10 @@ module.exports = function(grunt) {
 
     //Default task(s).
     grunt.registerTask('default', [
+        'clean:server',
+        'compass:server',
         'neuter:app',
+        'replace:sourceMap',
         'emberTemplates',
         'concurrent'
     ]);

@@ -164,4 +164,4 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
   primaryKey: '_id'
 });
 
-})();
+})();//@ sourceMappingURL=combined-scripts.js.map

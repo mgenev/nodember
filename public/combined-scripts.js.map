@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "file": "combined-scripts.js",
+  "sources": [
+    "ember/app.js",
+    "ember/controllers/articles_controller.js",
+    "ember/models/article_model.js",
+    "ember/routes/articles_route.js",
+    "ember/views/header_view.js",
+    "ember/router.js",
+    "ember/util/helpers/date_format.js"
+  ],
+  "names": [],
+  "mappings": ";;;AACA;AACA;AACA;;;;;;;ACFA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;;;;;ACxBA;AACA;AACA;AACA;;;;;;;ACHA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;;;;;AC/BA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;;;;;ACzBA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;;;;;ACRA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;;;;;ANlBA;AACA"
+}

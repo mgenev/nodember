@@ -1,6 +1,9 @@
 .DS_Store
 .nodemonignore
 .sass-cache/
+npm-debug.log
 node_modules/
 public/lib
 package_bak.json
+
+npm-debug.log
