@@ -1,7 +1,7 @@
 {
     "db": "mongodb://localhost/mean",
     "app": {
-        "name": "MEAN - A Modern Stack - Production"
+        "name": "Full Stack JS - A Modern Stack - Production"
     },
     "facebook": {
         "clientID": "APP_ID",

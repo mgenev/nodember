@@ -131,7 +131,7 @@ module.exports = function(grunt) {
             }
         },
         neuter: {
-            app: {
+            client: {
                 options: {
                     includeSourceMap: true,
                     filepathTransform: function(filepath) {
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean:server',
         'compass:server',
-        'neuter:app',
+        'neuter:client',
         'replace:sourceMap',
         'emberTemplates',
         'concurrent'
