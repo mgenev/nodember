@@ -50,23 +50,6 @@ App.ArticlesCreateController = Ember.Controller.extend({
 
 (function() {
 
-  // Article
-  App.Header = DS.Model.extend({
-
-  });
-
-})();
-
-(function() {
-
-App.ApplicationRoute = Ember.Route.extend({
-});
-
-
-})();
-
-(function() {
-
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
     	return this.store.find('article');
