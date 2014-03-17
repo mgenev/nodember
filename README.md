@@ -1,7 +1,7 @@
 Full Stack JS BoilerPlate
 ==========================
 
-This boilerplate is designed to bring you as close as possible ot actually writing your app immediately after install. It includes a Express server, a Mongo DB and a client which uses Ember for a single plage application. The architecture is REST and there is an example usage of CRUD included and user authentication. From there you're ready to code your app.
+This boilerplate is designed to bring you as close as possible to actually writing your app immediately after install. It includes an Express server, a MongoDB Database and a client which uses Ember for a single page application. The architecture is REST and there is an example usage of CRUD and user authentication included. From there you're ready to code your app.
 
 ### Core components
 
@@ -50,7 +50,7 @@ $ sudo npm install -g grunt-cli
 ```
 
 ## Quick Install
-Once you've installed all the prerequisites, you're just a few steps away from starting to develop you Full Stack JS application.
+Once you've installed all the prerequisites, you're just a few steps away from starting to develop your Full Stack JS application.
 
 The first thing you should do is install the Node.js dependencies. The boilerplate comes pre-bundled with a package.json file that contains the list of modules you need to start your application, to learn more about the modules installed visit the NPM & Package.json section.
 
@@ -63,7 +63,7 @@ $ npm install
 This command does a few things:
 * First it will install the dependencies needed for the application to run.
 * If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.
-* Finally, when the install process is over, npm will initiate a bower installcommand to install all the front-end modules needed for the application
+* Finally, when the install process is over, npm will initiate a bower install command to install all the front-end modules needed for the application
 
 ## Running Your Application
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
