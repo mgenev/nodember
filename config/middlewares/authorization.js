@@ -34,39 +34,3 @@ exports.article = {
     }
 };
 
-/**
- * Client authorizations routing middleware
- */
-exports.client = {
-    hasAuthorization: function(req, res, next) {
-        if (!userIsAdmin(req.user.email)) {
-            return res.send(401, 'User is not authorized');
-        }
-        next();
-    }
-};
-
-/**
- * Reservation authorizations routing middleware
- */
-exports.reservation = {
-    hasAuthorization: function(req, res, next) {
-        if (req.reservation.user.id != req.user.id) {
-            return res.send(401, 'User is not authorized');
-        }
-        next();
-    }
-};
-
-
-/**
- * Service authorizations routing middleware
- */
-exports.service = {
-    hasAuthorization: function(req, res, next) {
-        if (!userIsAdmin(req.user.email)) {
-            return res.send(401, 'User is not authorized');
-        }
-        next();
-    }
-};

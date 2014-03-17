@@ -5,6 +5,10 @@ App.HeaderView = Ember.View.extend({
     menu: [{
         'title': 'Articles',
         'link': 'articles'
+    },
+    {
+        'title': 'New thing',
+        'link': 'articles'
     }, {
         'title': 'Create New Article',
         'link': 'articles.create'
