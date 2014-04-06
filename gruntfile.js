@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             },
             neuter: {
                 files: ['<%= config.app %>/ember/{,*/}*.js'],
-                tasks: ['neuter']
+                tasks: ['neuter', 'replace:sourceMap']
             },
             serverTemplates: {
                 files: ['app/views/**'],
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 }
             },
             emberTemplates: {
-                files: '<%= config.app %>/templates/**/*.hbs',
+                files: '<%= config.app %>/ember/templates/**/*.hbs',
                 tasks: ['emberTemplates'],
                 options: {
                     livereload: true,
@@ -40,23 +40,8 @@ module.exports = function(grunt) {
                     livereload: true,
                 }
             },
-            html: {
-                files: ['public/views/**'],
-                options: {
-                    livereload: true,
-                }
-            },
-            sass: {
-                files: ['public/css/**']
-            },
             css: {
                 files: ['public/css/**'],
-                options: {
-                    livereload: true
-                }
-            },
-            css2: {
-                files: ['.tmp/styles/**'],
                 options: {
                     livereload: true
                 }
@@ -65,12 +50,11 @@ module.exports = function(grunt) {
         compass: {
             options: {
                 sassDir: '<%= config.app %>/sass',
-                //cssDir: 'public/css',
-                cssDir: '.tmp/styles',
-                generatedImagesDir: '.tmp/images/generated',
+                cssDir: 'public/css',
+                generatedImagesDir: 'public/images/generated',
                 imagesDir: 'public/img',
                 javascriptsDir: 'public/ember',
-                // fontsDir: '<%= yeoman.app %>/styles/fonts',
+                fontsDir: 'public/css/fonts',
                 importPath: 'public/lib',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
@@ -80,7 +64,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: 'dist/images/generated'
+                    generatedImagesDir: 'public/images/generated'
                 }
             },
             server: {
@@ -92,6 +76,9 @@ module.exports = function(grunt) {
         nodemon: {
             dev: {
                 script: 'server.js'
+            },
+            options: {
+                ignore: ['node_modules/**'],
             }
         },
         concurrent: {
@@ -120,13 +107,13 @@ module.exports = function(grunt) {
         emberTemplates: {
             options: {
                 templateName: function(sourceFile) {
-                    var templatePath = config.app + '/templates/';
+                    var templatePath = config.app + '/ember/templates/';
                     return sourceFile.replace(templatePath, '');
                 }
             },
             dist: {
                 files: {
-                    '.tmp/scripts/compiled-templates.js': '<%= config.app %>/templates/{,*/}*.hbs'
+                    '<%= config.app %>/compiled-templates.js': '<%= config.app %>/ember/templates/{,*/}*.hbs'
                 }
             }
         },
