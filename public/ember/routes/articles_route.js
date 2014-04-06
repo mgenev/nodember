@@ -1,6 +1,6 @@
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
-    	return this.store.find('article');
+        return this.store.find('article');
     }
 });
 
@@ -12,22 +12,20 @@ App.ArticlesViewRoute = Ember.Route.extend({
 
 
 App.ArticlesCreateRoute = Ember.Route.extend({
-
+    model: function () {
+       return this.store.createRecord('article', {title: '', pageContent: '', urlSegment: ''});
+    },
+    setupController: function(controller, model) {
+        controller.set('article', model);
+    }
 });
 
 
 App.ArticlesEditRoute = Ember.Route.extend({
- 	model: function (params) {
+    model: function (params) {
       return this.store.find('article', params.article_id);
     },
-     actions: {
-            editArticle: function() {
-                var article = this.currentModel;
-                article.set('title', $(title).val());
-                article.set('articleContent', $(articleContent).val());
-                article.save();
-
-                this.transitionTo('articles.view', article);
-            }
+    setupController: function(controller, model) {
+        controller.set('article', model);
     }
 });

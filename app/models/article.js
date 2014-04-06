@@ -19,12 +19,15 @@ var ArticleSchema = new Schema({
             default: '',
             trim: true
         },
-        content: {
-            type: String,
-            default: '',
-            trim: true
-        },
+        template:  {
+            type: Schema.ObjectId,
+            ref: 'Template'
+        },        
         articleContent: {
+            type: Object,
+            default: {}
+        },
+        urlSegment : {
             type: String,
             default: '',
             trim: true
@@ -32,7 +35,11 @@ var ArticleSchema = new Schema({
         user: {
             type: Schema.ObjectId,
             ref: 'User'
-        }, 
+        },
+        type: {
+            type: String,
+            trim: true
+        },          
         id: {
             type: ObjectId,
             trim: true
@@ -54,11 +61,17 @@ ArticleSchema.path('title').validate(function(title) {
 /**
  * Statics
  */
+ 
 ArticleSchema.statics = {
+    // Load static finds by id, populates user nested object
     load: function(id, cb) {
         this.findOne({
             _id: id
         }).populate('user', 'name username').exec(cb);
+    },
+    // query static finds by other query params, populates user nested object
+    query: function (query, cb) {
+         this.findOne(query).populate('user', 'name username').exec(cb);
     }
 };
 

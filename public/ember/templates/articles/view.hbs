@@ -1,11 +1,14 @@
 view article template
 <div class="article">
-
 	    <h2>{{ title }}</h2>
-	    {{formatDate created "short"}}<span class="title">{{#link-to 'articles.edit' id}}Edit{{/link-to}}</span>
+	    <h4>url segment: {{ urlSegment }}</h4>
+	    <h4>article type: {{type}}</h4>
+	    {{formatDate created "short"}}
+	    <span class="title">
+	    	{{#link-to 'articles.edit' id}}Edit{{/link-to}}
+	    </span>
 	    
 	    <div>
-	   {{ articleContent }}
+			{{ articleContent }}
 	    </div>
-
 </div>

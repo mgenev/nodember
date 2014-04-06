@@ -1,0 +1,9 @@
+{{#each content}}
+	<span class="answer">
+	    <label>
+	        {{radio-button value=this name=view.name selection=view.selection}}
+	        {{this}}
+	    </label>
+	</span>
+{{/each}}
+

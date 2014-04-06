@@ -1,0 +1,1 @@
+Ember.Handlebars.helper('radio-button', App.RadioButton);

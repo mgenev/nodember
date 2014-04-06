@@ -1,24 +1,30 @@
-create template
+<h4>Create</h4>
 <section>
 	<form class="form-horizontal">
-		<div class="control-group">
-			<label class="control-label" for="title">Title</label>
-		
+		<div class="control-group">		
 			<div class="controls">
-				<input type="text" id="title" {{bind-attr value=title}} placeholder="Title" required>
-				
-				</input>
+				{{input type="text" value=article.title id="title" placeholder="Title"}}
+				Url slug: {{article.slug}}				
+			</div>
+			
+			<div class="controls">
+			<span class="question">{{controllers.articles.question}}</span>
+             {{radio-group
+	             content=controllers.articles.types.choices
+	             value=controllers.articles.answer
+	             selection=controllers.articles.answer
+	             name=controllers.articles.types.name
+             }}
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="articleContent">Body</label>
 			<div class="controls">
-				{{textarea id="articleContent" cols="30" rows="10" placeholder="Article Content"}}
+				{{textarea id="articleContent" cols="60" rows="20" placeholder="Article Content"}}
 			</div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<button class="btn" {{action 'createArticle'}}>Contract</button>
+				<button class="btn" {{action 'createArticle'}}>Create article</button>
 			</div>
 		</div>
 	</form>

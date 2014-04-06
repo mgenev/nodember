@@ -26,12 +26,12 @@ exports.article = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var article = new Article(req.body.article);
-    
-    article.user = req.user;            
+
+    article.user = req.user;
     article.save(function(err) {
-        
+
         var formattedArticle = {};
-        formattedArticle.article = article;        
+        formattedArticle.article = article;
 
         if (err) {
             return res.send('users/signup', {
@@ -52,6 +52,7 @@ exports.update = function(req, res) {
     var article = req.article;
     article.title = req.body.article.title;
     article.articleContent = req.body.article.articleContent;
+    article.urlSegment = req.body.article.urlSegment;
 
     article.save(function(err) {
         if (err) {
@@ -59,8 +60,12 @@ exports.update = function(req, res) {
                 status: 500
             });
         } else {
-            var articleObj = {article: article};
-            res.send({article: article});
+            var articleObj = {
+                article: article
+            };
+            res.send({
+                article: article
+            });
         }
     });
 };
@@ -85,24 +90,43 @@ exports.destroy = function(req, res) {
 /**
  * Show an article
  */
-exports.show = function(req, res) {    
-    res.send({article: req.article});
+exports.show = function(req, res) {
+    res.send({
+        article: req.article
+    });
 };
 
 /**
  * List of Articles
  */
 exports.all = function(req, res) {
-    Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+        console.log(req.query);
+    if (!_.isEmpty(req.query))  {
 
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
+        // req.query is the exact type of object which mongoose can use to query
+        //  so we  send it to a querying static method in the model
+
+        Article.query(req.query, function(err, article) {
+            if (err) return next(err);
+            if (!article) res.send({error: new Error('Failed to load article for query')});
+
             res.send({
-                articles: articles
+                article: article
             });
-        }
-    });
+        });
+    } else {
+        // else we find all
+        Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+
+            if (err) {
+                res.render('error', {
+                    status: 500
+                });
+            } else {
+                res.send({
+                    articles: articles
+                });
+            }
+        });
+    }
 };

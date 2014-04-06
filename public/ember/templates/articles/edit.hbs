@@ -1,18 +1,29 @@
-edit article template
+edit article 
 <section>
 	<form class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label" for="title">Title</label>
 		
 			<div class="controls">
-				<input type="text" id="title" {{bind-attr value=title}} placeholder="Title" required>				
+				{{input type="text" value=article.title id="title" placeholder="Title"}}
+				Url Segment {{article.slug}}				
 				</input>
+			</div>
+			
+			<div class="controls">
+			<span class="question">{{types.question}}</span>
+            {{radio-group
+	             content=controllers.articles.types.choices
+	             value=controllers.articles.answer
+	             selection=controllers.articles.answer
+	             name=controllers.articles.types.name
+             }}
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="articleContent">Article Content</label>
 			<div class="controls">
-				{{textarea id="articleContent" value=articleContent cols="30" rows="10" placeholder="Article Content"}}
+				{{textarea id="articleContent" value=title.articleContent cols="30" rows="10" placeholder="Article Content"}}
 			</div>
 		</div>
 		<div class="control-group">

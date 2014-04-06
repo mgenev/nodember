@@ -9,32 +9,57 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
-   
 App.ArticlesCreateController = Ember.Controller.extend({
-         actions: {
-            createArticle: function() {
+    needs: ['articles'],
+    actions: {
+        createArticle: function() {
 
-                var article = this.store.createRecord('article', {
-                    title: $(title).val(),
-                    articleContent: $(articleContent).val()
-                });
+            var article = this.article;
+            article.set('title', $(title).val());
+            article.set('articleContent', $(articleContent).val());
+            article.set('type', $('input[name=types]:checked').val());
 
-                var self = this;
+            var self = this;
 
-                function transitionToArticle(article) {
-                  self.transitionToRoute('articles.view', article);
-                }
-
-                function failure(reason) {
-                  // handle the error
-                  alert(reason);
-                }
-
-                article.save().then(transitionToArticle).catch(failure);
+            function transitionToArticle(article) {
+                self.transitionToRoute('articles.view', article);
             }
+
+            function failure(reason) {
+                // handle the error
+                alert(reason);
+            }
+
+            article.save().then(transitionToArticle).
+            catch (failure);
         }
+    }
 });
 
+
+App.ArticlesEditController = Ember.Controller.extend({
+    needs: ['articles'],
+    actions: {
+        editArticle: function() {
+            var article = this.article;
+            article.set('title', $(title).val());
+            article.set('articleContent', $(articleContent).val());
+            article.set('type', $('input[name=types]:checked').val());
+            article.save();
+
+            this.transitionToRoute('articles.view', article);
+        }
+    }
+});
+
+App.ArticlesController = Ember.Controller.extend({
+    types: {
+        'name' : 'types',
+        'question' : 'Type',
+        'choices' : [ 'Blog', 'Article', 'Newsflash'],
+        'answer' : 'Blog'
+    },
+});
 
 })();
 
@@ -43,7 +68,14 @@ App.ArticlesCreateController = Ember.Controller.extend({
   // Article
   App.Article = DS.Model.extend({
     title: DS.attr('string'),
-    articleContent: DS.attr('string')
+    articleContent: DS.attr('string'),
+    type: DS.attr('string'),
+    urlSegment: DS.attr('string'),
+    slug: function() {
+		var slug = this.get('title').toString().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+		this.set('urlSegment', slug);
+      return slug;
+  }.property('title')
   });
 
 })();
@@ -52,7 +84,7 @@ App.ArticlesCreateController = Ember.Controller.extend({
 
 App.ArticlesIndexRoute = Ember.Route.extend({
     model: function () {
-    	return this.store.find('article');
+        return this.store.find('article');
     }
 });
 
@@ -64,23 +96,21 @@ App.ArticlesViewRoute = Ember.Route.extend({
 
 
 App.ArticlesCreateRoute = Ember.Route.extend({
-
+    model: function () {
+       return this.store.createRecord('article', {title: '', pageContent: '', urlSegment: ''});
+    },
+    setupController: function(controller, model) {
+        controller.set('article', model);
+    }
 });
 
 
 App.ArticlesEditRoute = Ember.Route.extend({
- 	model: function (params) {
+    model: function (params) {
       return this.store.find('article', params.article_id);
     },
-     actions: {
-            editArticle: function() {
-                var article = this.currentModel;
-                article.set('title', $(title).val());
-                article.set('articleContent', $(articleContent).val());
-                article.save();
-
-                this.transitionTo('articles.view', article);
-            }
+    setupController: function(controller, model) {
+        controller.set('article', model);
     }
 });
 
@@ -120,6 +150,23 @@ App.HeaderView = Ember.View.extend({
 
 (function() {
 
+App.RadioButton = Ember.Component.extend({
+    tagName : "input",
+    type : "radio",
+    attributeBindings : [ "name", "type", "value", "checked:checked" ],
+    click : function() {
+        this.set("selection", this.$().val());
+    },
+    checked : function() {
+        return this.get("value") === this.get("selection");
+    }.property('selection')
+
+});
+
+})();
+
+(function() {
+
 App.Router.map(function () {
 	
 	this.resource('articles', function() {
@@ -129,6 +176,16 @@ App.Router.map(function () {
   });
     
 });
+
+
+})();
+
+(function() {
+
+Ember.Handlebars.helper("cleanUrl", function(title) {
+    return title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+});
+
 
 
 })();
@@ -155,6 +212,12 @@ Ember.Handlebars.helper("test", function(text, url) {
     "<a href='" + url + "'>" + text + "</a>"
   );
 });
+
+})();
+
+(function() {
+
+Ember.Handlebars.helper('radio-button', App.RadioButton);
 
 })();
 
