@@ -7,3 +7,7 @@ public/lib
 package_bak.json
 
 npm-debug.log
+
+public/compiled-templates.js
+public/compiled-templates.js.map
+public/combined-scripts.js
