@@ -106,12 +106,12 @@ exports.index = function(req, res, next) {
         // req.query is the exact type of object which mongoose can use to query
         //  so we  send it to a querying static method in the model
 
-        Article.query(req.query, function(err, article) {
+        Article.query(req.query, function(err, articles) {
             if (err) return next(err);
-            if (!article)  {
+            if (!articles)  {
                 res.send({error: new Error('Failed to load article for query')});
             } else {
-                res.send({articles: [article]});    
+                res.send({articles: [articles]});    
             }
             
         });
