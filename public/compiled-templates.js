@@ -109,7 +109,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {'id': "STRING",'value': "ID",'cols': "STRING",'rows': "STRING",'placeholder': "STRING"};
   options = {hash:{
     'id': ("articleContent"),
-    'value': ("title.articleContent"),
+    'value': ("article.articleContent"),
     'cols': ("30"),
     'rows': ("10"),
     'placeholder': ("Article Content")

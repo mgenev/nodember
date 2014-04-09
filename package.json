@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "express": "latest",
-    "jade": "latest",
-    "hogan-express": "*",
+    "hbs" : "latest",
     "mongoose": "latest",
     "connect-mongo": "latest",
     "connect-flash": "latest",
@@ -72,6 +71,7 @@
     "grunt-ember-templates": "0.4.14",
     "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.6.0",
-    "grunt-text-replace" : "latest"
+    "grunt-text-replace" : "latest",
+    "grunt-karma": "~0.8.2"
   }
 }
