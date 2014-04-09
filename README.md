@@ -16,12 +16,10 @@ This boilerplate is designed to bring you as close as possible to actually writi
 + jQuery - Write less, do more
 + Grunt - The Javascript task runner
 + Bower - Client-side dependency management
-+ Handlebars - Advanced Client-side templating
-+ Hogan - Server-side templating
++ Handlebars - Advanced templating
 + Livereload - Automatic browser reload per save
 + Mongoose - A NodeJS object modeler for MongoDB
 + Passport - User Authentication
-+ Mocha - Unit Testing
 + Font Awesome - CSS Icons
 
 
