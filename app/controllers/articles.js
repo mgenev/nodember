@@ -100,7 +100,7 @@ exports.show = function(req, res) {
  * List of Articles
  */
 exports.all = function(req, res) {
-        console.log(req.query);
+
     if (!_.isEmpty(req.query))  {
 
         // req.query is the exact type of object which mongoose can use to query
@@ -111,7 +111,7 @@ exports.all = function(req, res) {
             if (!article) res.send({error: new Error('Failed to load article for query')});
 
             res.send({
-                article: article
+                articles: [article]
             });
         });
     } else {

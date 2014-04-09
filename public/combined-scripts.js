@@ -118,6 +118,22 @@ App.ArticlesEditRoute = Ember.Route.extend({
 
 (function() {
 
+App.CatchallRoute = Ember.Route.extend({
+    model: function(params) {
+        // Alternative
+        // return Ember.$.get('articles', {
+        //     urlSegment: params.url
+        // });
+
+		return this.store.find('article', {urlSegment: params.url});
+    }
+});
+
+
+})();
+
+(function() {
+
 App.HeaderView = Ember.View.extend({
     templateName: 'header',
     user: global.user,
@@ -168,13 +184,13 @@ App.RadioButton = Ember.Component.extend({
 (function() {
 
 App.Router.map(function () {
-	
+	this.route('catchall', { path: '/*url'});  // catch-all routes
+
 	this.resource('articles', function() {
-    	this.route('create', { path: '/create' });
-    	this.route('view', { path: ':article_id' });
-    	this.route('edit', { path: '/edit/:article_id/' });
-  });
-    
+		this.route('create', { path: '/create' });
+		this.route('view', { path: ':article_id' });
+		this.route('edit', { path: '/edit/:article_id/' });
+  });    
 });
 
 

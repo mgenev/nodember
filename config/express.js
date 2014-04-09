@@ -85,11 +85,9 @@ module.exports = function(app, passport, db) {
         });
 
         //Assume 404 since no middleware responded
-        app.use(function(req, res, next) {
-            res.status(404).render('404', {
-                url: req.originalUrl,
-                error: 'Not found'
-            });
+       //Here Express captures 404s and sends the url to Ember to look for articles        
+        app.use(function(req, res) {
+            res.status(404).redirect('/#' + req.originalUrl);
         });
 
     });
