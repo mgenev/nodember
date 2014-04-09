@@ -99,7 +99,7 @@ exports.show = function(req, res) {
 /**
  * List of Articles
  */
-exports.all = function(req, res) {
+exports.index = function(req, res, next) {
 
     if (!_.isEmpty(req.query))  {
 
@@ -108,11 +108,12 @@ exports.all = function(req, res) {
 
         Article.query(req.query, function(err, article) {
             if (err) return next(err);
-            if (!article) res.send({error: new Error('Failed to load article for query')});
-
-            res.send({
-                articles: [article]
-            });
+            if (!article)  {
+                res.send({error: new Error('Failed to load article for query')});
+            } else {
+                res.send({articles: [article]});    
+            }
+            
         });
     } else {
         // else we find all

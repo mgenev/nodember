@@ -1,7 +1,7 @@
 module.exports = function(app, passport, auth) {
     //Article Routes
     var articles = require('../controllers/articles');
-    app.get('/articles', articles.all);
+    app.get('/articles', articles.index);
     // app.post('/articles', auth.requiresLogin, articles.create);
     app.post('/articles', articles.create);
     app.get('/articles/:articleId', articles.show);
