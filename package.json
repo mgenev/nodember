@@ -6,7 +6,7 @@
   "author": "Martin Genev, based on the MEAN stack by Amos Haviv and generator Ember for Yeoman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/mgenev/Full-Stack-JS-Boilerplate"
   },
   "engines": {
     "node": "0.10.x",
@@ -18,7 +18,7 @@
     "postinstall": "bower install"
   },
   "dependencies": {
-    "express": "latest",
+    "express": "3.5",
     "hbs" : "latest",
     "mongoose": "latest",
     "connect-mongo": "latest",
