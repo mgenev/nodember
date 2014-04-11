@@ -6,7 +6,7 @@
   "author": "Martin Genev, based on the MEAN stack by Amos Haviv and generator Ember for Yeoman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mgenev/Full-Stack-JS-Boilerplate"
+    "url": "https://github.com/linnovate/mean.git"
   },
   "engines": {
     "node": "0.10.x",
@@ -71,7 +71,6 @@
     "grunt-ember-templates": "0.4.14",
     "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.6.0",
-    "grunt-text-replace" : "latest",
-    "grunt-karma": "~0.8.2"
+    "grunt-text-replace" : "latest"
   }
 }

@@ -9,6 +9,17 @@ var App = window.App = Ember.Application.create();
 
 (function() {
 
+App.ApplicationController = Ember.ObjectController.extend({
+	init: function () {
+		var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+		this.set('isMobile', isMobile);
+	}
+});
+
+})();
+
+(function() {
+
 App.ArticlesCreateController = Ember.Controller.extend({
     needs: ['articles'],
     actions: {
@@ -59,6 +70,18 @@ App.ArticlesController = Ember.Controller.extend({
         'choices' : [ 'Blog', 'Article', 'Newsflash'],
         'answer' : 'Blog'
     },
+});
+
+})();
+
+(function() {
+
+App.HeaderController = Ember.ObjectController.extend({
+	needs: ['application'],
+	init: function () {
+		var isMobile = this.get('controllers.application.isMobile');
+		this.set('isMobile', isMobile);
+	}
 });
 
 })();
