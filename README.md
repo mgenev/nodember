@@ -74,4 +74,4 @@ Your application should run on the 3000 port so in your browser just go to [http
 
 
 ### Acknowledgements
-The Full Stack JS Boilerplate is created by [Martin Genev](http://www.twitter.com/cyberseer) of [Gemini Connect](http://www.geminiconncet.com) and is largely based on the work of [Amos Haviv](https://twitter.com/amoshaviv) on [meanjs.org](http://www.meanjs.org) 
+The Full Stack JS Boilerplate is created by [Martin Genev](http://www.twitter.com/cyberseer) of [Gemini Connect](http://www.geminiconnect.com) and is largely based on the work of [Amos Haviv](https://twitter.com/amoshaviv) on [meanjs.org](http://www.meanjs.org) 
