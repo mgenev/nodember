@@ -6,7 +6,7 @@
   "author": "Martin Genev, based on the MEAN stack by Amos Haviv and generator Ember for Yeoman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/mgenev/Full-Stack-JS-Amber"
   },
   "engines": {
     "node": "0.10.x",
