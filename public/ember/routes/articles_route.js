@@ -14,9 +14,6 @@ App.ArticlesViewRoute = Ember.Route.extend({
 App.ArticlesCreateRoute = Ember.Route.extend({
     model: function () {
        return this.store.createRecord('article', {title: '', pageContent: '', urlSegment: ''});
-    },
-    setupController: function(controller, model) {
-        controller.set('article', model);
     }
 });
 
@@ -24,8 +21,5 @@ App.ArticlesCreateRoute = Ember.Route.extend({
 App.ArticlesEditRoute = Ember.Route.extend({
     model: function (params) {
       return this.store.find('article', params.article_id);
-    },
-    setupController: function(controller, model) {
-        controller.set('article', model);
     }
 });

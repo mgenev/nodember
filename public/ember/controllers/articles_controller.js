@@ -2,13 +2,8 @@ App.ArticlesCreateController = Ember.Controller.extend({
     needs: ['articles'],
     actions: {
         createArticle: function() {
-
-            var article = this.article;
-            article.set('title', $(title).val());
-            article.set('articleContent', $(articleContent).val());
-            article.set('type', $('input[name=types]:checked').val());
-
-            var self = this;
+            var article = this.content,
+                self = this;
 
             function transitionToArticle(article) {
                 self.transitionToRoute('articles.view', article);
@@ -30,10 +25,7 @@ App.ArticlesEditController = Ember.Controller.extend({
     needs: ['articles'],
     actions: {
         editArticle: function() {
-            var article = this.article;
-            article.set('title', $(title).val());
-            article.set('articleContent', $(articleContent).val());
-            article.set('type', $('input[name=types]:checked').val());
+            var article = this.content;
             article.save();
 
             this.transitionToRoute('articles.view', article);

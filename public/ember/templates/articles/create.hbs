@@ -3,8 +3,8 @@
 	<form class="form-horizontal">
 		<div class="control-group">		
 			<div class="controls">
-				{{input type="text" value=article.title id="title" placeholder="Title"}}
-				Url slug: {{article.slug}}				
+				{{input type="text" value=content.title id="title" placeholder="Title"}}
+				Url slug: {{content.slug}}				
 			</div>
 			
 			<div class="controls">
@@ -19,7 +19,7 @@
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				{{textarea id="articleContent" cols="60" rows="20" placeholder="Article Content"}}
+				{{textarea id="articleContent" value=content.articleContent cols="60" rows="20" placeholder="Article Content"}}
 			</div>
 		</div>
 		<div class="control-group">
