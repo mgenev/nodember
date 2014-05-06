@@ -21,23 +21,27 @@ App.ArticlesCreateController = Ember.Controller.extend({
 });
 
 
-App.ArticlesEditController = Ember.Controller.extend({
+App.ArticlesArticleController = Ember.Controller.extend({
     needs: ['articles'],
     actions: {
         editArticle: function() {
+            this.set('isEditing', true);
+        },
+        saveEdit: function() {
             var article = this.content;
             article.save();
 
             this.transitionToRoute('articles.article', article);
         }
-    }
+    },
+    isEditing: false
 });
 
 App.ArticlesController = Ember.Controller.extend({
     types: {
-        'name' : 'types',
-        'question' : 'Type',
-        'choices' : [ 'Blog', 'Article', 'Newsflash'],
-        'answer' : 'Blog'
+        'name': 'types',
+        'question': 'Type',
+        'choices': ['Blog', 'Article', 'Newsflash'],
+        'answer': 'Blog'
     },
 });

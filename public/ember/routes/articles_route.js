@@ -4,12 +4,11 @@ App.ArticlesIndexRoute = Ember.Route.extend({
     }
 });
 
-App.ArticlesViewRoute = Ember.Route.extend({
+App.ArticlesArticleRoute = Ember.Route.extend({
     model: function (params) {
       return this.store.find('article', params.article_id);
     }
 });
-
 
 App.ArticlesCreateRoute = Ember.Route.extend({
     model: function () {
@@ -17,9 +16,3 @@ App.ArticlesCreateRoute = Ember.Route.extend({
     }
 });
 
-
-App.ArticlesEditRoute = Ember.Route.extend({
-    model: function (params) {
-      return this.store.find('article', params.article_id);
-    }
-});

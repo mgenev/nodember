@@ -7,4 +7,10 @@
     <div>
 		{{ articleContent }}
     </div>
+    <span {{action 'editArticle'}}>EDIT</span>
 </div>
+
+  <h1 {{bind-attr class="isEditing:editing"}}>What is up!</h1>
+    {{#if isEditing}}
+    <h1>    EDIT MODE IS ON </h1>
+    {{/if}}
