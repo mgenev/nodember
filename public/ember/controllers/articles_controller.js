@@ -28,6 +28,8 @@ App.ArticlesArticleController = Ember.Controller.extend({
             this.set('isEditing', true);
         },
         saveEdit: function() {
+            this.set('isEditing', false);
+
             var article = this.content;
             article.save();
 

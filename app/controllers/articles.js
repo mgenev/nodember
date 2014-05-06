@@ -53,6 +53,7 @@ exports.update = function(req, res) {
     article.title = req.body.article.title;
     article.articleContent = req.body.article.articleContent;
     article.urlSegment = req.body.article.urlSegment;
+    article.type = req.body.article.type;
 
     article.save(function(err) {
         if (err) {
