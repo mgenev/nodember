@@ -6,7 +6,7 @@ App.ArticlesCreateController = Ember.Controller.extend({
                 self = this;
 
             function transitionToArticle(article) {
-                self.transitionToRoute('articles.view', article);
+                self.transitionToRoute('articles.article', article);
             }
 
             function failure(reason) {
@@ -28,7 +28,7 @@ App.ArticlesEditController = Ember.Controller.extend({
             var article = this.content;
             article.save();
 
-            this.transitionToRoute('articles.view', article);
+            this.transitionToRoute('articles.article', article);
         }
     }
 });

@@ -3,7 +3,7 @@
 	<ul>
 	{{#each}}
 		<li>
-		    <span class="title">{{#link-to 'articles.view' id}}{{title}}{{/link-to}}</span>
+		    <span class="title">{{#link-to 'articles.article' id}}{{title}}{{/link-to}}</span>
 		    <span>by {{ user.name }}</span>
 		    <span>on {{formatDate created "short"}}</span>	
 		    <span>{{content}}</span>
