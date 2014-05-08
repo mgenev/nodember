@@ -1,4 +1,4 @@
-Full Stack JS Amber BoilerPlate
+Full Stack JS Nodember BoilerPlate
 ==========================
 
 This boilerplate is designed to bring you as close as possible to actually writing your app immediately after install. It includes an Express server, a MongoDB Database and a client which uses Ember for a single page application. The architecture is REST and there is an example usage of CRUD and user authentication included. From there you're ready to code your app.
