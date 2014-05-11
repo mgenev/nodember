@@ -32,7 +32,7 @@ module.exports = function(app, passport, db) {
     }
 
     //Set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
+    app.set('views', config.root + '/server/views');
     app.engine('html', require('hbs').__express);
     app.set('view engine', 'html');
 

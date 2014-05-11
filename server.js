@@ -13,15 +13,15 @@ var express = require('express'),
 //Load configurations
 //if test env, load example file
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-    config = require('./config/config'),
-    auth = require('./config/middlewares/authorization'),
+    config = require('./server/config/config'),
+    auth = require('./server/config/middlewares/authorization'),
     mongoose = require('mongoose');
 
 //Bootstrap db connection
 var db = mongoose.connect(config.db);
 
 //Bootstrap models
-var models_path = __dirname + '/app/models';
+var models_path = __dirname + '/server/models';
 var walk = function(path) {
     fs.readdirSync(path).forEach(function(file) {
         var newPath = path + '/' + file;
@@ -38,15 +38,15 @@ var walk = function(path) {
 walk(models_path);
 
 //bootstrap passport config
-require('./config/passport')(passport);
+require('./server/config/passport')(passport);
 
 var app = express();
 
 //express settings
-require('./config/express')(app, passport, db);
+require('./server/config/express')(app, passport, db);
 
 //Bootstrap routes
-require('./app/routes/routes')(app, passport, auth);
+require('./server/routes/routes')(app, passport, auth);
 
 //Start the app by listening on <port>
 var port = process.env.PORT || config.port;

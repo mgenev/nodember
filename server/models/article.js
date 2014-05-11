@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    config = require('../../config/config'),
+    config = require('../config/config'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
