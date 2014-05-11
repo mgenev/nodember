@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                 tasks: ['neuter', 'replace:sourceMap']
             },
             serverTemplates: {
-                files: ['app/views/**'],
+                files: ['server/views/**'],
                 options: {
                     livereload: true,
                 }

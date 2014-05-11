@@ -1,5 +1,23 @@
-<h3>FLASH: {{view.flash}}</h3>
-
-<h4>The current name is: {{name}}</h5>
-    {{outlet}}
-<button {{action 'openModal' 'modal' model}}>Change Name</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-body">
+                    {{#if view.flash}}
+						<p class="bg-danger">
+							{{view.flash}}
+						</p>
+					{{/if}}
+                </div>
+            </div>
+            <div class=" panel panel-default">
+                <div class="panel-body">
+					<h4>The current name in modal-bound model is: {{name}}</h4>
+					<button {{action 'openModal' 'modal' model}}>
+						Change Name
+					</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
