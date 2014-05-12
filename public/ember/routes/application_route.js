@@ -3,7 +3,9 @@ App.ApplicationRoute = Ember.Route.extend({
         // return this.store.find('admin', '53694c9ecd2fdd72457e95c3');
     },
     activate: function() {
-        this.woof.info('Welcome! Click me to dismiss or I will disappear in 5 seconds.');
+        if (window.flash) {
+            this.woof.info(window.flash);    
+        }        
     },
     actions: {
         openModal: function(modalName, model) {
