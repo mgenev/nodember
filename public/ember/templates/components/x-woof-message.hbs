@@ -1,0 +1,4 @@
+<div {{bind-attr class=":woof-message :alert :alert-dismissable message.typeClass"}}>
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>{{capitalize message.type}}</strong> {{message.message}}
+</div>

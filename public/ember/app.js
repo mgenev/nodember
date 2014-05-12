@@ -10,7 +10,8 @@ require('ember/components/*');
 require('ember/router');
 require('ember/util/*');
 require('ember/util/helpers/*');
-
+require('ember/addons/*');
+require('ember/initializers/*');
 
 App.ApplicationSerializer = DS.RESTSerializer.extend({
   primaryKey: '_id'

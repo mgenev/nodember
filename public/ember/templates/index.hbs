@@ -12,6 +12,10 @@
             </div>
             <div class=" panel panel-default">
                 <div class="panel-body">
+                    <button {{action "addDanger"}} class="btn btn-danger">Add Danger</button>
+                    <button {{action "addWarning"}} class="btn btn-warning">Add Warning</button>
+                    <button {{action "addInfo"}} class="btn btn-info">Add Info</button>
+                    <button {{action "addSuccess"}} class="btn btn-success">Add Success</button>
 					<h4>The current name in modal-bound model is: {{name}}</h4>
 					<button {{action 'openModal' 'modal' model}}>
 						Change Name
@@ -21,3 +25,4 @@
         </div>
     </div>
 </div>
+
