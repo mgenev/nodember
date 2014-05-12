@@ -11,24 +11,59 @@ p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\000039}}
 .woof-message {
   cursor: pointer;
+  height: 100px;
+  width: 150px;
+  margin: auto;
+  margin-top: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000317}}
 .woof-message:hover button.close {
   color: #000;
   opacity: .5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000322}}
 div.x-woof-message-container.pre-insert, div.x-woof-message-container.destroyed {
   /*   -webkit-transform: scaleY(0); */
   opacity: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000327}}
 div.x-woof-message-container {
   /*   -webkit-transform: scaleY(1);
     -webkit-transform-origin: top;
      */
   -webkit-transition: all 0.25s ease;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000334}}
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000341}}
+.horizontal-center-top {
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  z-index: 9999;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000349}}
+.bottom-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  overflow: auto;
+  z-index: 9999;
 }

@@ -8,6 +8,10 @@ padding: 15px;
 
 .woof-message {
   cursor: pointer;
+  height: 100px;
+  width: 150px;
+  margin:auto;
+  margin-top:20px;
 }
 
 .woof-message:hover button.close {
@@ -25,4 +29,26 @@ div.x-woof-message-container {
   -webkit-transform-origin: top;
    */
   -webkit-transition: all 0.25s ease;
+}
+
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  overflow:auto;
+}
+
+.horizontal-center-top {
+  margin: auto;
+  position: absolute;
+  top: 100px; left: 0; right: 0;
+  overflow:auto;
+  z-index:9999;
+}
+
+.bottom-right {  
+  position: absolute;
+  bottom: 10px; right: 10px;
+  overflow:auto;
+  z-index:9999;
 }
