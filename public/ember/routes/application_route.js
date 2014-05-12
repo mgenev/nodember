@@ -4,7 +4,7 @@ App.ApplicationRoute = Ember.Route.extend({
     },
     activate: function() {
         if (window.flash) {
-            this.woof.info(window.flash);    
+            this.woof.danger(window.flash);    
         }        
     },
     actions: {
