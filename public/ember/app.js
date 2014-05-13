@@ -8,8 +8,7 @@ require('ember/routes/*');
 require('ember/views/*');
 require('ember/components/*');
 require('ember/router');
-require('ember/util/*');
-require('ember/util/helpers/*');
+require('ember/helpers/*');
 require('ember/addons/*');
 require('ember/initializers/*');
 
