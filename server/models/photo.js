@@ -42,7 +42,7 @@ var PhotoSchema = new Schema({
 /**
  * Validations
  */
-NameSchema.path('name').validate(function(name) {
+PhotoSchema.path('name').validate(function(name) {
     return name.length;
 }, 'Name cannot be blank');
 

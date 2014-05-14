@@ -1,20 +1,27 @@
-var path = require('path');
-var fs = require('fs');
-var join = path.join;
+var path = require('path'),
+  fs = require('fs'),
+  join = path.join,
+  root = require('../../root'),
+  mongoose = require('mongoose'),
+  Photo = mongoose.model('Photo');
 
-var mongoose = require('mongoose'),
-    Photo = mongoose.model('Photo');
+exports.photo = function(req, res, next, id) {
 
+    Photo.load(id, function(err, photo) {
+        if (err) return next(err);
+        if (!photo) return next(new Error('Failed to load photo ' + id));
 
-/**
- * List of Articles
- */
+        req.photo = photo;
+        next();
+    });
+};
+
 exports.index = function(req, res, next) {
     if (!_.isEmpty(req.query))  {
         Photo.query(req.query, function(err, photos) {
             if (err) return next(err);
             if (!photos)  {
-                res.send({error: new Error('Failed to load article for query')});
+                res.send({error: new Error('Failed to load photo for query')});
             } else {
                 res.send({photos: [photos]});    
             }
@@ -39,7 +46,7 @@ exports.upload = function (dir) {
   return function(req, res, next){
     var img = req.files.photo.image;
     var name = req.body.photo.name || img.name;
-    var path = join(dir, img.name);
+    var path = join(root + '/public/img/uploads/', img.name);
 
     fs.rename(img.path, path, function(err){
       if (err) return next(err);

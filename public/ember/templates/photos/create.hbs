@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class=" panel panel-default">
+            	<div class="panel-heading">
+            		Upload photo
+            	</div>
+                <div class="panel-body">
+					
+					<form class="form-horizontal">
+						<div class="control-group">
+						    <label class="control-label" for="name">Title</label>
+
+						    <div class="controls">
+						        {{input type="text" value=content.name id="name" placeholder="name"}}                      
+						        </input>
+						    </div>
+						    
+						    <div class="controls">
+						    	{{file-upload url="/photos/upload"}}
+						    </div>
+
+						<div class="control-group">
+						    <div class="controls">
+						        <button class="btn" {{action 'uploadPhoto'}}>Save</button>
+						    </div>
+						</div>
+					</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
