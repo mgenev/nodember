@@ -44,8 +44,10 @@ exports.index = function(req, res, next) {
 
 exports.upload = function (dir) {
   return function(req, res, next){
-    var img = req.files.photo.image;
-    var name = req.body.photo.name || img.name;
+    console.log('yes it hit first', req.body);
+    var img = req.files.file;
+    var name = img.originalFilename;
+
     var path = join(root + '/public/img/uploads/', img.name);
 
     fs.rename(img.path, path, function(err){

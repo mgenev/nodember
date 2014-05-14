@@ -1,31 +1,30 @@
-<h4>Create</h4>
-<section>
-	<form class="form-horizontal">
-		<div class="control-group">		
-			<div class="controls">
-				{{input type="text" value=content.title id="title" placeholder="Title"}}
-				Url slug: {{content.slug}}				
-			</div>
-			
-			<div class="controls">
-			<span class="question">{{controllers.articles.question}}</span>
-             {{radio-group
-	             content=controllers.articles.types.choices
-	             value=controllers.articles.answer
-	             selection=content.type
-	             name=controllers.articles.types.name
-             }}
-			</div>
-		</div>
-		<div class="control-group">
-			<div class="controls">
-				{{textarea id="articleContent" value=content.articleContent cols="60" rows="20" placeholder="Article Content"}}
-			</div>
-		</div>
-		<div class="control-group">
-			<div class="controls">
-				<button class="btn" {{action 'createArticle'}}>Create article</button>
-			</div>
-		</div>
-	</form>
-</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Create</h4>
+            <section>
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <div class="controls">
+                            {{input type="text" value=content.title id="title" placeholder="Title"}} Url slug: {{content.slug}}
+                        </div>
+                        <div class="controls">
+                            <span class="question">{{controllers.articles.question}}</span>
+                            {{radio-group content=controllers.articles.types.choices value=controllers.articles.answer selection=content.type name=controllers.articles.types.name }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            {{textarea id="articleContent" value=content.articleContent cols="60" rows="20" placeholder="Article Content"}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button class="btn" {{action 'createArticle'}}>Create article</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
