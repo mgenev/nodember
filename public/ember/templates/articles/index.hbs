@@ -1,14 +1,20 @@
-<h2>Index of articles:</h2>
-<div class="article-list">
-	<ul>
-	{{#each}}
-		<li>
-		    <span class="title">{{#link-to 'articles.article' id}}{{title}}{{/link-to}}</span>
-		    <span>by {{ user.name }}</span>
-		    <span>on {{formatDate created "short"}}</span>	
-		    <span>{{content}}</span>
-		    <span>{{articleContent}}</span>
-		</li>
-	{{/each}}
-	</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+                <h2>Index of articles:</h2>
+                <div class="article-list">
+                    <ul>
+                        {{#each}}
+                        <li>
+                            <span class="title">{{#link-to 'articles.article' id}}{{title}}{{/link-to}}</span>
+                            <span>by {{ user.name }}</span>
+                            <span>on {{formatDate created "short"}}</span>
+                            <span>{{content}}</span>
+                            <span>{{articleContent}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+        </div>
+    </div>
 </div>

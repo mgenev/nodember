@@ -4,19 +4,23 @@ App.HeaderView = Ember.View.extend({
     authenticated: global.authenticated,
     menu: [{
         'title': 'Articles',
-        'link': 'articles'
-    },{
-        'title': 'Create New Article',
-        'link': 'articles.create'
-    }, {
-        'title': 'Articles Drop',
         'link': 'articles',
         'submenu': [{
-            'title': 'Articles List',
+            'title': 'Index',
             'link': 'articles'
         }, {
             'title': 'Create New Article',
             'link': 'articles.create'
         }]
+    }, {
+        'title': 'Photos',
+        'link': 'photos',
+        'submenu': [{
+            'title': 'Index',
+            'link': 'photos'
+        }, {
+            'title': 'Upload New Photo',
+            'link': 'photos.create'
+        }, ]
     }]
 });

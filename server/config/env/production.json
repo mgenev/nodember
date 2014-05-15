@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/mean",
+    "db": "mongodb://localhost/nodember",
     "app": {
         "name": "Full Stack JS - A Modern Stack - Production"
     },

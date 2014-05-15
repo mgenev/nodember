@@ -4,6 +4,7 @@
 npm-debug.log
 node_modules/
 public/lib
+public/img/uploads
 package_bak.json
 
 npm-debug.log
