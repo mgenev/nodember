@@ -1,7 +1,6 @@
 App.PhotosIndexRoute = Ember.Route.extend({
     model: function () {
-        // return this.store.find('photo');
-        return ['1', '2', '3']
+ 	 	return this.store.find('photo');
     }
 });
 

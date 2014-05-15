@@ -1,14 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h2>Index of articles:</h2>
+            <h2>Index of photos:</h2>
             <div class="article-list">
                 <ul>
                     {{#each}}
                     <li>
-                        <h2>{{ content.name }}</h2>
-                        <span>by {{ user.name }}</span>
-                        <img {{bind-attr src="content.path" }} {{bind-attr alt="content.name" }}>
+                        <h2>{{ name }}</h2>
+                        <img {{bind-attr src="path" }} {{bind-attr alt="name" }}>
                     </li>
                     {{/each}}
                 </ul>

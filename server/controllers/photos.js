@@ -1,9 +1,10 @@
 var path = require('path'),
-  fs = require('fs'),
-  join = path.join,
-  root = require('../../root'),
-  mongoose = require('mongoose'),
-  Photo = mongoose.model('Photo');
+    fs = require('fs'),
+    join = path.join,
+    root = require('../../root'),
+    mongoose = require('mongoose'),
+    Photo = mongoose.model('Photo'),
+    _ = require('underscore');
 
 exports.photo = function(req, res, next, id) {
 
@@ -17,23 +18,40 @@ exports.photo = function(req, res, next, id) {
 };
 
 exports.index = function(req, res, next) {
-    if (!_.isEmpty(req.query))  {
+    if (!_.isEmpty(req.query)) {
         Photo.query(req.query, function(err, photos) {
             if (err) return next(err);
-            if (!photos)  {
-                res.send({error: new Error('Failed to load photo for query')});
+            if (!photos) {
+                res.send({
+                    error: new Error('Failed to load photo for query')
+                });
             } else {
-                res.send({photos: [photos]});    
+                //transform to public path                
+                _.map(photos, function(photo) {
+                    var p = photo.path;
+                    photo.path = p.substr(p.indexOf("/public") + 7, p.length);
+                    return photo;
+                });
+                res.send({
+                    photos: photos
+                });
             }
         });
     } else {
         // else we find all
         Photo.find().sort('-created').populate('user', 'name username').exec(function(err, photos) {
-            if (err) {
-                res.render('error', {
-                    status: 500
+            if (err) return next(err);
+            if (!photos) {
+                res.send({
+                    error: new Error('Failed to load photo for query')
                 });
             } else {
+                //transform to public path                
+                _.map(photos, function(photo) {
+                    var p = photo.path;
+                    photo.path = p.substr(p.indexOf("/public") + 7, p.length);
+                    return photo;
+                });
                 res.send({
                     photos: photos
                 });
@@ -42,35 +60,34 @@ exports.index = function(req, res, next) {
     }
 };
 
-exports.upload = function (dir) {
-  return function(req, res, next){
-    console.log('yes it hit first', req.body);
-    var img = req.files.file;
-    var name = img.originalFilename;
+exports.upload = function(dir) {
+    return function(req, res, next) {
+        var img = req.files.file;
+        var name = img.originalFilename;
 
-    var path = join(root + '/public/img/uploads/', img.name);
+        var path = join(root + '/public/img/uploads/', img.name);
 
-    fs.rename(img.path, path, function(err){
-      if (err) return next(err);
+        fs.rename(img.path, path, function(err) {
+            if (err) return next(err);
 
-      Photo.create({
-        name: name,
-        path: img.name
-      }, function(err) {
-        if (err) return next(err);
-        res.redirect('/');
-      });
-    });
-  };
+            Photo.create({
+                name: name,
+                path: path
+            }, function(err) {
+                if (err) return next(err);
+                res.redirect('/');
+            });
+        });
+    };
 };
 
-exports.download = function(dir){
-  return function(req, res, next){
-    var id = req.params.id;
-    Photo.findById(id, function(err, photo){
-      if (err) return next(err);
-      var path = join(dir, photo.path);
-      res.download(path, photo.name+'.jpeg');
-    });
-  };
+exports.download = function(dir) {
+    return function(req, res, next) {
+        var id = req.params.id;
+        Photo.findById(id, function(err, photo) {
+            if (err) return next(err);
+            var path = join(dir, photo.path);
+            res.download(path, photo.name + '.jpeg');
+        });
+    };
 };
