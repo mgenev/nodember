@@ -64,20 +64,29 @@ exports.upload = function(dir) {
     return function(req, res, next) {
         var img = req.files.file;
         var name = img.originalFilename;
+        var exists = false;
+        var path =  root + '/public/img/uploads/';
 
-        var path = join(root + '/public/img/uploads/', img.name);
+        fs.exists(path, function(exists) {
+            if (!exists) {
+                fs.mkdirSync(path, '755');
+            }
 
-        fs.rename(img.path, path, function(err) {
-            if (err) return next(err);
+            var imgPath = join(path, img.name);
 
-            Photo.create({
-                name: name,
-                path: path
-            }, function(err) {
+            fs.rename(img.path, imgPath, function(err) {
                 if (err) return next(err);
-                res.redirect('/');
+
+                Photo.create({
+                    name: name,
+                    path: path
+                }, function(err) {
+                    if (err) return next(err);
+                    res.redirect('/');
+                });
             });
-        });
+        })
+
     };
 };
 

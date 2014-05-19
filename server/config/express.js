@@ -5,7 +5,8 @@ var express = require('express'),
     mongoStore = require('connect-mongo')(express),
     flash = require('connect-flash'),
     helpers = require('view-helpers'),
-    config = require('./config');
+    config = require('./config'),
+    root = require('../../root');
 
 module.exports = function(app, passport, db) {
     app.set('showStackError', true);    
@@ -45,7 +46,7 @@ module.exports = function(app, passport, db) {
         app.use(express.cookieParser());
 
         //bodyParser should be above methodOverride
-        app.use(express.bodyParser());
+        app.use(express.bodyParser({uploadDir: root + '/uploads'}));
         app.use(express.methodOverride());
 
         //express/mongo session storage
