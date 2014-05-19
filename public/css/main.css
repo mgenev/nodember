@@ -1,14 +1,15 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\000032}}
 html, body {
   margin: 30px 0;
+  height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\000036}}
 p {
   padding: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000310}}
 .woof-message {
   cursor: pointer;
   height: 100px;
@@ -17,19 +18,19 @@ p {
   margin-top: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000318}}
 .woof-message:hover button.close {
   color: #000;
   opacity: .5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000323}}
 div.x-woof-message-container.pre-insert, div.x-woof-message-container.destroyed {
   /*   -webkit-transform: scaleY(0); */
   opacity: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000328}}
 div.x-woof-message-container {
   /*   -webkit-transform: scaleY(1);
     -webkit-transform-origin: top;
@@ -37,7 +38,7 @@ div.x-woof-message-container {
   -webkit-transition: all 0.25s ease;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000335}}
 .absolute-center {
   margin: auto;
   position: absolute;
@@ -48,7 +49,7 @@ div.x-woof-message-container {
   overflow: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000342}}
 .horizontal-center-top {
   margin: auto;
   position: absolute;
@@ -59,7 +60,7 @@ div.x-woof-message-container {
   z-index: 9999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/martin\.genev\/Projects\/Full-Stack-JS-Amber\/public\/sass\/main\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/Projects\/Full-Stack-JS-Boilerplate\/public\/sass\/main\.scss}line{font-family:\0000350}}
 .bottom-right {
   position: absolute;
   bottom: 10px;
