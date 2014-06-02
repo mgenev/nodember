@@ -1,17 +1,11 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h2>Index of photos:</h2>
+
             <div class="photo-list">
                 <ul id="tiles">
                     {{#each}}
                     <li>
-                        <img width="200px" {{bind-attr src="src" }} {{bind-attr alt="name" }}>
+                        <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
                         <p>{{name}}</p>
                     </li>
                     {{/each}} 
                 </ul>
             </div>
-        </div>
-    </div>
-</div>
