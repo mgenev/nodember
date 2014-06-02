@@ -1,11 +1,10 @@
-
-            <div class="photo-list">
-                <ul id="tiles">
-                    {{#each}}
-                    <li>
-                        <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
-                        <p>{{name}}</p>
-                    </li>
-                    {{/each}} 
-                </ul>
-            </div>
+<div class="photo-list">
+    <ul id="tiles">
+        {{#each}}
+        <li>
+            <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
+            <p>{{name}}</p>
+        </li>
+        {{/each}} 
+    </ul>
+</div>
