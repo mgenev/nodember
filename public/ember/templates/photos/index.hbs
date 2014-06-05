@@ -1,7 +1,7 @@
 <div class="photo-list">
     <ul id="tiles">
-        {{#each}}
-        <li>
+        {{#each content}}
+        <li {{action 'openModal' 'photoViewer' this}}>
             <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
             <p>{{name}}</p>
         </li>

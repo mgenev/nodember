@@ -26,3 +26,11 @@ App.PhotosPhotoController = Ember.Controller.extend({
     },
     isEditing: false
 });
+
+App.PhotosIndexController = Ember.Controller.extend({    
+    actions: {
+        viewer: function() {
+            alert('bam');
+        }        
+    }
+});
