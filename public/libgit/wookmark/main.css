@@ -26,7 +26,6 @@
 
     background-color: #ffffff;
 
-    border: 1px solid #dedede;
 
     border-radius: 2px;
 
@@ -40,7 +39,7 @@
 
     cursor: pointer;
 
-    padding: 4px;
+    padding: 1px;
 
 }
 
@@ -63,19 +62,25 @@
  */
 
 #tiles li p {
+    
 
-    color: #666;
 
-    font-size: 13px;
+    color: white;
 
-    line-height: 20px;
+    font-size: 18px;
+
+    line-height: 10px;
 
     text-align: center;
 
     font-weight: 200;
 
-    margin: 7px 0 2px 7px;
+    margin-top: -50px;
 
+}
+
+#tiles li p {
+    display: none;
 }
 
 
