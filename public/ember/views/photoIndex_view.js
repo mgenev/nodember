@@ -6,7 +6,7 @@ App.PhotosIndexView = Ember.View.extend({
           itemWidth: 300, // Optional min width of a grid item
           autoResize: true, // This will auto-update the layout when the browser window is resized.
           container: $('#tiles'), // Optional, used for some extra CSS styling
-          offset: 0, // Optional, the distance between grid items
+          offset: 0 , // Optional, the distance between grid items
           outerOffset: 0, // Optional the distance from grid to parent
           flexibleWidth: '50%' // Optional, the maximum width of a grid item
         };

@@ -11,8 +11,5 @@ App.PhotosPhotoRoute = Ember.Route.extend({
 });
 
 App.PhotosCreateRoute = Ember.Route.extend({
-    model: function () {
-       return this.store.createRecord('photo', {name: ''});
-    }
 });
 
