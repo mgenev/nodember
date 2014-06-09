@@ -70,13 +70,19 @@ div.x-woof-message-container {
 }
 
 .full-size-photo-viewer {
+  opacity: 0;
+
   .modal-body {
     padding:0;
   }  
+
   .photo {
     width: 80%;    
     margin:0;
     float:left;
+    background-color: #000;
+
+    img {margin:0 auto;}
   }
 
   .side-panel {
