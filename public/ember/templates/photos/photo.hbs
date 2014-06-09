@@ -25,10 +25,11 @@
                         </form>
                     {{else}}
                         <div>
+                        {{render "photoViewer" this}}
                             <h2>{{ content.name }}</h2>
-                            <img {{bind-attr src="content.path"}} {{bind-attr alt="content.name"}}>
+                            
                             <button class="btn btn-success" {{action 'downloadPhoto'}}>Download</button>
-                            <button class="btn btn-warning" {{action 'editPhoto'}}>Download</button>
+                            <button class="btn btn-warning" {{action 'editPhoto'}}>Edit</button>
                             <button class="btn btn-danger" {{action 'deletePhoto'}}>Delete</button>
                         </div>
                     {{/if}}                    

@@ -1,10 +1,14 @@
+<div class="loader "></div>
+
 <div class="photo-list">
     <ul id="tiles">
         {{#each content}}
-        <li {{action 'openModal' 'photoViewer' this}}>
-            <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
-            <p>{{name}}</p>
-        </li>
+	        {{#link-to 'photos.photo' this}}
+		        <li>		  
+		            <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>
+		            <p>{{name}}</p>        
+		        </li>
+	        {{/link-to}}
         {{/each}} 
     </ul>
 </div>

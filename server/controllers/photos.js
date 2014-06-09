@@ -7,17 +7,37 @@ var path = require('path'),
     _ = require('underscore');
 
 exports.photo = function(req, res, next, id) {
-
+    console.log('is it hitting?', id);
     Photo.load(id, function(err, photo) {
         if (err) return next(err);
         if (!photo) return next(new Error('Failed to load photo ' + id));
-
-        req.photo = photo;
+        photo = transformPath([photo]);
+        req.photo = photo[0];
         next();
     });
 };
 
+/**
+ * Show a photo
+ */
+
+exports.show = function(req, res) {
+    res.send({
+        photo: req.photo
+    });
+};
+
+transformPath = function(photos) {
+    var transformed = _.map(photos, function(photo) {
+        var p = photo.path;
+        photo.path = p.substr(p.indexOf("/public") + 7, p.length);
+        return photo;
+    });
+    return transformed;
+}
+
 exports.index = function(req, res, next) {
+
     if (!_.isEmpty(req.query)) {
         Photo.query(req.query, function(err, photos) {
             if (err) return next(err);
@@ -27,11 +47,7 @@ exports.index = function(req, res, next) {
                 });
             } else {
                 //transform to public path                
-                _.map(photos, function(photo) {
-                    var p = photo.path;
-                    photo.path = p.substr(p.indexOf("/public") + 7, p.length);
-                    return photo;
-                });
+                photos = transformPath(photos);
                 res.send({
                     photos: photos
                 });
@@ -47,11 +63,7 @@ exports.index = function(req, res, next) {
                 });
             } else {
                 //transform to public path                
-                _.map(photos, function(photo) {
-                    var p = photo.path;
-                    photo.path = p.substr(p.indexOf("/public") + 7, p.length);
-                    return photo;
-                });
+                photos = transformPath(photos);
                 res.send({
                     photos: photos
                 });
@@ -65,7 +77,7 @@ exports.upload = function(dir) {
         var img = req.files.file;
         var name = img.originalFilename;
         var exists = false;
-        var path =  root + '/public/img/uploads/';
+        var path = root + '/public/img/uploads/';
 
         fs.exists(path, function(exists) {
             if (!exists) {

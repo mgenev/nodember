@@ -1,6 +1,7 @@
 App.PhotosIndexView = Ember.View.extend({
     didInsertElement: function() {
       $('#tiles').imagesLoaded(function() {
+        $('.loader').hide();
         // Prepare layout options.
         var options = {
           itemWidth: 300, // Optional min width of a grid item
@@ -38,5 +39,7 @@ App.PhotosIndexView = Ember.View.extend({
       $('#tiles img').mouseleave(function (e) {
         $(e.target).siblings('p').hide();
       })
+
+      
     }
 });

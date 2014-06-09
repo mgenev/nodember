@@ -57,3 +57,32 @@ div.x-woof-message-container {
   overflow:auto;
   z-index:9999;
 }
+
+.loading div {
+  margin:0 auto;
+}
+.loader {
+  margin:0 auto;  
+  background-image: url(/img/loaders/loader-pacman.gif);
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+}
+
+.full-size-photo-viewer {
+  .modal-body {
+    padding:0;
+  }  
+  .photo {
+    width: 80%;    
+    margin:0;
+    float:left;
+  }
+
+  .side-panel {
+      float:left;
+      width: 20%;
+      margin:0;
+      background-color:white;
+    } 
+}

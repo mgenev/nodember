@@ -1,12 +1,12 @@
 {{#modal-dialog}}
-<div class="modal-header centerAlign">
-	<h4 class="centerAlign">Change name</h4>
-</div>
-<div class="modal-body">
-	<p>Enter a new name:</p>
-	<p><img {{bind-attr src='src'}}></p>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-default" {{action "close"}}>Close</button>                    
+<div class="full-size-photo-viewer">
+	<div class="modal-body">
+		<div class="photo">
+			<img class="img-responsive" {{bind-attr src='this.content.content.src'}}>
+		</div>
+		<div class="side-panel">
+			the side panel
+		</div>
+	</div>
 </div>
 {{/modal-dialog}}
