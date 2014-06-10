@@ -1,19 +1,17 @@
 App.PhotoViewerView = Ember.View.extend({
     didInsertElement: function() {
-        var self = this;
+        this.setViewerHeight();
         $('.photo').imagesLoaded(function() {
-            self.setSidePanelHeight();
             $('.full-size-photo-viewer').css('opacity', 1);
         });
 
         $(window).resize(function() {
-          self.setSidePanelHeight();
+          this.setViewerHeight();
         });
-    },
-    //Em.run.scheduleOnce('afterRender', this, this.setSidePanelHeight)      
-    setSidePanelHeight: function() {
-        var height = $('.photo').height();
-        console.log('height is', height);
+    },    
+    setViewerHeight: function() {
+        var height = $(window).height() - 50;
+        $('.photo').height(height);
         $('.side-panel').height(height);
     }
 });

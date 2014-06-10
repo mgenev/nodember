@@ -1,94 +1,182 @@
 
 html, body {
+
     margin: 30px 0;
+
     height:100%;
+
 }
+
 p {
-padding: 15px;
+
+    padding: 15px;
+
 }
 
 .modal-dialog {
-  width: auto;
+
+    width: auto;
+
 }
 
 .woof-message {
-  cursor: pointer;
-  height: 100px;
-  width: 150px;
-  margin:auto;
-  margin-top:20px;
+
+    cursor: pointer;
+
+    height: 100px;
+
+    width: 150px;
+
+    margin:auto;
+
+    margin-top:20px;
+
 }
 
 .woof-message:hover button.close {
-  color: #000;
-  opacity: .5;
+
+    color: #000;
+
+    opacity: .5;
+
 }
 
 div.x-woof-message-container.pre-insert, div.x-woof-message-container.destroyed {
-/*   -webkit-transform: scaleY(0); */
-  opacity: 0;
+
+    /*   -webkit-transform: scaleY(0); */
+
+    opacity: 0;
+
 }
 
 div.x-woof-message-container {
-/*   -webkit-transform: scaleY(1);
+
+    /*   -webkit-transform: scaleY(1);
   -webkit-transform-origin: top;
    */
-  -webkit-transition: all 0.25s ease;
+
+    -webkit-transition: all 0.25s ease;
+
 }
 
 .absolute-center {
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  overflow:auto;
+
+    margin: auto;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    bottom: 0;
+
+    right: 0;
+
+    overflow:auto;
+
 }
 
 .horizontal-center-top {
-  margin: auto;
-  position: absolute;
-  top: 100px; left: 0; right: 0;
-  overflow:auto;
-  z-index:9999;
+
+    margin: auto;
+
+    position: absolute;
+
+    top: 100px;
+
+    left: 0;
+
+    right: 0;
+
+    overflow:auto;
+
+    z-index:9999;
+
 }
 
-.bottom-right {  
-  position: absolute;
-  bottom: 10px; right: 10px;
-  overflow:auto;
-  z-index:9999;
+.bottom-right {
+
+    position: absolute;
+
+    bottom: 10px;
+
+    right: 10px;
+
+    overflow:auto;
+
+    z-index:9999;
+
 }
 
 .loading div {
-  margin:0 auto;
+
+    margin:0 auto;
+
 }
+
 .loader {
-  margin:0 auto;  
-  background-image: url(/img/loaders/loader-pacman.gif);
-  background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
+
+    margin:0 auto;
+
+    background-image: url(/img/loaders/loader-pacman.gif);
+
+    background-repeat: no-repeat;
+
+    height: 100px;
+
+    width: 100px;
+
 }
 
 .full-size-photo-viewer {
-  opacity: 0;
 
-  .modal-body {
-    padding:0;
-  }  
+    opacity: 0;
 
-  .photo {
-    width: 80%;    
-    margin:0;
-    float:left;
-    background-color: #000;
+    .modal-body {
 
-    img {margin:0 auto;}
-  }
+        padding:0;
 
-  .side-panel {
-      float:left;
-      width: 20%;
-      margin:0;
-      background-color:white;
-    } 
+    }
+
+    .photo {
+
+        width: 80%;
+        margin:0;
+        float:left;
+        background-color: #000;
+        height:100%;
+        position: relative;
+        img {
+
+            margin: auto;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            bottom: 0;
+
+            right: 0;
+
+        }
+
+    }
+
+    .side-panel {
+
+        float:left;
+
+        height:100%;
+
+        width: 20%;
+
+        margin:0;
+
+        background-color:white;
+
+    }
+
 }
