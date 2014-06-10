@@ -4,8 +4,9 @@
 		<div class="photo">
 			<img class="img-responsive center" {{bind-attr src='this.content.content.src'}}>
 		</div>
-		<div class="side-panel">
-			the side panel
+		<div  class="side-panel">
+			<div {{action 'forward'}}>NEXT</div>
+			<div {{action 'backwards'}}>PREV</div>
 		</div>
 	</div>
 </div>
