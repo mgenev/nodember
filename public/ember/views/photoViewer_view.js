@@ -5,8 +5,9 @@ App.PhotoViewerView = Ember.View.extend({
             $('.full-size-photo-viewer').css('opacity', 1);
         });
 
+        var self = this;
         $(window).resize(function() {
-          this.setViewerHeight();
+          self.setViewerHeight();
         });
     },    
     setViewerHeight: function() {

@@ -32,14 +32,11 @@ App.PhotosIndexView = Ember.View.extend({
         handler.wookmark(options);
       });
     
-
       $('#tiles img').mouseenter(function (e) {
         $(e.target).siblings('p').show();
       })
       $('#tiles img').mouseleave(function (e) {
         $(e.target).siblings('p').hide();
-      })
-
-      
+      })      
     }
 });
