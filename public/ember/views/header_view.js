@@ -3,6 +3,9 @@ App.HeaderView = Ember.View.extend({
     user: global.user,
     authenticated: global.authenticated,
     menu: [{
+        'title': 'Store',
+        'link' : 'store'
+    }, {
         'title': 'Articles',
         'link': 'articles',
         'submenu': [{

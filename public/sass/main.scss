@@ -1,6 +1,5 @@
 
 html, body {
-
     margin: 30px 0;
 
     height:100%;
@@ -180,3 +179,32 @@ div.x-woof-message-container {
     }
 
 }
+
+
+.product {
+    display: block;
+    width: 100px;
+    border-radius: 5px;
+    background: #efefef;
+    margin-bottom: 10px;
+    valign; middle;
+    padding: 4px 10px;
+}
+    
+.cart{
+    .basket {
+    border-radius 10px
+    background #eee
+    padding 4px
+    border: 2px solid #fff
+    }
+    
+    .dragging {
+    border: 2px dashed #777
+    }
+  
+    .drag-enter{
+        background #ccc  
+    }
+}
+  

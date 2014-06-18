@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+			<h2>Welcome to Store</h2>
+
+			<div class="products">
+			  {{#each product in controller}}
+			    {{view App.ProductItemView contentBinding="product"}}
+			  {{/each}}
+			</div>
+
+			<div class="cart">
+			  {{view App.CartView}}
+			</div>
+		</div>
+	</div>
+</div>

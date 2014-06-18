@@ -10,4 +10,8 @@ App.Router.map(function () {
 		this.route('create', { path: '/create' });
 		this.route('photo', { path: ':photo_id' });
   	}); 
+
+  	this.resource('store', function() {
+
+  	});
 });
