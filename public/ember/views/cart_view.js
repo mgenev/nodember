@@ -1,13 +1,6 @@
-App.CartView = Ember.View.extend({
+App.CartView = Ember.View.extend(App.DroppableMixin,{
   templateName: 'cart',
   classNames: ['basket'],
-  dragOver: function(ev) {
-    this.$().addClass('drag-enter');
-    return ev.preventDefault();
-  },
-  dragLeave: function() {
-    return this.$().removeClass('drag-enter');
-  },
   drop: function(ev) {
     var controller, current_item, id, in_current_line_items, record;
     id = ev.dataTransfer.getData('text/data');

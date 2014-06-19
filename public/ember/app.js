@@ -1,7 +1,7 @@
 var App = window.App = Ember.Application.create();
 
 /* Order and include as you please. */
-
+require('ember/mixins/*');
 require('ember/controllers/*');
 require('ember/models/*');
 require('ember/routes/*');
