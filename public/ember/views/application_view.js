@@ -1,5 +1,5 @@
 App.ApplicationView = Ember.View.extend({
-    didInsertElement: function() {\
+    didInsertElement: function() {
     	// preventing browser from opening dragged files
         $(document.body).bind("dragover", function(e) {
             e.preventDefault();
