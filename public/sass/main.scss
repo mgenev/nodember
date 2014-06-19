@@ -187,24 +187,25 @@ div.x-woof-message-container {
     border-radius: 5px;
     background: #efefef;
     margin-bottom: 10px;
-    valign; middle;
+    vertical-align: middle;
     padding: 4px 10px;
+    cursor: copy;
 }
     
 .cart{
     .basket {
-    border-radius 10px
-    background #eee
-    padding 4px
-    border: 2px solid #fff
+        border-radius: 10px;
+        background: #eee;
+        padding: 4px;
+        border: 2px solid #fff;
     }
     
     .dragging {
-    border: 2px dashed #777
+        border: 2px dashed #777;
     }
   
     .drag-enter{
-        background #ccc  
+        background: #ccc;
     }
 }
   

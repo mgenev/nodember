@@ -91,6 +91,5 @@ module.exports = function(app, passport, db) {
         app.use(function(req, res) {
             res.status(404).redirect('/#' + req.originalUrl);
         });
-
     });
 };
