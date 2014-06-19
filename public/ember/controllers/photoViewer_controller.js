@@ -1,7 +1,6 @@
 App.PhotoViewerController = Ember.ObjectController.extend({
-  actions: {
-    close: function() {
-      return this.send('closeModal');
+    needs: ['PhotosPhoto'],
+    actions: {
+
     }
-  }
 });

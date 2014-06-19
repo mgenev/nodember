@@ -18,8 +18,13 @@ App.PhotosPhotoController = Ember.Controller.extend({
         }
         return [];
     },
-    getNextId: function(direction) {
-        var currentId = this.get('model').id;
+    getNextId: function(direction, model) {
+        if (!model) {
+            var currentId = this.get('model').id;    
+        } else {
+            var currentId = model.id;
+        }
+        
         var photoIdList = this.getPhotoIdList();
         var currentIdIndex = photoIdList.indexOf(currentId);
         var nextId;
@@ -40,11 +45,15 @@ App.PhotosPhotoController = Ember.Controller.extend({
         return nextId;
     },
     actions: {
-        forward: function() {
-            this.transitionToRoute('photos.photo', this.getNextId('forward'));
+        forward: function(model) {
+            this.transitionToRoute('photos.photo', this.getNextId('forward', model));
         },
-        backwards: function() {
-            this.transitionToRoute('photos.photo', this.getNextId('backwards'));
+        backwards: function(model) {
+            this.transitionToRoute('photos.photo', this.getNextId('backwards', model));
+        },
+        close: function (model) {
+            console.log('close hit');
+            this.transitionToRoute('photos');
         }
     },
     isEditing: false
