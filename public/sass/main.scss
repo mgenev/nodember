@@ -192,8 +192,9 @@ div.x-woof-message-container {
     cursor: copy;
 }
     
-.cart{
+.cart, .dropzone {
     .basket {
+        min-height: 200px;
         border-radius: 10px;
         background: #eee;
         padding: 4px;
