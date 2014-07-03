@@ -11,6 +11,18 @@ App.FileUploadDraggableComponent = Ember.Component.extend(App.DroppableMixin, {
             url: uploadUrl
         });
 
+        uploader.on('progress', function(e) {
+            // Handle progress changes
+            // Use `e.percent` to get percentag
+
+            $('.upload-progress').html(e.percent + '%');
+        });
+
+        uploader.on('didUpload', function(e) {
+            // Handle finished upload
+            $('.upload-progress').html('Upload finished'); 
+        });
+
         if (!Ember.isEmpty(files)) {
             uploader.upload(files[0]);
         }
