@@ -6,6 +6,7 @@ App.FileUploadDraggableComponent = Ember.Component.extend(App.DroppableMixin, {
 
         var files = e.dataTransfer.files;
         var uploadUrl = this.get('url');
+        var uploaded = 0;
 
         var uploader = Ember.Uploader.create({
             url: uploadUrl
@@ -15,16 +16,18 @@ App.FileUploadDraggableComponent = Ember.Component.extend(App.DroppableMixin, {
             // Handle progress changes
             // Use `e.percent` to get percentag
 
-            $('.upload-progress').html(e.percent + '%');
+            // TODO this no longer makes sense till i can make individual file progress bars
+            // $('.upload-progress').html(e.percent + '%');
         });
 
         uploader.on('didUpload', function(e) {
             // Handle finished upload
-            $('.upload-progress').html('Upload finished'); 
+            uploaded++;
+            $('.upload-progress').html('Upload ' + uploaded  + ' of ' + files.length +' finished'); 
         });
 
         if (!Ember.isEmpty(files)) {
-            uploader.upload(files[0]);
+            uploader.upload(files);
         }
     }
 });

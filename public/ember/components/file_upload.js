@@ -1,5 +1,6 @@
 App.FileUploadComponent = Ember.FileField.extend({
   url: '',
+  multiple: true,
   filesDidChange: (function() {
     var uploadUrl = this.get('url');
     var files = this.get('files');
@@ -9,7 +10,7 @@ App.FileUploadComponent = Ember.FileField.extend({
     });
 
     if (!Ember.isEmpty(files)) {
-      uploader.upload(files[0]);
+      uploader.upload(files);
     }
   }).observes('files')
 });

@@ -8,20 +8,8 @@
                 <div class="panel-body">
                     <fieldset>
                         <form>
-                        	<!-- unused currently -->
-                            <div class="form-group">
-                                {{input type="text" value=content.name id="name" placeholder="name"}}
-                                </input>
-                            </div>
-							
-
                             <div class="form-group">
                                 {{file-upload url="/photos/upload"}}
-                            </div>
-
-							<!-- unused currently -->
-                            <div class="form-group">
-                                <button class="btn" {{action 'uploadPhoto'}}>Save</button>
                             </div>
                         </form>
                     </fieldset>
@@ -33,7 +21,7 @@
                 </div>
                 <div class="dropzone">
                     <div class="panel-body">
-                    {{file-upload-draggable url="/photos/upload"}}
+                      {{file-upload-draggable url="/photos/upload"}}
                     </div>    
                 </div>                
             </div>

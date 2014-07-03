@@ -8,8 +8,7 @@
     "pickadate": "3.3.0",
     "jquery": "~2.0.3",
     "font-awesome": "*",
-    "moment": "~2.5.0",
-    "ember-uploader": "~0.2.7"
+    "moment": "~2.5.0"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.2"
