@@ -4,6 +4,7 @@ var path = require('path'),
     root = require('../../root'),
     mongoose = require('mongoose'),
     Photo = mongoose.model('Photo'),
+    gm = require('gm'),
     _ = require('underscore');
 
 exports.photo = function(req, res, next, id) {
@@ -35,6 +36,7 @@ transformPath = function(photos) {
     });
     return transformed;
 }
+
 
 exports.index = function(req, res, next) {
 
@@ -96,10 +98,19 @@ exports.upload = function(dir) {
                     if (err) return next(err);
                     res.redirect('/');
                 });
+
+                resizePhoto(imgPath, name, 1024);
             });
         })
-
     };
+};
+
+resizePhoto = function(photo, name, width) {
+        gm(photo)
+        .resize(width)
+        .write(root + '/public/img/uploads/' +  name , function(err) {
+            if (err) console.log('gm error', err);
+        });
 };
 
 exports.download = function(dir) {
