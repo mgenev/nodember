@@ -12,6 +12,9 @@ App.Router.map(function () {
   	}); 
 
   	this.resource('store', function() {
-
   	});
+  	
+  	// auth 
+  	this.route('protected');
+  	this.route('login');
 });

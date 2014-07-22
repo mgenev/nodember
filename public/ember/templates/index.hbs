@@ -3,17 +3,40 @@
         <div class="col-md-4 col-md-offset-4">
             <div class=" panel panel-default">
                 <div class="panel-body">
-                    <button {{action "addDanger"}} class="btn btn-danger">Danger</button>
-                    <button {{action "addWarning"}} class="btn btn-warning">Warning</button>
-                    <button {{action "addInfo"}} class="btn btn-info">Info</button>
-                    <button {{action "addSuccess"}} class="btn btn-success">Success</button>
-					<h4>The current name in modal-bound model is: {{name}}</h4>
-					<button {{action 'openModal' 'modal' model}}>
-						Change Name
-					</button>
+                    <div>
+                        <h4>Flash Message demo</h4>
+
+                        <button {{action "addSuccess"}} class="btn btn-success">Success</button>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <p>
+                            <h4>Databound pop up demo</h4>
+                            <h5>The current name in modal-bound model is: {{name}}</h5>
+                            <button {{action 'openModal' 'modal' model}}>
+                                Change Name
+                            </button>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Custom Server example</h1>
+    </div>
+    {{#unless session.isAuthenticated}}
+        <div class="alert alert-info">
+            You can
+            {{#link-to 'login' classNames='alert-link' }}log in{{/link-to}}with login
+            <code>letme</code>and password
+            <code>in</code>.
+        </div>
+    {{/unless}}
 </div>
 

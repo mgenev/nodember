@@ -1,4 +1,5 @@
-App.ApplicationRoute = Ember.Route.extend({
+App.ApplicationRoute = Ember.Route.extend(
+    global.SimpleAuth.ApplicationRouteMixin, {
     model: function() {
         // return this.store.find('admin', '53694c9ecd2fdd72457e95c3');
     },

@@ -23,21 +23,21 @@ module.exports = function(grunt) {
             serverTemplates: {
                 files: ['server/views/**'],
                 options: {
-                    livereload: true,
+                    livereload: true
                 }
             },
             emberTemplates: {
                 files: '<%= config.app %>/ember/templates/**/*.hbs',
                 tasks: ['emberTemplates'],
                 options: {
-                    livereload: true,
+                    livereload: true
                 }
             },
             js: {
-                files: ['public/js/**', 'app/**/*.js'],
+                files: ['<%= config.app %>/ember/**/*.js'],
                 // tasks: ['jshint'],
                 options: {
-                    livereload: true,
+                    livereload: true
                 }
             },
             css: {
