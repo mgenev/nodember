@@ -26,6 +26,7 @@
     "crypto": "latest",
     "passport": "latest",
     "passport-local": "latest",
+    "passport-http-bearer" : "latest",
     "passport-facebook": "latest",
     "passport-twitter": "latest",
     "passport-github": "latest",

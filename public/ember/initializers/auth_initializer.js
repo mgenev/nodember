@@ -1,7 +1,8 @@
       window.ENV = window.ENV || {};
       window.ENV['simple-auth'] = {
-          authorizer: 'authorizer:custom'
-      };
+          authorizer: 'authorizer:custom',
+          store: 'simple-auth-session-store:local-storage'
+      };    
 
       Ember.Application.initializer({
           name: 'authentication',
@@ -40,7 +41,7 @@
                       }),
                       contentType: 'application/json'
                   }).then(function(response) {
-                      console.log('the response', response);
+
                       Ember.run(function() {
                           resolve({
                               token: response.session.token
@@ -59,8 +60,8 @@
               var _this = this;
               return new Ember.RSVP.Promise(function(resolve) {
                   Ember.$.ajax({
-                      url: _this.tokenEndpoint,
-                      type: 'DELETE'
+                      url: '/signout',
+                      type: 'GET'
                   }).always(function() {
                       resolve();
                   })

@@ -51,7 +51,7 @@ module.exports = function(app, passport, db) {
 
         //express/mongo session storage
         app.use(express.session({
-            secret: 'MEAN',
+            secret: 'nodember',
             store: new mongoStore({
                 db: db.connection.db,
                 collection: 'sessions'
