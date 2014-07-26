@@ -17,4 +17,5 @@ App.Router.map(function () {
   	// auth 
   	this.route('protected');
   	this.route('login');
+    this.route('signup');
 });

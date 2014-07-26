@@ -50,11 +50,11 @@
       {{/if}}
 
       {{#unless session.isAuthenticated}}
-       <ul class="nav navbar-nav navbar-right" data-ng-hide="global.authenticated">
-        <li><a href="signup">Signup</a>
+       <ul class="nav navbar-nav navbar-right">
+        <li>{{#link-to 'signup'}}Signup{{/link-to}}
         </li>
         <li class="divider-vertical"></li>
-        <li>{{#link-to 'login'}}Login{{/link-to}}</a>
+        <li>{{#link-to 'login'}}Login{{/link-to}}
         </li>
       </ul>
       {{/unless}}

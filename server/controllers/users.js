@@ -43,12 +43,9 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    var obj = {
-        session : { 
-            token : "secret token!" 
-        }
-    };
-    res.jsonp(obj);
+    res.jsonp({
+        user: req.user
+    });
 };
 
 /**

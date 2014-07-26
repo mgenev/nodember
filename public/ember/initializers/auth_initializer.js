@@ -1,8 +1,7 @@
       window.ENV = window.ENV || {};
       window.ENV['simple-auth'] = {
-          authorizer: 'authorizer:custom',
           store: 'simple-auth-session-store:local-storage'
-      };    
+      };
 
       Ember.Application.initializer({
           name: 'authentication',
@@ -10,7 +9,6 @@
           initialize: function(container, application) {
               // register the custom authenticator and authorizer so Ember Simple Auth can find them
               container.register('authenticator:custom', App.CustomAuthenticator);
-              container.register('authorizer:custom', App.CustomAuthorizer);
           }
       });
 
@@ -21,7 +19,7 @@
 
           restore: function(data) {
               return new Ember.RSVP.Promise(function(resolve, reject) {
-                  if (!Ember.isEmpty(data.token)) {
+                  if (data.authenticated) {
                       resolve(data);
                   } else {
                       reject();
@@ -40,11 +38,13 @@
                           password: credentials.password
                       }),
                       contentType: 'application/json'
-                  }).then(function(response) {
-
+                  }).then(function(response) {                      
                       Ember.run(function() {
+                          _this.container.lookup('controller:application').set('currentUser', response.user);
+                          localStorage.setItem('user', JSON.stringify(response.user));
+                          console.log(response.user);
                           resolve({
-                              token: response.session.token
+                              authenticated: true
                           });
                       });
                   }, function(xhr, status, error) {
@@ -58,6 +58,7 @@
 
           invalidate: function() {
               var _this = this;
+              localStorage.removeItem('user');
               return new Ember.RSVP.Promise(function(resolve) {
                   Ember.$.ajax({
                       url: '/signout',
@@ -67,13 +68,4 @@
                   })
               });
           },
-      });
-
-       // the custom authorizer that authorizes requests against the custom server
-      App.CustomAuthorizer = global.SimpleAuth.Authorizers.Base.extend({
-          authorize: function(jqXHR, requestOptions) {
-              if (this.get('session.isAuthenticated') && !Ember.isEmpty(this.get('session.token'))) {
-                  jqXHR.setRequestHeader('Authorization', 'Token: ' + this.get('session.token'));
-              }
-          }
       });
