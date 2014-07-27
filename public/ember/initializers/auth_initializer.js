@@ -48,9 +48,8 @@
                           });
                       });
                   }, function(xhr, status, error) {
-                      var response = JSON.parse(xhr.responseText);
                       Ember.run(function() {
-                          reject(response.error);
+                          reject(error);
                       });
                   });
               });

@@ -15,9 +15,8 @@ exports.authCallback = function(req, res, next) {
  * Show login form
  */
 exports.signin = function(req, res) {
-    res.render('users/signin', {
-        title: 'Signin',
-        message: req.flash('error')
+    res.jsonp({
+        error: req.flash('error')[0]
     });
 };
 
@@ -43,9 +42,9 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    res.jsonp({
-        user: req.user
-    });
+        res.jsonp({
+            user: req.user
+        });
 };
 
 /**
@@ -66,6 +65,7 @@ exports.create = function(req, res) {
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
+            // TODO here return the user back to ember to log it in after sign up
             return res.redirect('/');
         });
     });
