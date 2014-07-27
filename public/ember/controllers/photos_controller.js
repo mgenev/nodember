@@ -52,7 +52,6 @@ App.PhotosPhotoController = Ember.Controller.extend({
             this.transitionToRoute('photos.photo', this.getNextId('backwards', model));
         },
         close: function (model) {
-            console.log('close hit');
             this.transitionToRoute('photos');
         }
     },

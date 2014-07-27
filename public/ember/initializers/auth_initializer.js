@@ -40,9 +40,10 @@
                       contentType: 'application/json'
                   }).then(function(response) {                      
                       Ember.run(function() {
+                        
                           _this.container.lookup('controller:application').set('currentUser', response.user);
                           localStorage.setItem('user', JSON.stringify(response.user));
-                          console.log(response.user);
+
                           resolve({
                               authenticated: true
                           });

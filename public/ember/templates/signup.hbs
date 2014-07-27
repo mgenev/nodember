@@ -1,6 +1,6 @@
-<section class="content">
 <section class="container">
     <div class="row">
+        {{!
         <div class="offset1 span5">
             <a href="/auth/facebook">
                 <img src="/img/icons/facebook.png">
@@ -14,39 +14,40 @@
             <a href="/auth/google">
                 <img src="/img/icons/google.png">
             </a>
-        </div>
+        </div>}}
         <div class="span6">
-            <form class="signup form-horizontal">
-                <div class="control-group">
-                    <label for="name" class="control-label">Full name</label>
-                    <div class="controls">
-                        <input id="name" type="text" name="name" placeholder="Full name">
+            <div class="container">
+                <div class="page-header">
+                    <h3>User Registration</h3>
+                </div>
+
+                <form {{action 'signup' on='submit'}}>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        {{input id='name' placeholder='Enter name' class='form-control' value=this.name}}
                     </div>
-                </div>
-                <div class="control-group">
-                    <label for="email" class="control-label">Email</label>
-                    <div class="controls">
-                        <input id="email" type="text" name="email" placeholder="Email">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        {{input id='username' placeholder='Enter username' class='form-control' value=this.username}}
                     </div>
-                </div>
-                <div class="control-group">
-                    <label for="username" class="control-label">Username</label>
-                    <div class="controls">
-                        <input id="username" type="text" name="username" placeholder="Username">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        {{input id='email' placeholder='Enter email' type='email' class='form-control' value=this.email}}
                     </div>
-                </div>
-                <div class="control-group">
-                    <label for="password" class="control-label">Password</label>
-                    <div class="controls">
-                        <input id="password" type="password" name="password" placeholder="Password">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        {{input id='password' placeholder='Enter password' class='form-control' type='password' value=this.password}}
                     </div>
-                </div>
-                <div class="form-actions">
-                    <button {{action 'signup'}} class="btn btn-primary">Sign up</button>&nbsp; or&nbsp;
-                    {{#link-to 'login'}}login{{/link-to}}</a>
-                </div>
-            </form>
+                    <button type="submit" class="btn btn-default">Register</button>&nbsp; or&nbsp;
+                    {{#link-to 'login'}}login{{/link-to}}
+                </form>
+                {{#if errorMessage}}
+                    <div class="alert alert-danger">
+                        <strong>Login failed:</strong>{{errorMessage}}
+                    </div>
+                {{/if}}
+            </div>
+
         </div>
     </div>
-</section>
 </section>

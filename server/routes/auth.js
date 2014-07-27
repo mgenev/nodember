@@ -1,12 +1,11 @@
 module.exports = function(app, passport, auth) {
     //User Routes
     var users = require('../controllers/users');
-    app.get('/signin', users.signin);
-    app.get('/signup', users.signup);
+
     app.get('/signout', users.signout);
 
     //Setting up the users api
-    app.post('/users', users.create);
+    app.post('/signup', users.create);
 
     app.post('/users/session', passport.authenticate('local', {
         failureFlash: 'Invalid email or password.'

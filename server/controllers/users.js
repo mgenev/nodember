@@ -42,9 +42,9 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-        res.jsonp({
-            user: req.user
-        });
+    res.jsonp({
+        user: req.user
+    });
 };
 
 /**
@@ -52,7 +52,7 @@ exports.session = function(req, res) {
  */
 exports.create = function(req, res) {
     var user = new User(req.body);
-
+    console.log(user);
     user.provider = 'local';
     user.save(function(err) {
         if (err) {
@@ -66,7 +66,9 @@ exports.create = function(req, res) {
         req.logIn(user, function(err) {
             if (err) return next(err);
             // TODO here return the user back to ember to log it in after sign up
-            return res.redirect('/');
+            res.jsonp({
+                user: req.user
+            });
         });
     });
 };
