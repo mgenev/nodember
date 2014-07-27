@@ -9,6 +9,7 @@
           initialize: function(container, application) {
               // register the custom authenticator and authorizer so Ember Simple Auth can find them
               container.register('authenticator:custom', App.CustomAuthenticator);
+              container.register('authenticator:signup', App.SignupAuthenticator);
           }
       });
 
@@ -38,9 +39,9 @@
                           password: credentials.password
                       }),
                       contentType: 'application/json'
-                  }).then(function(response) {                      
+                  }).then(function(response) {
                       Ember.run(function() {
-                        
+
                           _this.container.lookup('controller:application').set('currentUser', response.user);
                           localStorage.setItem('user', JSON.stringify(response.user));
 
@@ -68,4 +69,25 @@
                   })
               });
           },
+      });
+
+      App.SignupAuthenticator = global.SimpleAuth.Authenticators.Base.extend({
+          restore: function(data) {
+              return new Ember.RSVP.Promise(function(resolve, reject) {
+                  if (data.authenticated) {
+                      resolve(data);
+                  } else {
+                      reject();
+                  }
+              });
+          },
+
+          authenticate: function(credentials) {
+              var _this = this;
+              return new Ember.RSVP.Promise(function(resolve, reject) {
+                  resolve({
+                      authenticated: true
+                  });
+              });
+          }
       });

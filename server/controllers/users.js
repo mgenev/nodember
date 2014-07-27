@@ -52,24 +52,19 @@ exports.session = function(req, res) {
  */
 exports.create = function(req, res) {
     var user = new User(req.body);
-    console.log(user);
+
     user.provider = 'local';
     user.save(function(err) {
         if (err) {
-            console.log('the error');
-            console.log(err);
-            return res.render('users/signup', {
-                errors: err.errors,
+            res.jsonp({
+                error: err.errors,
                 user: user
             });
-        }
-        req.logIn(user, function(err) {
-            if (err) return next(err);
-            // TODO here return the user back to ember to log it in after sign up
+        } else {
             res.jsonp({
                 user: req.user
             });
-        });
+        }
     });
 };
 

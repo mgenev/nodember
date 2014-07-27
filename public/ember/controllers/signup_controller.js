@@ -4,7 +4,7 @@ App.SignupController = Ember.Controller.extend({
     }.property(),
     actions: {
         signup: function() {
-
+            var _this = this;
             Ember.$.ajax({
                 url: '/signup',
                 type: 'POST',
@@ -16,12 +16,12 @@ App.SignupController = Ember.Controller.extend({
                 }),
                 contentType: 'application/json'
             }).then(function(response) {
-                console.log('now what');
-
-
+                
+                _this.get('session').authenticate('authenticator:signup');
+                _this.container.lookup('controller:application').set('currentUser', response.user);
             }, function(xhr, status, error) {
 
-
+                this.set('errorMessage', error);
             });
         }
     }
