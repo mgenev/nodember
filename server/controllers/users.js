@@ -15,19 +15,7 @@ exports.authCallback = function(req, res, next) {
  * Show login form
  */
 exports.signin = function(req, res) {
-    res.jsonp({
-        error: req.flash('error')[0]
-    });
-};
-
-/**
- * Show sign up form
- */
-exports.signup = function(req, res) {
-    res.render('users/signup', {
-        title: 'Sign up',
-        user: new User()
-    });
+    // TODO clean up
 };
 
 /**
