@@ -3,16 +3,16 @@ App.PhotoViewerView = Ember.View.extend({
         keyDown: function(event, view) {
             // escape 
             if (event.keyCode === 27) {
-                view.get('controller.controllers.PhotosPhoto').send('close', view.get('controller').content);
+                view.get('controller.controllers.PhotosPhoto').send('close', view.get('controller').content.content);
             }
             // right arrow
             if (event.keyCode === 39) {
-                view.get('controller.controllers.PhotosPhoto').send('forward', view.get('controller').content);
+                view.get('controller.controllers.PhotosPhoto').send('forward', view.get('controller').content.content);
             }
 
             // left arrow
             if (event.keyCode === 37) {
-                view.get('controller.controllers.PhotosPhoto').send('backwards', view.get('controller').content);
+                view.get('controller.controllers.PhotosPhoto').send('backwards', view.get('controller').content.content);
             }
 
         }

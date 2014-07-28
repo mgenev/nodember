@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "bootstrap": "3",
-    "ember": "1.5.0",
+    "ember": "1.6.0",
     "ember-data": "1.0.0-beta.6",
     "pickadate": "3.3.0",
     "jquery": "~2.0.3",

@@ -5,9 +5,9 @@
 			<img class="img-responsive center" {{bind-attr src='this.content.content.src'}}>
 		</div>
 		<div  class="side-panel">
-			<div {{action 'forward'}}>NEXT</div>
-			<div {{action 'backwards'}}>PREV</div>
-			<div {{action 'close'}}>CLOSE</div>
+			<div {{action 'forward' this}}>NEXT</div>
+			<div {{action 'backwards' this}}>PREV</div>
+			<div {{action 'close' this}}>CLOSE</div>
 		</div>
 	</div>
 </div>
