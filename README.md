@@ -3,7 +3,7 @@ What is Nodember?
 
 It is a boilerplate, a sand box and a toolbox. It demonstrates how to make a full stack javascript application using Node and Ember, Express and MongoDB. The architecture is REST.
 
-Nodember includes a demonstration of common needs in web development and how they are implemented in this stack:
+Past the basics Nodember features an ever-expanding demonstration of common needs in web development and how they are implemented in this stack:
 
 + CRUD
 + User authentication
@@ -12,11 +12,11 @@ Nodember includes a demonstration of common needs in web development and how the
 + Photo gallery and viewer
 + App level flash messaging
 + Data bound modals 
-+ Much more coming
++ Many more coming
 
 What Nodember isn't?
 ==========================
-It is not production-ready. It is not fully secure for sensitive data. It is not infrastructure like ember-cli or loopback. It is not official software and it doesn't follow the best practices for such. 
+It is not production-ready. It is not fully secure for sensitive data. It is not infrastructure for building real apps and APIs like ember-cli or loopback. It is not official software and it doesn't follow the best practices for such. 
 
 In a nutshell use it to learn techniques and to experiment, but do not deploy it for real live projects. In those cases use appropriately engineered community  tools for infrastructure. 
 
