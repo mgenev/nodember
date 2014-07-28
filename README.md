@@ -1,7 +1,27 @@
-Full Stack JS Nodember BoilerPlate
+What is Nodember?
 ==========================
 
-This boilerplate is designed to bring you as close as possible to actually writing your app immediately after install. It includes an Express server, a MongoDB Database and a client which uses Ember for a single page application. The architecture is REST and there is an example usage of CRUD and user authentication included. From there you're ready to code your app.
+It is a boilerplate, a sand box and a toolbox. It demonstrates how to make a full stack javascript application using Node and Ember, Express and MongoDB. The architecture is REST.
+
+Nodember includes a demonstration of common needs in web development and how they are implemented in this web development stack:
+
++ CRUD
++ User authentication
++ File uploads
++ Drag and Drop
++ Photo gallery and viewer
++ App level flash messaging
++ Data bound modals 
++ Much more coming
+
+What Nodember isn't?
+==========================
+It is not production-ready. It is not fully secure for sensitive data. It is not infrastructure like ember-cli or loopback.
+
+In a nutshell use it to learn techniques and to experiment, but do not deploy it for real live projects. In those cases use appropriately engineered community  tools for infrastructure. 
+
+How is it made?
+==========================
 
 ### Core components
 
