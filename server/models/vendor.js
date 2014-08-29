@@ -19,6 +19,11 @@ var VendorSchema = new Schema({
         default: '',
         trim: true
     },
+    urlSegment: {
+        type: String,
+        default: '',
+        trim: true
+    },
     homepage: {
         type: Schema.ObjectId,
         ref: 'Homepage'
