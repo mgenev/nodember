@@ -20,7 +20,7 @@
   "dependencies": {
     "express": "3.5",
     "hbs" : "latest",
-    "mongoose": "latest",
+    "mongoose": "3.8.15",
     "connect-mongo": "latest",
     "connect-flash": "latest",
     "crypto": "latest",

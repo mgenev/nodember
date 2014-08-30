@@ -18,6 +18,10 @@ var UserSchema = new Schema({
         type: String,
         unique: true
     },
+    vendor: {
+        type: Schema.ObjectId,
+        ref: 'Vendor'
+    },
     provider: String,
     hashed_password: String,
     salt: String,
