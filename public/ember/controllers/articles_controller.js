@@ -2,7 +2,7 @@ App.ArticlesCreateController = Ember.Controller.extend({
     needs: ['articles'],
     actions: {
         createArticle: function() {
-            var article = this.content,
+            var article = this.model,
                 self = this;
 
             function transitionToArticle(article) {
@@ -30,7 +30,7 @@ App.ArticlesArticleController = Ember.Controller.extend({
         saveEdit: function() {
             this.set('isEditing', false);
 
-            var article = this.content;
+            var article = this.model;
             article.save();
 
             this.transitionToRoute('articles.article', article);

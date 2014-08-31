@@ -1,5 +1,6 @@
   // Article
   App.Article = DS.Model.extend({
+    user: DS.belongsTo('user'),
     title: DS.attr('string'),
     articleContent: DS.attr('string'),
     type: DS.attr('string'),

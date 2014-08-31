@@ -29,17 +29,13 @@ exports.create = function(req, res) {
 
     article.user = req.user;
     article.save(function(err) {
-
-        var formattedArticle = {};
-        formattedArticle.article = article;
-
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
                 article: article
             });
         } else {
-            res.jsonp(formattedArticle);
+            res.jsonp({article: article});
         }
     });
 };
@@ -61,9 +57,6 @@ exports.update = function(req, res) {
                 status: 500
             });
         } else {
-            var articleObj = {
-                article: article
-            };
             res.send({
                 article: article
             });
