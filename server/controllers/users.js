@@ -36,6 +36,49 @@ exports.session = function(req, res) {
 };
 
 /**
+ * Update a article
+ */
+exports.update = function(req, res) {
+
+    var user = req.user;
+    user.username = req.body.user.username;
+    user.email = req.body.user.email;
+    user.name = req.body.user.name;
+    
+
+    user.save(function(err) {
+        if (err) {
+            res.send('error', {
+                status: 500,
+                error: err
+            });
+        } else {
+            res.send({
+                user: user
+            });
+        }
+    });
+};
+
+
+/**
+ * Delete an article
+ */
+exports.destroy = function(req, res) {
+    var user = req.user;
+
+    user.remove(function(err) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(user);
+        }
+    });
+};
+
+/**
  * Create user
  */
 exports.create = function(req, res) {
@@ -60,13 +103,11 @@ exports.create = function(req, res) {
  *  Show profile
  */
 exports.show = function(req, res) {
-    var user = req.profile;
-
-    res.render('users/show', {
-        title: user.name,
-        user: user
+    res.send({
+        user: req.user
     });
 };
+
 
 /**
  * Send User
@@ -89,4 +130,42 @@ exports.user = function(req, res, next, id) {
             req.profile = user;
             next();
         });
+};
+
+
+
+/**
+ * List of Articles
+ */
+exports.index = function(req, res, next) {
+
+    if (!_.isEmpty(req.query))  {
+
+        // req.query is the exact type of object which mongoose can use to query
+        //  so we  send it to a querying static method in the model
+
+        User.query(req.query, function(err, users) {
+            if (err) return next(err);
+            if (!users)  {
+                res.send({error: new Error('Failed to load article for query')});
+            } else {
+                res.send({users: [users]});    
+            }
+            
+        });
+    } else {
+        // else we find all
+        User.find().sort('-created').exec(function(err, users) {
+
+            if (err) {
+                res.render('error', {
+                    status: 500
+                });
+            } else {
+                res.send({
+                    users: users
+                });
+            }
+        });
+    }
 };

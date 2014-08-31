@@ -1,5 +1,7 @@
 App.ProfileRoute = Ember.Route.extend({
     model: function(params) {    
-        return  this.controllerFor('application').get('currentUser');
+        var userId = this.controllerFor('application').get('currentUser')._id;
+        console.log(userId);
+        return  this.store.find('user', userId);
     }
 });

@@ -9,7 +9,7 @@ App.Router.map(function() {
         });
     });
     
-    this.route('profile');
+    this.resource('profile');
 
     this.resource('articles', function() {
         this.route('create', {
