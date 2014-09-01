@@ -8,7 +8,7 @@ App.Router.map(function() {
             path: ':user_id'
         });
     });
-    
+
     this.resource('profile');
 
     this.resource('articles', function() {
@@ -17,6 +17,15 @@ App.Router.map(function() {
         });
         this.route('article', {
             path: ':article_id'
+        });
+    });
+
+    this.resource('vendors', function() {
+        this.route('create', {
+            path: '/create'
+        });
+        this.route('vendor', {
+            path: ':vendor_id'
         });
     });
 

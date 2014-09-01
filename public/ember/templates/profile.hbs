@@ -2,22 +2,21 @@
     <div class="row">
         <div class="col-md-8">
 
-            {{#if isEditing}}
-            	name: {{input type="text" value=name}}
-            	username: {{input type="text" value=username}}
-
-            	email: {{input type="text" value=email}}
-            	<button {{action "save"}} class="btn-large">
-				Save
-            	</button>
+            {{#if isEditing}} name: {{input type="text" value=name}} username: {{input type="text" value=username}} email: {{input type="text" value=email}}
+            <button {{action "save"}} class="btn-large">
+                Save
+            </button>
             {{else}}
+
             <p>{{name}}</p>
             <p>{{username}}</p>
-
             <p>{{email}}</p>
 
             <button {{action "edit"}} class="btn-large">
-				Edit
+                Edit
+            </button>
+            <button {{action "createVendor"}} class="btn-large">
+                Become a vendor
             </button>
             {{/if}}
         </div>

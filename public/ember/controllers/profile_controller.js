@@ -7,7 +7,6 @@ App.ProfileController = Ember.ObjectController.extend({
         return this.get('controllers.application.currentUser');
     },
     isEditing: false,
-
     actions: {
         edit: function() {
             this.set('isEditing', true);
@@ -17,6 +16,9 @@ App.ProfileController = Ember.ObjectController.extend({
             this.set('isEditing', false);
             this.model.save();
 
+        },
+        createVendor: function () {
+             this.transitionToRoute('vendors.create');
         }
     }
 });

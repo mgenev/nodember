@@ -55,7 +55,7 @@ var VendorSchema = new Schema({
  */
 VendorSchema.path('name').validate(function(name) {
     return name.length;
-}, 'Title cannot be blank');
+}, 'Name cannot be blank');
 
 /**
  * Statics
