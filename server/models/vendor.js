@@ -6,15 +6,17 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
-/**
- * Article Schema
- */
 var VendorSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
     name: {
+        type: String,
+        default: '',
+        trim: true
+    },
+   description: {
         type: String,
         default: '',
         trim: true

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Create</h4>
+            <section>
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <div class="controls">
+                            {{input type="text" value=name id="title" placeholder="Name"}} Url slug: {{slug}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            {{textarea id="vendor-description" value=description cols="60" rows="20" placeholder="Description"}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button class="btn" {{action 'createVendor'}}>Create Vendor</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

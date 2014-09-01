@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {{#if isEditing}}
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="title">Title</label>
+
+                    <div class="controls">
+                        {{input type="text" value=name id="title" placeholder="Name"}}
+                        </input>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="articleContent">Article Content</label>
+                    <div class="controls">
+                        {{textarea id="vendor-description" value=description cols="30" rows="10" placeholder="Description"}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn" {{action 'saveEdit'}}>Update</button>
+                    </div>
+                </div>
+            </form>
+            {{else}}
+            <div class="article">
+                <h2>{{ name }}</h2>
+                <h4>url segment: {{ urlSegment }}</h4>                
+                {{formatDate created "short"}}
+                <div>
+                    {{description}}
+                </div>
+                <button class="btn" {{action 'editVendor'}}>Edit</button>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

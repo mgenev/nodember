@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+                <h2>Index of Vendors:</h2>
+                <div class="article-list">
+                    <ul>
+                        {{#each}}
+                        <li>
+                            <span class="title">{{#link-to 'vendors.vendor' id}}{{name}}{{/link-to}}</span>
+                            <span>by {{ user.name }}</span>
+                            <span>on {{formatDate created "short"}}</span>
+                            <p>{{description}}</p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+        </div>
+    </div>
+</div>
