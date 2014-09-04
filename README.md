@@ -11,7 +11,8 @@ Past the basics Nodember features an ever-expanding demonstration of common need
 + Drag and Drop
 + Photo gallery and viewer
 + App level flash messaging
-+ Data bound modals 
++ Data bound modals
++ Basic CMS functionality (being built) 
 + Many more coming
 
 What Nodember isn't?
