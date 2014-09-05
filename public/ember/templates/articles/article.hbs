@@ -1,52 +1,46 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-{{#if isEditing}}
-    <form class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label" for="title">Title</label>
+            {{#if isEditing}}
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="title">Title</label>
 
-        <div class="controls">
-            {{input type="text" value=content.title id="title" placeholder="Title"}}
-            Url Segment {{content.slug}}                
-            </input>
+                    <div class="controls">
+                        {{input type="text" value=content.title id="title" placeholder="Title"}} Url Segment {{content.slug}}
+                        </input>
+                    </div>
+
+                    <div class="controls">
+                        <span class="question">{{types.question}}</span>
+                        {{radio-group content=controllers.articles.types.choices value=controllers.articles.answer selection=content.type name=controllers.articles.types.name }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="articleContent">Article Content</label>
+                    <div class="controls">
+                        {{textarea id="articleContent" value=content.articleContent cols="30" rows="10" placeholder="Article Content"}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn" {{action 'saveEdit'}}>Update</button>
+                    </div>
+                </div>
+            </form>
+            {{else}}
+            <div class="article">
+                <h2>{{ content.title }}</h2>
+                <h4>by {{content.user.name}}</h4>
+                <h4>url segment: {{ content.urlSegment }}</h4>
+                <h4>article type: {{content.type}}</h4>
+                {{formatDate created "short"}}
+                <div>
+                    {{ content.articleContent }}
+                </div>
+                <button class="btn" {{action 'editArticle'}}>Edit</button>
+            </div>
+            {{/if}}
         </div>
-        
-        <div class="controls">
-        <span class="question">{{types.question}}</span>
-        {{radio-group
-             content=controllers.articles.types.choices
-             value=controllers.articles.answer
-             selection=content.type
-             name=controllers.articles.types.name
-         }}
-        </div>
     </div>
-    <div class="control-group">
-        <label class="control-label" for="articleContent">Article Content</label>
-        <div class="controls">
-            {{textarea id="articleContent" value=content.articleContent cols="30" rows="10" placeholder="Article Content"}}
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <button class="btn" {{action 'saveEdit'}}>Update</button>
-        </div>
-    </div>
-    </form>
-{{else}}
-    <div class="article">
-    <h2>{{ content.title }}</h2>
-    <h4>by {{content.user.name}}</h4>
-    <h4>url segment: {{ content.urlSegment }}</h4>
-    <h4>article type: {{content.type}}</h4>
-    {{formatDate created "short"}}
-    <div>
-        {{ content.articleContent }}
-    </div>
-    <button class="btn" {{action 'editArticle'}}>Edit</button>
-    </div>
-{{/if}} 
 </div>
-</div>
-</div>    

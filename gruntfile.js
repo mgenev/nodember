@@ -33,8 +33,8 @@ module.exports = function(grunt) {
                     livereload: true
                 }
             },
-            js: {
-                files: ['<%= config.app %>/ember/**/*.js'],
+            js: {                
+                files: ['public/js/**', 'app/**/*.js'],
                 // tasks: ['jshint'],
                 options: {
                     livereload: true
