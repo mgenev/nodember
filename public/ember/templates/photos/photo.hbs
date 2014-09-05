@@ -9,7 +9,7 @@
                             <label class="control-label" for="name">Title</label>
 
                             <div class="controls">
-                                {{input type="text" value=content.name id="name" placeholder="name"}}                      
+                                {{input type="text" value=model.name id="name" placeholder="name"}}                      
                                 </input>
                             </div>
                             
@@ -26,7 +26,7 @@
                     {{else}}
                         <div>
                         {{render "photoViewer" this}}
-                            <h2>{{ content.name }}</h2>
+                            <h2>{{ model.name }}</h2>
                             
                             <button class="btn btn-success" {{action 'downloadPhoto'}}>Download</button>
                             <button class="btn btn-warning" {{action 'editPhoto'}}>Edit</button>

@@ -6,7 +6,7 @@
                 <form class="form-horizontal">
                     <div class="control-group">
                         <div class="controls">
-                            {{input type="text" value=content.title id="title" placeholder="Title"}} Url slug: {{content.slug}}
+                            {{input type="text" value=model.title id="title" placeholder="Title"}} Url slug: {{model.slug}}
                         </div>
                         <div class="controls">
                             <span class="question">{{controllers.articles.question}}</span>
@@ -15,7 +15,7 @@
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            {{textarea id="articleContent" value=content.articleContent cols="60" rows="20" placeholder="Article Content"}}
+                            {{textarea id="articleContent" value=model.articleContent cols="60" rows="20" placeholder="Article Content"}}
                         </div>
                     </div>
                     <div class="control-group">

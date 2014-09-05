@@ -7,19 +7,19 @@
                     <label class="control-label" for="title">Title</label>
 
                     <div class="controls">
-                        {{input type="text" value=content.title id="title" placeholder="Title"}} Url Segment {{content.slug}}
+                        {{input type="text" value=model.title id="title" placeholder="Title"}} Url Segment {{model.slug}}
                         </input>
                     </div>
 
                     <div class="controls">
                         <span class="question">{{types.question}}</span>
-                        {{radio-group content=controllers.articles.types.choices value=controllers.articles.answer selection=content.type name=controllers.articles.types.name }}
+                        {{radio-group model=controllers.articles.types.choices value=controllers.articles.answer selection=model.type name=controllers.articles.types.name }}
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="articleContent">Article Content</label>
+                    <label class="control-label" for="articlemodel">Article model</label>
                     <div class="controls">
-                        {{textarea id="articleContent" value=content.articleContent cols="30" rows="10" placeholder="Article Content"}}
+                        {{textarea id="articlemodel" value=model.articleContent cols="30" rows="10" placeholder="Article model"}}
                     </div>
                 </div>
                 <div class="control-group">
@@ -30,13 +30,13 @@
             </form>
             {{else}}
             <div class="article">
-                <h2>{{ content.title }}</h2>
-                <h4>by {{content.user.name}}</h4>
-                <h4>url segment: {{ content.urlSegment }}</h4>
-                <h4>article type: {{content.type}}</h4>
+                <h2>{{ model.title }}</h2>
+                <h4>by {{model.user.name}}</h4>
+                <h4>url segment: {{ model.urlSegment }}</h4>
+                <h4>article type: {{model.type}}</h4>
                 {{formatDate created "short"}}
                 <div>
-                    {{ content.articleContent }}
+                    {{ model.articleContent }}
                 </div>
                 <button class="btn" {{action 'editArticle'}}>Edit</button>
             </div>

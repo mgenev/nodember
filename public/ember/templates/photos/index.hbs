@@ -2,7 +2,7 @@
 
 <div class="photo-list">
     <ul id="tiles">
-        {{#each content}}
+        {{#each model}}
 	        {{#link-to 'photos.photo' this}}
 		        <li>		  
 		            <img {{bind-attr src="src" }} {{bind-attr alt="name" }}>

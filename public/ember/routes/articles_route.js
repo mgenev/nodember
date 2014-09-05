@@ -12,6 +12,6 @@ App.ArticlesArticleRoute = Ember.Route.extend({
 
 App.ArticlesCreateRoute = Ember.Route.extend({
     model: function () {
-       return this.store.createRecord('article', {title: '', pageContent: '', urlSegment: ''});
+       return this.store.createRecord('article', {title: '', articleContent: '', urlSegment: ''});
     }
 });
