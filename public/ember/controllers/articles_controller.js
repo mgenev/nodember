@@ -1,4 +1,4 @@
-App.ArticlesCreateController = Ember.Controller.extend({
+App.ArticlesCreateController = Ember.ObjectController.extend({
     needs: ['articles'],
     actions: {
         createArticle: function() {
@@ -21,7 +21,7 @@ App.ArticlesCreateController = Ember.Controller.extend({
 });
 
 
-App.ArticlesArticleController = Ember.Controller.extend({
+App.ArticlesArticleController = Ember.ObjectController.extend({
     needs: ['articles'],
     actions: {
         editArticle: function() {

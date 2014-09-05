@@ -7,7 +7,7 @@
                     <label class="control-label" for="title">Title</label>
 
                     <div class="controls">
-                        {{input type="text" value=model.title id="title" placeholder="Title"}} Url Segment {{model.slug}}
+                        {{input type="text" value=title id="title" placeholder="Title"}} Url Segment {{slug}}
                         </input>
                     </div>
 
@@ -19,7 +19,7 @@
                 <div class="control-group">
                     <label class="control-label" for="articlemodel">Article model</label>
                     <div class="controls">
-                        {{textarea id="articlemodel" value=model.articleContent cols="30" rows="10" placeholder="Article model"}}
+                        {{textarea id="articlemodel" value=articleContent cols="30" rows="10" placeholder="Article model"}}
                     </div>
                 </div>
                 <div class="control-group">
@@ -30,13 +30,13 @@
             </form>
             {{else}}
             <div class="article">
-                <h2>{{ model.title }}</h2>
-                <h4>by {{model.user.name}}</h4>
-                <h4>url segment: {{ model.urlSegment }}</h4>
-                <h4>article type: {{model.type}}</h4>
+                <h2>{{ title }}</h2>
+                <h4>by {{user.name}}</h4>
+                <h4>url segment: {{ urlSegment }}</h4>
+                <h4>article type: {{type}}</h4>
                 {{formatDate created "short"}}
                 <div>
-                    {{ model.articleContent }}
+                    {{ articleContent }}
                 </div>
                 <button class="btn" {{action 'editArticle'}}>Edit</button>
             </div>
