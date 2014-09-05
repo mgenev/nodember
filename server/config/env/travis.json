@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/mean-travis",
+    "db": "mongodb://localhost/nodember-travis",
     "port": 3001,
     "app": {
         "name": "Full Stack JS - A Modern Stack - Test on travis"

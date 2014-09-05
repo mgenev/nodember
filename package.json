@@ -6,7 +6,7 @@
   "author": "Martin Genev, based on the MEAN stack by Amos Haviv and generator Ember for Yeoman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mgenev/Full-Stack-JS-Amber"
+    "url": "https://github.com/mgenev/nodember"
   },
   "engines": {
     "node": "0.10.x",
@@ -34,7 +34,6 @@
     "underscore": "latest",
     "async": "latest",
     "view-helpers": "latest",
-    "mean-logger": "latest",
     "forever": "latest",
     "bower": "latest",
     "grunt": "latest",
@@ -45,6 +44,7 @@
   },
   "devDependencies": {
     "supertest": "latest",
+    "chai": "1.9.1",
     "should": "latest",
     "grunt": "latest",
     "grunt-contrib-copy": "~0.4.1",

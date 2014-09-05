@@ -1,7 +1,9 @@
 /**
  * Module dependencies.
  */
-var should = require('should'),
+
+
+var should = require('chai').Should(),
     app = require('../../server'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');

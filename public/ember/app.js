@@ -14,5 +14,12 @@ require('ember/initializers/*');
 require('ember/utils/*');
 
 App.ApplicationSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
+    primaryKey: '_id'
 });
+
+App.ArticleSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
+    primaryKey: '_id',
+    attrs: {
+        user: {embedded: 'always'}
+    }
+})

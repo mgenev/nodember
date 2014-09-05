@@ -1,10 +1,19 @@
 {{#each model}}
-<h1>{{title}}</h1>
-
-<div class="article">
-	    {{formatDate created "short"}}	    
-	    <div>
-			{{articleContent }}
-	    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="article">
+                <h2>{{ title }}</h2>
+                <h4>by {{user.name}}</h4>
+                <h4>url segment: {{ urlSegment }}</h4>
+                <h4>article type: {{type}}</h4>
+                {{formatDate created "short"}}
+                <div>
+                    {{ articleContent }}
+                </div>
+                <button class="btn" {{action 'editArticle'}}>Edit</button>
+            </div>
+        </div>
+    </div>
 </div>
 {{/each}}
