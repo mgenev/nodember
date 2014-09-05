@@ -31,6 +31,7 @@ exports.create = function(req, res) {
     article.save(function(err) {
 
         Article.load(article._id, function(err, result) {
+
             if (err) {
                 return res.send('users/signup', {
                     errors: err.errors,
@@ -120,7 +121,7 @@ exports.index = function(req, res, next) {
         });
     } else {
         // else we find all
-        Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+        Article.find().sort('-created').populate('user', 'name username email').exec(function(err, articles) {
 
             if (err) {
                 res.render('error', {

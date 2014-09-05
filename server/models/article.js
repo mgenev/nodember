@@ -67,11 +67,11 @@ ArticleSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             _id: id
-        }).populate('user', 'name username').exec(cb);
+        }).populate('user', 'name username email').exec(cb);
     },
     // query static finds by other query params, populates user nested object
     query: function (query, cb) {
-         this.findOne(query).populate('user', 'name username').exec(cb);
+         this.findOne(query).populate('user', 'name username email').exec(cb);
     }
 };
 
