@@ -26,17 +26,22 @@ exports.article = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var article = new Article(req.body.article);
-    console.log('USER: ', req.user);
     article.user = req.user;
+
     article.save(function(err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                article: article
-            });
-        } else {
-            res.jsonp({article: article});
-        }
+
+        Article.load(article._id, function(err, result) {
+            if (err) {
+                return res.send('users/signup', {
+                    errors: err.errors,
+                    article: result
+                });
+            } else {
+                res.jsonp({
+                    article: result
+                });
+            }
+        });
     });
 };
 
@@ -95,19 +100,23 @@ exports.show = function(req, res) {
  */
 exports.index = function(req, res, next) {
 
-    if (!_.isEmpty(req.query))  {
+    if (!_.isEmpty(req.query)) {
 
         // req.query is the exact type of object which mongoose can use to query
         //  so we  send it to a querying static method in the model
 
         Article.query(req.query, function(err, articles) {
             if (err) return next(err);
-            if (!articles)  {
-                res.send({error: new Error('Failed to load article for query')});
+            if (!articles) {
+                res.send({
+                    error: new Error('Failed to load article for query')
+                });
             } else {
-                res.send({articles: [articles]});    
+                res.send({
+                    articles: [articles]
+                });
             }
-            
+
         });
     } else {
         // else we find all
