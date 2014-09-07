@@ -7,6 +7,8 @@ Past the basics Nodember features an ever-expanding demonstration of common need
 
 + CRUD
 + User authentication
++ Data relationships
++ Embedded records
 + File uploads
 + Drag and Drop
 + Photo gallery and viewer
