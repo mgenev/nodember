@@ -85,6 +85,8 @@
           authenticate: function(credentials) {
               var _this = this;
               return new Ember.RSVP.Promise(function(resolve, reject) {
+                _this.container.lookup('controller:application').set('currentUser', credentials.user);
+                localStorage.setItem('user', JSON.stringify(credentials.user));
                   resolve({
                       authenticated: true
                   });

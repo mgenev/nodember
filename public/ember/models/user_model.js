@@ -3,5 +3,6 @@ App.User = DS.Model.extend({
     email: DS.attr('string'),
     username: DS.attr('string'),
     articles: DS.hasMany('article'),
+    photos: DS.hasMany('photo'),
     vendors: DS.hasMany('vendor')
 });

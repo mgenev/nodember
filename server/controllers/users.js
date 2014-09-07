@@ -83,7 +83,6 @@ exports.destroy = function(req, res) {
  */
 exports.create = function(req, res) {
     var user = new User(req.body);
-
     user.provider = 'local';
     user.save(function(err) {
         if (err) {
@@ -93,7 +92,7 @@ exports.create = function(req, res) {
             });
         } else {
             res.jsonp({
-                user: req.user
+                user: user
             });
         }
     });

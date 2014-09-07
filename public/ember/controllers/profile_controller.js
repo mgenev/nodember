@@ -1,8 +1,5 @@
 App.ProfileController = Ember.ObjectController.extend({
     needs: ['application'],
-    init: function() {
-        console.log('WTF!');
-    },
     currentUser: function() {
         return this.get('controllers.application.currentUser');
     },

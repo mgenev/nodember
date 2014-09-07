@@ -15,10 +15,8 @@ App.SignupController = Ember.Controller.extend({
                     name: this.get('name')
                 }),
                 contentType: 'application/json'
-            }).then(function(response) {
-                
-                _this.get('session').authenticate('authenticator:signup');
-                _this.container.lookup('controller:application').set('currentUser', response.user);
+            }).then(function(response) {                
+                _this.get('session').authenticate('authenticator:signup', response);
             }, function(xhr, status, error) {
 
                 this.set('errorMessage', error);
