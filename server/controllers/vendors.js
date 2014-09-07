@@ -48,7 +48,7 @@ exports.update = function(req, res) {
 
     var vendor = req.vendor;
     vendor.name = req.body.vendor.name;
-    vendor.type = req.body.vendor.type;
+    vendor.description = req.body.vendor.description;
     vendor.urlSegment = req.body.vendor.urlSegment;
 
 

@@ -12,6 +12,6 @@ App.VendorsVendorRoute = Ember.Route.extend({
 
 App.VendorsCreateRoute = Ember.Route.extend({
     model: function () {
-       return this.store.createRecord('vendor', {});
+       return this.store.createRecord('vendor', {name: '', description: '', urlSegment: ''});
     }
 });

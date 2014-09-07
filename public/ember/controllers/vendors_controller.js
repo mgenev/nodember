@@ -1,4 +1,4 @@
-App.VendorsCreateController = Ember.Controller.extend({
+App.VendorsCreateController = Ember.ObjectController.extend({
     needs: ['vendors'],
     actions: {
         createVendor: function() {
@@ -21,7 +21,7 @@ App.VendorsCreateController = Ember.Controller.extend({
 });
 
 
-App.VendorsVendorController = Ember.Controller.extend({
+App.VendorsVendorController = Ember.ObjectController.extend({
     needs: ['vendors'],
     actions: {
         editVendor: function() {
