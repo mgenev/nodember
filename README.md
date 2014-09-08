@@ -19,7 +19,7 @@ Past the basics Nodember features an ever-expanding demonstration of common need
 
 What Nodember isn't?
 ==========================
-It is not production-ready. It is not fully secure for sensitive data. It is not infrastructure for building real apps and APIs like ember-cli or loopback. It is not official software and it doesn't follow the best practices for such. 
+It is not production-ready. It is not fully secure for sensitive data. It is not infrastructure for building real apps and APIs like ember-cli or sails.js. It is not official software and it doesn't follow the best practices for such. 
 
 In a nutshell use it to learn techniques and to experiment, but do not deploy it for real live projects. In those cases use appropriately engineered community  tools for infrastructure. 
 
