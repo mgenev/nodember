@@ -6,3 +6,17 @@ App.User = DS.Model.extend({
     photos: DS.hasMany('photo'),
     vendors: DS.hasMany('vendor')
 });
+
+App.UserSerializer = App.ApplicationSerializer.extend({
+    attrs: {
+        photos: {
+            embedded: 'always'
+        },
+        vendors: {
+            embedded: 'always'
+        },
+        articles: {
+            embedded: 'always'
+        }
+    }
+});

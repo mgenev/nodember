@@ -29,6 +29,15 @@ App.Router.map(function() {
         });
     });
 
+    this.resource('homepages', function() {
+        this.route('create', {
+            path: '/create'
+        });
+        this.route('homepage', {
+            path: ':homepage_id'
+        });
+    });
+
     this.resource('photos', function() {
         this.route('create', {
             path: '/create'
