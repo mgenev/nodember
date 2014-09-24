@@ -1,0 +1,84 @@
+{
+    "slides": [{
+        "position": 0,
+        "isActive": true,
+        "img": "http://placehold.it/1900x1080&text=Slide One",
+        "title": "Slide One"
+    }, {
+        "position": 1,
+        "isActive": false,
+        "img": "http://placehold.it/1900x1080&text=Slide Two",
+        "title": "Slide Two"
+    }, {
+        "position": 2,
+        "isActive": false,
+        "img": "http://placehold.it/1900x1080&text=Slide Three",
+        "title": "Slide Three"
+    }],
+    "promos3Columns": [{
+        "icon": "fa fa-check-circle",
+        "title": "Bootstrap 3 Built",
+        "text": "The 'Modern Business' website template by Start Bootstrap is built with Bootstrap 3. Make sure you're up to date with latest Bootstrap documentation!"
+    }, {
+        "icon": "fa fa-pencil",
+        "title": "Ready to Style & Edit",
+        "text": "You're ready to go with this pre-built page structure, now all you need to do is add your own custom stylings! You can see some free themes over at Bootswatch, or come up with your own using the Bootstrap customizer!"
+    }, {
+        "icon": "fa fa-folder-open",
+        "title": "Many Page Options",
+        "text": "This template features many common pages that you might see on a business website. Pages include: about, contact, portfolio variations, blog, pricing, FAQ, 404, services, and general multi-purpose pages."
+    }],
+    "promoWide": {
+        "title": "Modern Business: A Clean & Simple Full Website Template by Start Bootstrap",
+        "text": "A complete website design featuring various single page templates from Start Bootstraps library of free HTML starter templates."
+    },
+    "portfolio": {
+        "title": "",
+        "items": [{
+            "title": "project 1",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 2",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 3",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 4",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 5",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 6",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 7",
+            "img": "http://placehold.it/700x450"
+        }, {
+            "title": "project 8",
+            "img": "http://placehold.it/700x450"
+        }
+        ]
+    },
+    "features": {
+        "title": "Modern Business Features Include:",
+        "items": [
+          "Bootstrap 3 Framework",
+          "Mobile Responsive Design",
+          "Predefined File Paths",
+          "Working PHP Contact Page",
+          "Minimal Custom CSS Styles",
+          "Unstyled: Add Your Own Style and Content!",
+          "Font-Awesome fonts come pre-installed!",
+          "100% Free to Use",
+          "Open Source: Use for any project, private or commercial!"
+        ],
+        "img": "http://placehold.it/700x450"
+    },
+    "cta": {
+        "title": "'Modern Business' is a ready-to-use, Bootstrap 3 updated, multi-purpose HTML theme!",
+        "link": "http://geminiconnect.com",
+        "buttonText": "Gemini Connect"
+    }
+}

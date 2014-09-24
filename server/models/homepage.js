@@ -19,6 +19,10 @@ var HomepageSchema = new Schema({
         default: '',
         trim: true
     },
+    pageContent: {
+        type: String,
+        default: ''
+    },
     template: {
         type: Schema.ObjectId,
         ref: 'Template'

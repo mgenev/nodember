@@ -27,6 +27,9 @@ exports.homepage = function(req, res, next, id) {
 exports.create = function(req, res) {
     var homepage = new Article(req.body.homepage);
 
+    // TODO save the template and the vendor
+    
+
     homepage.user = req.user;
     homepage.save(function(err) {
 
@@ -40,6 +43,12 @@ exports.create = function(req, res) {
         }
     });
 };
+
+var async = require('async'),
+    mongoose = require('mongoose'),
+    Article = mongoose.model('Article'),
+    Template = mongoose.model('Template');
+
 
 /**
  * Update a article

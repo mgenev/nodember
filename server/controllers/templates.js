@@ -28,13 +28,20 @@ exports.template = function(req, res, next, id) {
  * Create a template
  */
 exports.create = function(req, res) {
+    // TODO REWRITE for new case, 
+    // write discovery and/or upload of possible templates somehow to surface through ember
+
     var formattedTemplate = {};
     var template = new Template(req.body.template);
     template.user = req.user;
 
+
+    // read json schema from FS
+    // save new record with that schema
+    // return in response
     async.series([
         function(callback) {
-            fs.readFile(root + '/public/ember/template_schemas/' + template.title + '.json', 'utf8', function(err, data) {
+            fs.readFile(root + '/server/template_schemas/' + template.title + '.json', 'utf8', function(err, data) {
                 if (err) throw err;
                 console.log('data from file is:', data);
                 template.templateSchema = JSON.parse(data);
