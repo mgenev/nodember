@@ -1,24 +1,32 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-
+            <h3>User Profile</h3>
             {{#if isEditing}} name: {{input type="text" value=name}} username: {{input type="text" value=username}} email: {{input type="text" value=email}}
-            <button {{action "save"}} class="btn-large">
-                Save
-            </button>
+            <button {{action "save"}} class="btn-large">Save</button>
             {{else}}
 
-            <p>{{name}}</p>
-            <p>{{username}}</p>
-            <p>{{email}}</p>
+            <p>Name: {{name}}</p>
+            <p>Username: {{username}}</p>
+            <p>Email: {{email}}</p>
 
-            <button {{action "edit"}} class="btn-large">
-                Edit
-            </button>
-            <button {{action "createVendor"}} class="btn-large">
-                Become a vendor
-            </button>
+            <button {{action "edit"}} class="btn-large">Edit</button>
+            <button {{action "createVendor"}} class="btn-large">Become a vendor</button>
             {{/if}}
+        </div>
+
+        <div class="col-md-8">
+            Your vendors: {{#each vendors}}
+            <span>{{name}}</span>
+            <p>{{description}}</p>
+            {{/each}}
+        </div>
+
+        <div class="col-md-8">
+            Your articles: {{#each articles}}
+            <span>{{title}}</span>
+            <p>{{articleContent}}</p>
+            {{/each}}
         </div>
     </div>
 </div>

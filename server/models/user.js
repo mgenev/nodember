@@ -18,9 +18,17 @@ var UserSchema = new Schema({
         type: String,
         unique: true
     },
-    vendor: {
-        type: Schema.ObjectId,
+    vendors: {
+        type: [Schema.ObjectId],
         ref: 'Vendor'
+    },
+    articles: {
+        type: [Schema.ObjectId],
+        ref: 'Article'
+    },
+    photos: {
+        type: [Schema.ObjectId],
+        ref: 'Photo'
     },
     provider: String,
     hashed_password: String,
@@ -122,6 +130,19 @@ UserSchema.methods = {
     encryptPassword: function(password) {
         if (!password) return '';
         return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
+    }
+};
+
+UserSchema.statics = {
+    // Load static finds by id, populates user nested object
+    load: function(id, cb) {
+        this.findOne({
+            _id: id
+        }).populate('articles photos vendors').exec(cb);
+    },
+    // query static finds by other query params, populates user nested object
+    query: function(query, cb) {
+        this.findOne(query).populate('user', 'name username').exec(cb);
     }
 };
 

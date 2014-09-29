@@ -124,7 +124,6 @@ exports.user = function(req, res, next, id) {
             _id: id
         })
         .exec(function(err, user) {
-            console.log('USER . USER HITS AND USER IS: ', user);
             if (err) return next(err);
             if (!user) return next(new Error('Failed to load User ' + id));
             req.user = user;
