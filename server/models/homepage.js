@@ -23,6 +23,16 @@ var HomepageSchema = new Schema({
         type: String,
         default: ''
     },
+    templateName: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    urlSegment: {
+        type: String,
+        default: '',
+        trim: true
+    },
     template: {
         type: Schema.ObjectId,
         ref: 'Template'
@@ -34,7 +44,7 @@ var HomepageSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
-    },    
+    },
     id: {
         type: ObjectId,
         trim: true

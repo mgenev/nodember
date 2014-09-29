@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
     fs = require('fs'),
     root = require('../../root');
 
-    
+
 
 
 /**
@@ -24,12 +24,64 @@ exports.template = function(req, res, next, id) {
     });
 };
 
+exports.loadAvailable = function(req, res) {
+    // this is the initial load of template, triggered by a admin button push in ember, in the template route
+    var dir = root + '/server/template_schemas/'
+
+    fs.readdir(dir, function(err, list) {
+        if (err) return done(err);
+        var pending = list.length;
+        var counter = 0;
+
+        if (!pending) return done(null, results);
+
+        list.forEach(function(file) {
+            var template = new Template({name: file});
+            file = dir + '/' + file;            
+            template.user = req.user;
+
+            async.series([
+
+                function(callback) {
+                    fs.readFile(file, 'utf8', function(err, data) {
+                        if (err) throw err;
+                        console.log('data from file is:', data);
+                        template.templateSchema = JSON.parse(data);
+                        callback();
+                    });
+
+                },
+                function(callback) {
+                    template.save(function(err) {
+                        if (err) throw err;
+                        counter++;
+                        callback();
+                    });
+                }
+            ], function(err) {
+                if (err) {
+                    return res.send({
+                        errors: err.errors
+                    });
+                } else {
+                    res.jsonp(
+                        formattedTemplate, pending, counter);
+                }
+            });
+        });
+    });
+};
+
 /**
  * Create a template
  */
 exports.create = function(req, res) {
     // TODO REWRITE for new case, 
     // write discovery and/or upload of possible templates somehow to surface through ember
+
+
+    // TODO json schema should come from upload when creating new and the ember template should be copied to the right
+    // directory 
 
     var formattedTemplate = {};
     var template = new Template(req.body.template);
@@ -40,6 +92,7 @@ exports.create = function(req, res) {
     // save new record with that schema
     // return in response
     async.series([
+
         function(callback) {
             fs.readFile(root + '/server/template_schemas/' + template.title + '.json', 'utf8', function(err, data) {
                 if (err) throw err;

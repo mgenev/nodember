@@ -1,11 +1,12 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-    async = require('async'),
-    Homepage = mongoose.model('Homepage'),
-    _ = require('underscore');
 
+var async = require('async'),
+    mongoose = require('mongoose'),
+    Article = mongoose.model('Article'),
+    Template = mongoose.model('Template'),
+    _ = require('underscore');
 
 /**
  * Find article by id
@@ -27,10 +28,22 @@ exports.homepage = function(req, res, next, id) {
 exports.create = function(req, res) {
     var homepage = new Article(req.body.homepage);
 
-    // TODO save the template and the vendor
-    
+    // TODO save the template and the vendor    
+    // the ID's here come from the request from the create homepage UI.
 
     homepage.user = req.user;
+    homepage.template = req.template;
+
+    // vendor is also used as aurl segment to hit that homepage directly
+    homepage.vendor = req.vendor;
+
+    // content is made from the schema initially to make the original rendering
+    homepage.pageContent = template.templateSchema;
+
+    // name is for rendering through ember
+    homepage.templateName = template.title;
+
+
     homepage.save(function(err) {
 
         if (err) {
@@ -43,11 +56,6 @@ exports.create = function(req, res) {
         }
     });
 };
-
-var async = require('async'),
-    mongoose = require('mongoose'),
-    Article = mongoose.model('Article'),
-    Template = mongoose.model('Template');
 
 
 /**

@@ -1,0 +1,111 @@
+{{#each content}}
+    <!-- Page Content -->
+    {{#with articleContent}}
+    <div class="container">
+      
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <h1 class="page-header">{{title}} <small>{{tagline}}</small></h1>
+        </div>
+
+      </div><!-- /.row -->
+
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <img class="img-responsive" {{bind-attr src=heroImage}}>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Paragraphs -->
+
+      <div class="row">
+
+        <div class="col-md-8">
+          <h2 class="page-header">{{infoColumnOneTitle}}</h2>
+            <p>{{infoColumnOneDescription}}</p>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="page-header">{{infoColumnTwoTitle}}</h2>
+            <p>{{infoColumnTwoDescription}}</p>
+            <div class="btn btn-primary" {{bind-attr href=ctaLink}}>{{cta}}</div>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Tabs -->
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h2 class="page-header">{{servicesListTitle}}</h2>
+          <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#service-one" data-toggle="tab">{{service1Title}}</a></li>
+            <li><a href="#service-two" data-toggle="tab">{{service2Title}}</a></li>
+            <li><a href="#service-three" data-toggle="tab">{{service3Title}}</a></li>
+            <li><a href="#service-four" data-toggle="tab">{{service4Title}}</a></li>
+            <li><a href="#service-five" data-toggle="tab">{{service5Title}}</a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="service-one">
+              <i class="icon-gear pull-left icon-4x"></i>
+              {{service1Description}}
+            </div>
+            <div class="tab-pane fade" id="service-two">
+              <i class="icon-gears pull-left icon-4x"></i>
+              {{service2Description}}
+            </div>
+            <div class="tab-pane fade" id="service-three">
+              <i class="icon-magic pull-left icon-4x"></i>
+              {{service3Description}}
+            </div>
+            <div class="tab-pane fade" id="service-four">
+              <i class="icon-beaker pull-left icon-4x"></i>
+              {{service4Description}}
+            </div>
+            <div class="tab-pane fade" id="service-five">
+              <i class="icon-flag pull-left icon-4x"></i>
+              {{service5Description}}
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Images -->
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h2 class="page-header">{{serviceImagesTitle}}</h2>
+        </div>
+
+        <div class="col-sm-4">
+          <img class="img-responsive" {{bind-attr src=service1Image}}>
+          <h3>{{service1Title}}</h3>
+          <p>{{service1Description}}</p>
+          <a class="btn btn-link btn-sm pull-right">More <i class="icon-angle-right"></i></a>
+        </div>
+
+        <div class="col-sm-4">
+          <img class="img-responsive"{{bind-attr src=service2Image}}>
+          <h3>{{service2Title}}</h3>
+          <p>{{service2Description}}</p>
+          <a class="btn btn-link btn-sm pull-right">More <i class="icon-angle-right"></i></a>
+        </div>
+
+        <div class="col-sm-4">
+          <img class="img-responsive" {{bind-attr src=service3Image}}>
+          <h3>{{service3Title}}</h3>
+          <p>{{service3Description}}</p>
+          <a class="btn btn-link btn-sm pull-right">More <i class="icon-angle-right"></i></a>
+        </div>
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+    {{/with}}
+    {{/each}}

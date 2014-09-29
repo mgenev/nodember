@@ -47,6 +47,18 @@ App.Router.map(function() {
         });
     });
 
+    this.resource('templates', function() {
+        this.route('create', {
+            path: '/create'
+        });
+        this.route('load', {
+            path: '/load'
+        });
+        this.route('template', {
+            path: ':template_id'
+        });
+    });
+
     this.resource('store', function() {});
 
     // auth 

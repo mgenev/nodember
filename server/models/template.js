@@ -14,7 +14,7 @@ var TemplateSchema = new Schema({
             default: Date.now
         },
         // eg. home template
-        title: {
+        name: {
             type: String,
             default: '',
             trim: true
@@ -42,10 +42,10 @@ var TemplateSchema = new Schema({
 
 /**
  * Validations
- */
-TemplateSchema.path('title').validate(function(title) {
-    return title.length;
-}, 'Title cannot be blank');
+//  */
+// TemplateSchema.path('title').validate(function(title) {
+//     return title.length;
+// }, 'Title cannot be blank');
 
 /**
  * Statics

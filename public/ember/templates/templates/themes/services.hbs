@@ -1,0 +1,80 @@
+{{#each content}}
+    <!-- Page Content -->
+    {{#with articleContent}}
+    <div class="container">
+      
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <h1 class="page-header">{{title}} <small>{{tagline}}</small></h1>
+        </div>
+
+      </div><!-- /.row -->
+
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <img class="img-responsive" {{bind-attr src=heroImage}}>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Paragraphs -->
+
+      <div class="row">
+
+        <div class="col-md-8">
+          <h2 class="page-header">{{infoColumnOneTitle}}</h2>
+            <p>{{infoColumnOneDescription}}</p>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="page-header">{{infoColumnTwoTitle}}</h2>
+            <p>{{infoColumnTwoDescription}}</p>
+            <div class="btn btn-primary" {{bind-attr href=ctaLink}}>{{cta}}</div>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Tabs -->
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h2 class="page-header">{{servicesTabsTitle}}</h2>
+          <ul id="myTab" class="nav nav-tabs">
+            {{#each service in servicesTabs}}
+              <li class="active"><a href="#service-one" data-toggle="tab">{{service.title}}</a></li>
+            {{/each}}
+          </ul>
+          <div id="myTabContent" class="tab-content">
+          {{#each service in servicesTabs}}
+            <div class="tab-pane fade in active" id="service-one">
+              <i class="icon-gear pull-left icon-4x"></i>
+              {{service.description}}
+            </div>
+          {{/each}}            
+          </div>
+        </div>
+
+      </div><!-- /.row -->
+
+      <!-- Service Images -->
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h2 class="page-header">{{servicesImagesTitle}}</h2>
+        </div>
+        {{#each service in servicesImages}}
+          <div class="col-sm-4">
+            <img class="img-responsive" {{bind-attr src=service.img}}>
+            <h3>{{service.title}}</h3>
+            <p>{{service.description}}</p>
+            <a class="btn btn-link btn-sm pull-right">More <i class="icon-angle-right"></i></a>
+          </div>
+        {{/each}}
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+    {{/with}}
+    {{/each}}

@@ -1,0 +1,75 @@
+{{#if isEditing}}
+	<div class="container">
+		<div class="container-fluid article-form">
+			<form class="form-horizontal">
+				<div class="row">
+					<h4>Edit {{content.type}}</h4>
+				</div>
+				<div class="row">
+					<span>{{controllers.articles.typesRadio.question}}: </span>
+					 {{radio-group
+					     content=controllers.articles.types
+					     value=controllers.articles.typesRadio.answer
+					     selection=content.type
+					     name=controllers.articles.typesRadio.name
+					 }}
+				 </div>
+				 <div class="row">
+				 <span>Template:</span>
+				 	{{view Ember.Select
+				 		content=controllers.articles.templates
+				 		value=content.templateName
+		       			optionValuePath="content.title"
+		       			optionLabelPath="content.title" 
+		       			selection=content.template
+					}}
+				</div>
+				<div class="row">
+					<div class="controls">
+							{{input type="text" value=content.title id="title" placeholder="Title"}}
+							Url slug: {{content.slug}}				
+					</div>
+				</div>
+				<div class="row">		
+					<div class="controls">
+						<span class="menuFeatured">Feature in menu</span>
+						{{input type="checkbox" name="menuFeatured" checked=content.menuFeatured}}				
+					</div>
+				</div>
+				<div class="row">
+					<div class="control-group">
+						<div class="controls">
+							{{textarea id="articleContent" value=content.contentJson cols="160" rows="40" placeholder="Article Content"}}
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn" {{action 'saveEdit'}}>Update</button>
+						</div>
+					</div>		
+				</div>
+			</form>
+		</div>
+	</div>
+{{else}}
+	{{#with content}}
+		<div class="article">
+		    <h2>{{ title }}</h2>
+		    <h4>url segment: {{ urlSegment }}</h4>
+		    <h4>article type: {{type}}</h4>
+		    {{formatDate created "short"}}
+		    <div>
+			    <span class="title">		    	  
+			    	  <button class="btn" {{action 'editArticle'}}>Update</button>
+			    	  <button class="btn" {{action 'deleteArticle'}}>Delete</button>
+			    </span>
+		    </div>
+		    
+		    <div>
+				{{ articleContent }}
+		    </div>
+		</div>
+	{{/with}}
+{{/if}}
