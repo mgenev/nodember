@@ -23,6 +23,20 @@ App.HeaderView = Ember.View.extend({
             'link': 'articles.create'
         }]
     }, {
+        'title': 'Templates',
+        'link': 'templates',
+        'submenu': [{
+            'title': 'Index',
+            'link': 'templates'
+        }, {
+            'title': 'Create New Template',
+            'link': 'templates.create'
+        },
+        {
+            'title': 'Load Templates',
+            'link': 'templates.load'
+        }]
+    }, {
         'title': 'Photos',
         'link': 'photos',
         'submenu': [{

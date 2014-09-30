@@ -24,16 +24,17 @@ exports.template = function(req, res, next, id) {
     });
 };
 
-exports.loadAvailable = function(req, res) {
+exports.load = function(req, res) {
     // this is the initial load of template, triggered by a admin button push in ember, in the template route
-    var dir = root + '/server/template_schemas/'
+    var dir = root + '/template_schemas/'
 
     fs.readdir(dir, function(err, list) {
-        if (err) return done(err);
+        if (err)  return res.send({errors: err.errors});
+
         var pending = list.length;
         var counter = 0;
 
-        if (!pending) return done(null, results);
+        if (!pending) return res.send({errors: ['There were no templats']});
 
         list.forEach(function(file) {
             var template = new Template({name: file});
@@ -45,7 +46,6 @@ exports.loadAvailable = function(req, res) {
                 function(callback) {
                     fs.readFile(file, 'utf8', function(err, data) {
                         if (err) throw err;
-                        console.log('data from file is:', data);
                         template.templateSchema = JSON.parse(data);
                         callback();
                     });
@@ -53,6 +53,7 @@ exports.loadAvailable = function(req, res) {
                 },
                 function(callback) {
                     template.save(function(err) {
+
                         if (err) throw err;
                         counter++;
                         callback();
@@ -64,8 +65,7 @@ exports.loadAvailable = function(req, res) {
                         errors: err.errors
                     });
                 } else {
-                    res.jsonp(
-                        formattedTemplate, pending, counter);
+                    res.send({pending:pending, added: counter});
                 }
             });
         });
@@ -173,21 +173,43 @@ exports.show = function(req, res) {
     });
 };
 
-/**
- * List of templates
- */
-exports.all = function(req, res) {
-    console.log(root);
-    Template.find().sort('-created').populate('user', 'name username').exec(function(err, templates) {
 
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.send({
-                templates: templates
-            });
-        }
-    });
+/**
+ * List of Templates
+ */
+exports.index = function(req, res, next) {
+
+    if (!_.isEmpty(req.query)) {
+
+        // req.query is the exact type of object which mongoose can use to query
+        //  so we  send it to a querying static method in the model
+
+        Template.query(req.query, function(err, templates) {
+            if (err) return next(err);
+            if (!templates) {
+                res.send({
+                    error: new Error('Failed to load article for query')
+                });
+            } else {
+                res.send({
+                    templates: [templates]
+                });
+            }
+
+        });
+    } else {
+        // else we find all
+        Template.find().sort('-created').populate('user', 'name username email').exec(function(err, articles) {
+
+            if (err) {
+                res.render('error', {
+                    status: 500
+                });
+            } else {
+                res.send({
+                    templates: templates
+                });
+            }
+        });
+    }
 };
