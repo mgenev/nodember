@@ -4,7 +4,7 @@
 
 var async = require('async'),
     mongoose = require('mongoose'),
-    Article = mongoose.model('Article'),
+    Homepage = mongoose.model('Homepage'),
     Template = mongoose.model('Template'),
     _ = require('underscore');
 
@@ -26,8 +26,8 @@ exports.homepage = function(req, res, next, id) {
  * Create a article
  */
 exports.create = function(req, res) {
-    var homepage = new Article(req.body.homepage);
-
+    var homepage = new Homepage(req.body.homepage);
+    var template = req.body.homepage.homepageTemplate;
     // TODO save the template and the vendor    
     // the ID's here come from the request from the create homepage UI.
 
@@ -41,7 +41,7 @@ exports.create = function(req, res) {
     homepage.pageContent = template.templateSchema;
 
     // name is for rendering through ember
-    homepage.templateName = template.title;
+    homepage.templateName = template.name;
 
 
     homepage.save(function(err) {

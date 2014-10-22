@@ -14,8 +14,7 @@ App.VendorsCreateController = Ember.ObjectController.extend({
                 alert(reason);
             }
 
-            vendor.save().then(transitionToVendor).
-            catch (failure);
+            vendor.save().then(transitionToVendor).catch(failure);
         }
     }
 });

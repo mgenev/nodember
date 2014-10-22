@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
     async = require('async'),
     Template = mongoose.model('Template'),
     fs = require('fs'),
-    root = require('../../root');
+    root = require('../../root'),
+    _ = require('underscore');
 
 
 
@@ -199,7 +200,7 @@ exports.index = function(req, res, next) {
         });
     } else {
         // else we find all
-        Template.find().sort('-created').populate('user', 'name username email').exec(function(err, articles) {
+        Template.find().sort('-created').populate('user', 'name username email').exec(function(err, templates) {
 
             if (err) {
                 res.render('error', {

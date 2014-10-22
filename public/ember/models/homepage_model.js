@@ -2,7 +2,8 @@ App.Homepage = DS.Model.extend({
     // relatioships
     user: DS.belongsTo('user'),
     vendor: DS.belongsTo('vendor'),
-    template: DS.belongsTo('template'),
+    // template: DS.belongsTo('template'),
+    homepageTemplate : DS.attr(),
 
     // attributes
     name: DS.attr('string'),
@@ -25,8 +26,8 @@ App.HomepageSerializer = App.ApplicationSerializer.extend({
         vendor: {
             embedded: 'always'
         },
-        template: {
-            embedded: 'always'
-        }
+        // template: {
+        //     embedded: 'always'
+        // }
     }
 });
