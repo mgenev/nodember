@@ -31,21 +31,22 @@ exports.create = function(req, res) {
     // TODO save the template and the vendor    
     // the ID's here come from the request from the create homepage UI.
 
-    homepage.user = req.user;
-    homepage.template = req.template;
+    
+    console.log('req.user', req.user);
+    // // vendor is also used as a url segment to hit that homepage directly
+    // homepage.vendor = req.vendor;
 
-    // vendor is also used as aurl segment to hit that homepage directly
-    homepage.vendor = req.vendor;
+
+    // homepage.user = req.user._id;
 
     // content is made from the schema initially to make the original rendering
     homepage.pageContent = template.templateSchema;
 
     // name is for rendering through ember
-    homepage.templateName = template.name;
-
+    homepage.homepageTemplateName = template.name;
 
     homepage.save(function(err) {
-
+        console.log('err', err);
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
@@ -113,14 +114,16 @@ exports.show = function(req, res) {
  * List of Articles
  */
 exports.index = function(req, res, next) {
-
+    console.log('hit index');
     if (!_.isEmpty(req.query))  {
-
+        console.log('hit index if', req.query);
         // req.query is the exact type of object which mongoose can use to query
         //  so we  send it to a querying static method in the model
 
         Homepage.query(req.query, function(err, homepages) {
+            
             if (err) return next(err);
+            console.log('homepages', homepages);
             if (!homepages)  {
                 res.send({error: new Error('Failed to load homepage for query')});
             } else {
@@ -129,6 +132,7 @@ exports.index = function(req, res, next) {
             
         });
     } else {
+        console.log('hit index else');
         // else we find all
         Homepage.find().sort('-created').populate('user', 'name username').exec(function(err, homepages) {
 

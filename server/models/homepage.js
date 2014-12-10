@@ -20,10 +20,10 @@ var HomepageSchema = new Schema({
         trim: true
     },
     pageContent: {
-        type: String,
-        default: ''
+        type: Object,
+        default: {}
     },
-    templateName: {
+    homepageTemplateName: {
         type: String,
         default: '',
         trim: true
@@ -41,10 +41,10 @@ var HomepageSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Vendor'
     },
-    user: {
-        type: Schema.ObjectId,
-        ref: 'User'
-    },
+    // user: {
+    //     type: Schema.ObjectId,
+    //     ref: 'User'
+    // },
     id: {
         type: ObjectId,
         trim: true

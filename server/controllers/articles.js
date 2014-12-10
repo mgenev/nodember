@@ -26,8 +26,8 @@ exports.article = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var article = new Article(req.body.article);
-    article.user = req.user;
 
+    article.user = req.user;
     article.save(function(err) {
 
         Article.load(article._id, function(err, result) {

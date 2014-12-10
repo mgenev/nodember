@@ -4,7 +4,8 @@ App.User = DS.Model.extend({
     username: DS.attr('string'),
     articles: DS.hasMany('article'),
     photos: DS.hasMany('photo'),
-    vendors: DS.hasMany('vendor')
+    vendors: DS.hasMany('vendor'),
+    homepages: DS.hasMany('homepage')
 });
 
 App.UserSerializer = App.ApplicationSerializer.extend({

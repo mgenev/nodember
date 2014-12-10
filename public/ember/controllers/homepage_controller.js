@@ -1,11 +1,23 @@
 App.HomepagesCreateController = Ember.ObjectController.extend({
-    needs: ['homepages'],
+    needs: ['homepages', 'application'],
+    currentUser: function() {
+        return this.get('controllers.application.currentUser');
+    }.property('controllers.application.currentUser'),
     homepageTemplate: '',
     actions: {
         createHomepage: function() {
             var homepage = this.model,
-                self = this;
-            console.log('MODEL', this.model);
+                self = this;            
+            console.log('CURRENT USER OBJ, ', this.get('currentUser'));
+            this.store.pushPayload({user: this.get('currentUser')});
+            console.log('the model!!', this.model);
+            var user = this.store.getById('user', this.get('currentUser.id'));
+
+            homepage.set('user', user);
+            // TODO get vendor from somewhere?
+            // homepage.set('vendor', vendor);
+
+            homepage.save().then(transitionToHomepage).catch (failure);
 
             function transitionToHomepage(homepage) {
                 self.transitionToRoute('homepages.homepage', homepage);
@@ -15,9 +27,6 @@ App.HomepagesCreateController = Ember.ObjectController.extend({
                 // handle the error
                 alert(reason);
             }
-
-            homepage.save().then(transitionToHomepage).
-            catch (failure);
         }
     }
 });

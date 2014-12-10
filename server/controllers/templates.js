@@ -35,7 +35,7 @@ exports.load = function(req, res) {
         var pending = list.length;
         var counter = 0;
 
-        if (!pending) return res.send({errors: ['There were no templats']});
+        if (!pending) return res.send({errors: ['There were no templates']});
 
         list.forEach(function(file) {
             var template = new Template({name: file});

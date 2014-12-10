@@ -18,18 +18,6 @@ var UserSchema = new Schema({
         type: String,
         unique: true
     },
-    vendors: {
-        type: [Schema.ObjectId],
-        ref: 'Vendor'
-    },
-    articles: {
-        type: [Schema.ObjectId],
-        ref: 'Article'
-    },
-    photos: {
-        type: [Schema.ObjectId],
-        ref: 'Photo'
-    },
     provider: String,
     hashed_password: String,
     salt: String,

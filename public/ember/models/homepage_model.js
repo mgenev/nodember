@@ -4,10 +4,10 @@ App.Homepage = DS.Model.extend({
     vendor: DS.belongsTo('vendor'),
     // template: DS.belongsTo('template'),
     homepageTemplate : DS.attr(),
-
+    homepageTemplateName: DS.attr('string'),
     // attributes
     name: DS.attr('string'),
-    pageContent: DS.attr('string'),
+    pageContent: DS.attr(),
     urlSegment: DS.attr('string'),
 
     // computed
