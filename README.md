@@ -1,7 +1,7 @@
 What is Nodember?
 ==========================
 
-It is a boilerplate, a sand box and a toolbox. It demonstrates how to make a full stack javascript application using Node and Ember, Express and MongoDB. The architecture is REST.
+It is a boilerplate, a sand box and a toolbox. It demonstrates how to make a full stack javascript application using Node and Ember, Express and MongoDB. The architecture is MVC-MVC and REST for communicaton.
 
 Past the basics Nodember features an ever-expanding demonstration of common needs in web development and how they are implemented in this stack:
 
