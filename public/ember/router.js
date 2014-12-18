@@ -12,48 +12,36 @@ App.Router.map(function() {
     this.resource('profile');
 
     this.resource('articles', function() {
-        this.route('create', {
-            path: '/create'
-        });
+        this.route('create');
         this.route('article', {
             path: ':article_id'
         });
     });
 
     this.resource('vendors', function() {
-        this.route('create', {
-            path: '/create'
-        });
+        this.route('create');
         this.route('vendor', {
             path: ':vendor_id'
         });
     });
 
     this.resource('homepages', function() {
-        this.route('create', {
-            path: '/create'
-        });
+        this.route('create');
         this.route('homepage', {
             path: ':homepage_id'
         });
     });
 
     this.resource('photos', function() {
-        this.route('create', {
-            path: '/create'
-        });
+        this.route('create');
         this.route('photo', {
             path: ':photo_id'
         });
     });
 
     this.resource('templates', function() {
-        this.route('create', {
-            path: '/create'
-        });
-        this.route('load', {
-            path: '/load'
-        });
+        this.route('create');
+        this.route('load');
         this.route('template', {
             path: ':template_id'
         });
