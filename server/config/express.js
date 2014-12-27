@@ -9,8 +9,8 @@ var express = require('express'),
     root = require('../../root');
 
 module.exports = function(app, passport, db) {
-    app.set('showStackError', true);    
-    
+    app.set('showStackError', true);
+
     //Prettify HTML
     app.locals.pretty = true;
 
@@ -53,7 +53,7 @@ module.exports = function(app, passport, db) {
         app.use(express.session({
             secret: 'nodember',
             store: new mongoStore({
-                db: db.connection.db,
+                url: config.db,
                 collection: 'sessions'
             })
         }));
@@ -66,7 +66,7 @@ module.exports = function(app, passport, db) {
         //use passport session
         app.use(passport.initialize());
         app.use(passport.session());
-        
+
         //connect flash for flash messages
         app.use(flash());
         //routes should be at the last
@@ -87,7 +87,7 @@ module.exports = function(app, passport, db) {
         });
 
         //Assume 404 since no middleware responded
-       //Here Express captures 404s and sends the url to Ember to look for articles        
+       //Here Express captures 404s and sends the url to Ember to look for articles
         app.use(function(req, res) {
             res.status(404).redirect('/#' + req.originalUrl);
         });
