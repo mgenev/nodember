@@ -43,7 +43,7 @@ require('./server/config/passport')(passport);
 var app = express();
 
 //express settings
-require('./server/config/express')(app, passport, db);
+require('./server/config/express')(app, passport);
 
 //Bootstrap routes
 require('./server/routes/routes')(app, passport, auth);
