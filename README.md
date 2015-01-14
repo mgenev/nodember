@@ -1,3 +1,7 @@
+Deprecated
+==========================
+Development of this project is now frozen. A much better boilerplate can now be found at https://github.com/mgenev/how-to-sane which uses the SANE stack and is almost updated with all the features that this one has. All future development is going there.
+
 What is Nodember?
 ==========================
 
